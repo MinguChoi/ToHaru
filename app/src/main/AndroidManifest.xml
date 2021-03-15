@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToHaru">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Authentication">
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".ReadActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".WriteActivity" />
+        <activity android:name=".WelcomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
