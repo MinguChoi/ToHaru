@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ToHaru</string>
+    <string name="id">ID</string>
+    <string name="pw">PW</string>
+    <string name="sign_up">Sign_up</string>
+    <string name="sign_in">Sign_in</string>
 </resources>
