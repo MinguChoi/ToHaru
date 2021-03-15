@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/texture">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="@string/Setting"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/notice_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/notice_pic"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="TODO"
+                android:padding="10dp"
+                app:srcCompat="@drawable/notice"
+                tools:srcCompat="@drawable/notice" />
+
+            <TextView
+                android:id="@+id/notice_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="250dp"
+                android:layout_marginRight="250dp"
+                android:gravity="center"
+                android:text="@string/notice" />
+
+            <Switch
+                android:id="@+id/notice_switch"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:text="@string/notice_switch" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/haru_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/haru_pic"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription=""
+                android:padding="10dp"
+                app:srcCompat="@drawable/haru"
+                tools:srcCompat="@drawable/haru" />
+
+            <TextView
+                android:id="@+id/haru_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="200dp"
+                android:layout_marginRight="200dp"
+                android:gravity="center"
+                android:text="@string/haru" />
+
+            <Switch
+                android:id="@+id/haru_switch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:text="@string/notice_switch" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/text_pic"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="@string/text"
+                android:padding="10dp"
+                app:srcCompat="@drawable/text"
+                tools:srcCompat="@drawable/text" />
+
+            <TextView
+                android:id="@+id/text_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="200dp"
+                android:layout_marginRight="200dp"
+                android:gravity="center"
+                android:text="@string/textstyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/background_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/backgroud_pic"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="TODO"
+                android:padding="10dp"
+                app:srcCompat="@drawable/backgound"
+                tools:srcCompat="@drawable/backgound" />
+
+            <TextView
+                android:id="@+id/background_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="250dp"
+                android:layout_marginRight="250dp"
+                android:gravity="center"
+                android:text="@string/backgound" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/password_pic"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="TODO"
+                android:padding="10dp"
+                app:srcCompat="@drawable/lock"
+                tools:srcCompat="@drawable/lock" />
+
+            <TextView
+                android:id="@+id/passwird_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="200dp"
+                android:layout_marginRight="200dp"
+                android:gravity="center"
+                android:text="@string/password" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

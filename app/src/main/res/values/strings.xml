@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">ToHaru</string>
-    <string name="id">ID</string>
-    <string name="pw">PW</string>
-    <string name="sign_up">Sign_up</string>
-    <string name="sign_in">Sign_in</string>
+    <string name="Setting">설정</string>
+    <string name="notice">알림</string>
+    <string name="notice_switch" />
+    <string name="haru">하루의 위로</string>
+    <string name="textstyle">글자 스타일</string>
+    <string name="backgound">배경</string>
+    <string name="password">암호 잠금</string>
+    <string name="text" />
 </resources>
