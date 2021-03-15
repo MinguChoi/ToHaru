@@ -7,7 +7,8 @@
     android:gravity="center"
     android:onClick="onClick"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/main_background">
 
     <ImageView
         android:id="@+id/imgHARU"
@@ -19,7 +20,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/chracter" />
+        app:srcCompat="@drawable/new_character" />
 
     <TextView
         android:id="@+id/sub_title"
