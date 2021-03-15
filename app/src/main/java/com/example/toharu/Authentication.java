@@ -2,6 +2,7 @@ package com.example.toharu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,31 +37,29 @@ public class Authentication extends AppCompatActivity {
         signUp_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isEmpty(id_etxt) || isEmpty(pw_etxt)) {
+                if(Utils.isEmpty(id_etxt) || Utils.isEmpty(pw_etxt)) {
                     Log.i(TAG, "sign up - failure");
                 }
                 else {
                     API_Auth.createUser(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
+                    Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
+                    startActivity(intent);
                 }
             }
         });
         signIn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isEmpty(id_etxt) || isEmpty(pw_etxt)) {
+                if(Utils.isEmpty(id_etxt) || Utils.isEmpty(pw_etxt)) {
                     Log.i(TAG, "sign up - failure");
                 }
                 else {
                     API_Auth.signIn(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
+                    Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
+                    startActivity(intent);
                 }
             }
         });
     }
 
-    public boolean isEmpty(EditText etxt) {
-        if(etxt.getText().toString().trim().length()>0)
-            return false;
-
-        return true;
-    }
 }

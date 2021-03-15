@@ -9,6 +9,13 @@ public class Post {
     private String date;
     private String content;
 
+    public Post() { }
+
+    public Post(String mood, String date, String content) {
+        this.mood = mood;
+        this.date = date;
+        this.content = content;
+    }
     public Post(String uid, Dictionary<String, String> dictionary) {
         this.uid = uid;
         this.mood = dictionary.get("mood");

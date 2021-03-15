@@ -16,7 +16,7 @@ public class WelcomActivity extends AppCompatActivity {
     }
 
     public void onClick(View v){
-        Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
+        Intent intent = new Intent(getApplicationContext(), Authentication.class);
         startActivity(intent);
     }
 }
