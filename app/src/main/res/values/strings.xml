@@ -14,4 +14,6 @@
     <string name="password">암호 잠금</string>
     <string name="text" />
     <string name="text_type">글꼴 설정</string>
+    <string name="email">E-MAIL</string>
+    <string name="pass">PASSWORD</string>
 </resources>
