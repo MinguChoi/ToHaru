@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">ToHaru</string>
+    <string name="sub_title">오늘 하루와 대화하다</string>
+    <string name="main_title">하루에게</string>
+    <string name="t">"오늘도 너의 하루를 응원해"</string>
+    <string name="back">BACK</string>
+    <string name="save">SAVE</string>
     <string name="Setting">설정</string>
     <string name="notice">알림</string>
     <string name="notice_switch" />
@@ -8,4 +13,7 @@
     <string name="backgound">배경</string>
     <string name="password">암호 잠금</string>
     <string name="text" />
+    <string name="text_type">글꼴 설정</string>
+    <string name="email">E-MAIL</string>
+    <string name="pass">PASSWORD</string>
 </resources>
