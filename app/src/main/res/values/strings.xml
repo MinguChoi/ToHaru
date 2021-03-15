@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ToHaru</string>
+    <string name="sub_title">오늘 하루와 대화하다</string>
+    <string name="main_title">하루에게</string>
+    <string name="t">"오늘도 너의 하루를 응원해"</string>
 </resources>
