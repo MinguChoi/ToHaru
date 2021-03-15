@@ -5,4 +5,13 @@
     <string name="t">"오늘도 너의 하루를 응원해"</string>
     <string name="back">BACK</string>
     <string name="save">SAVE</string>
+    <string name="Setting">설정</string>
+    <string name="notice">알림</string>
+    <string name="notice_switch" />
+    <string name="haru">하루의 위로</string>
+    <string name="textstyle">글자 스타일</string>
+    <string name="backgound">배경</string>
+    <string name="password">암호 잠금</string>
+    <string name="text" />
+    <string name="text_type">글꼴 설정</string>
 </resources>

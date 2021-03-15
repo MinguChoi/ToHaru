@@ -12,7 +12,7 @@
         <activity android:name=".ReadActivity"></activity>
         <activity android:name=".CalendarActivity" />
         <activity android:name=".WriteActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

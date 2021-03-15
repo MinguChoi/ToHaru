@@ -21,7 +21,7 @@ public class WriteActivity extends AppCompatActivity {
         backBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WriteActivity.this, MainActivity.class);
+                Intent intent = new Intent(WriteActivity.this, WelcomActivity.class);
                 startActivity(intent);
             }
         });
