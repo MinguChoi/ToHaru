@@ -20,7 +20,7 @@
             android:id="@+id/backBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:text="@string/back"
             app:backgroundTint="#EEE6C4" />
 
@@ -36,13 +36,6 @@
             android:textStyle="bold"
             app:autoSizeTextType="none" />
 
-        <Button
-            android:id="@+id/saveBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/save"
-            app:backgroundTint="#EEE6C4" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,20 +63,20 @@
 
         <ImageView
             android:id="@+id/selIMG"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="170dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/new_character"
-            android:contentDescription="TODO" />
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/new_character" />
 
         <TextView
-            android:id="@+id/diaryETXT"
+            android:id="@+id/diaryTXT"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/border"
             android:ems="10"
             android:gravity="top"
-            android:hint="일기를 입력하세요. "
+            android:hint="등록한 일기 "
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:shadowColor="#FFFFFF" />
