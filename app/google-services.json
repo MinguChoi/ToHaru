@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "874226501535",
+    "project_id": "toharu",
+    "storage_bucket": "toharu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874226501535:android:45dce092e980b3c36c1faa",
+        "android_client_info": {
+          "package_name": "com.example.toharu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874226501535-e73ojdtktd8hi88pgnmnf6b360363ip9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLltv31H0cV5sh79Je-HhQJNxJ-1g2KcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874226501535-e73ojdtktd8hi88pgnmnf6b360363ip9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
