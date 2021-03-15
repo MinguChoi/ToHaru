@@ -9,7 +9,6 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     // for checking github
-    // dddddddddddddddddddddddf f
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View v){
-        Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+        Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
         startActivity(intent);
     }
 }
