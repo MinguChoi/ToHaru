@@ -8,4 +8,7 @@
     <string name="backgound">배경</string>
     <string name="password">암호 잠금</string>
     <string name="text" />
+    <string name="character">너를 위로한 하루를 선택해봐!</string>
+    <string name="title">너를 위로할 하루를 선택해봐!</string>
+    <string name="emotionselecttitle">너를 위로할 하루를 선택해봐</string>
 </resources>

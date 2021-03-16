@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="@string/emotionselecttitle" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <ImageButton
+                android:id="@+id/emotrion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/emotrion2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+
+            <ImageButton
+                android:id="@+id/emotrion3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <ImageButton
+                android:id="@+id/emotrion4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+
+            <ImageButton
+                android:id="@+id/emotrion5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+
+            <ImageButton
+                android:id="@+id/emotrion6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <ImageButton
+                android:id="@+id/emotrion7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+
+            <ImageButton
+                android:id="@+id/emotrion8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+
+            <ImageButton
+                android:id="@+id/emotrion9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                tools:src="@drawable/ic_baseline_emoji_emotions_24"/>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
