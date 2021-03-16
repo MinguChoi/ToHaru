@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linLAY"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".WelcomActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".WelcomActivity">
 
     <!--헤더-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="5">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:onClick="@{(v)->model.startPicker(v)}"
             android:padding="16dp"
             android:text="@{model.mTitle}"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/settingBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/setting"
+            android:textColor="@color/black"
+            app:backgroundTint="#EEE6C4" />
 
     </LinearLayout>
 
@@ -102,5 +112,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    출처: https://namget.tistory.com/entry/안드로이드-안드로이드-커스텀-달력-예제-Android-Custom-CalendarView-Example [남갯,YTS의 개발,일상블로그]
+    출처: https://namget.tistory.com/entry/안드로이드-안드로이드-커스텀-달력-예제-Android-Custom-CalendarView-Example
+    [남갯,YTS의 개발,일상블로그]
 </LinearLayout>

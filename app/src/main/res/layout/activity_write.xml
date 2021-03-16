@@ -20,6 +20,7 @@
             android:id="@+id/backBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_weight="2"
             android:text="@string/back"
             app:backgroundTint="#EEE6C4" />
