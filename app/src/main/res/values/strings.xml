@@ -8,7 +8,21 @@
     <string name="backgound">배경</string>
     <string name="password">암호 잠금</string>
     <string name="text" />
+<<<<<<< Updated upstream
     <string name="character">너를 위로한 하루를 선택해봐!</string>
     <string name="title">너를 위로할 하루를 선택해봐!</string>
     <string name="emotionselecttitle">너를 위로할 하루를 선택해봐</string>
+=======
+    <string name="text_type">글꼴 설정</string>
+    <string name="background_setting">테마 설정</string>
+    <string name="haru_design">HARU</string>
+    <string name="radiobtn" />
+    <string name="Haru">HARU</string>
+    <string name="sakura">sarkura</string>
+    <string name="peach">peach</string>
+    <string name="new_design">NEW</string>
+    <string name="switch1" />
+    <string name="thema">Thema options</string>
+    <string name="design1" />
+>>>>>>> Stashed changes
 </resources>

@@ -23,9 +23,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< Updated upstream
         setContentView(R.layout.select_emotion);  //textstyle 화면 보이게 test
 
        /* listItem = new ArrayList<String>();
+=======
+        setContentView(R.layout.background_options);  //textstyle 화면 보이게 test
+
+        /*listItem = new ArrayList<String>();
+>>>>>>> Stashed changes
         listItem.add("글꼴 1");
         listItem.add("글꼴 2");
         listItem.add("글꼴 3");
@@ -43,7 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),listItem.get(position).toString(),Toast.LENGTH_LONG).show();
 
             }
+<<<<<<< Updated upstream
         });*/
+=======
+        }); */
+>>>>>>> Stashed changes
 
     }
 }

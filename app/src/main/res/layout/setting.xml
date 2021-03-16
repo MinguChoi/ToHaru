@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/texture"
     android:orientation="vertical"
-    android:background="@drawable/texture">
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,14 +51,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="250dp"
-                android:layout_marginRight="250dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginRight="200dp"
                 android:gravity="center"
                 android:text="@string/notice" />
 
             <Switch
                 android:id="@+id/notice_switch"
-                android:layout_width="53dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="0dp"
@@ -88,8 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="200dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginEnd="170dp"
+                android:layout_marginRight="170dp"
                 android:gravity="center"
                 android:text="@string/haru" />
 
@@ -105,6 +106,7 @@
                 android:layout_weight="1"
                 android:text="@string/notice_switch" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/text_layout"
             android:layout_width="match_parent"
@@ -171,8 +173,8 @@
                 android:layout_gravity="left"
                 android:contentDescription="TODO"
                 android:padding="10dp"
-                app:srcCompat="@drawable/lock"
-                tools:srcCompat="@drawable/lock" />
+                app:srcCompat="@drawable/screen_lock"
+                tools:srcCompat="@drawable/screen_lock" />
 
             <TextView
                 android:id="@+id/passwird_text"
