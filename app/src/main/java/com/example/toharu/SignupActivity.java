@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class SignupActivity extends AppCompatActivity {
+
+    private EditText name, email, password, password2;
     private TextView signupTXT;
 
     @Override
@@ -20,13 +24,27 @@ public class SignupActivity extends AppCompatActivity {
 
     public void init() {
         signupTXT = findViewById(R.id.signupTXT);
+        name = findViewById(R.id.name_singUp);
+        email = findViewById(R.id.email_signUp);
+        password = findViewById(R.id.pw_signUp);
+        password2 = findViewById(R.id.pw_signUp2);
 
         signupTXT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                if (Utils.isEmpty(name) || Utils.isEmpty(email) || Utils.isEmpty(password) || Utils.isEmpty(password2)) {
+                    Utils.toastError(getApplicationContext(), "fill out everything :)");
+                } else {
+                    if (password.getText().toString().equals(password2.getText().toString())) {
+                        // Firebase sign up
+                        API_Auth.createUser(name.getText().toString(),
+                                            email.getText().toString(),
+                                            password.getText().toString(),
+                                            SignupActivity.this);
+                    } else {
+                        Utils.toastError(getApplicationContext(), "check your password");
+                    }
+                }
             }
         });
     }

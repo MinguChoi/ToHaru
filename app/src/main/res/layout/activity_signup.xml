@@ -38,7 +38,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/secondnameETXT"
+            android:id="@+id/name_singUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -63,6 +63,7 @@
             android:text="@string/signupEmail" />
 
         <EditText
+            android:id="@+id/email_signUp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
@@ -77,6 +78,7 @@
             android:text="@string/signupPASS" />
 
         <EditText
+            android:id="@+id/pw_signUp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
@@ -93,7 +95,7 @@
             android:text="@string/signupPASS2" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/pw_signUp2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
