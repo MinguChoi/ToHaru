@@ -4,36 +4,37 @@ import java.util.Dictionary;
 
 public class User {
 
-    private String firstName;
-    private String lastName;
+    private static User single_instance = null;
+    private String name;
     private String email;
     private String[] posts;
 
     public User() {}
 
-    public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String name, String email) {
+        this.name = name;
         this.email = email;
         this.posts = new String[]{};
     }
 
     public User(Dictionary<String, Object> dictionary) {
-        this.firstName = dictionary.get("firstName").toString();
-        this.lastName = dictionary.get("lastName").toString();
+        this.name = dictionary.get("name").toString();
         this.email = dictionary.get("email").toString();
         this.posts = (String[])dictionary.get("posts");
     }
 
-    public String getFirstName() {return firstName;}
-    public String getLastName() {return lastName;}
+    public static User getInstance() {
+        if (single_instance == null)
+            single_instance = new User();
+
+        return single_instance;
+    }
+
+    public String getName() {return name;}
     public String getEmail() {return email;}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
     public void setEmail(String email) {
         this.email = email;

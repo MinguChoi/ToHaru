@@ -12,13 +12,13 @@ public class API_Post {
 //    static FirebaseDatabase DB_REF = FirebaseDatabase.getInstance();
 //    static DatabaseReference DB_POSTS = DB_REF.getReference("posts");
 
-    public static void wirtePost(Post post) {
-        // Save post into DB
-        Utils.DB_POSTS.setValue(post);
-        // Sync with user info
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final String uid = user.getUid();
-
-        Utils.DB_USERS.child(uid).child("posts").setValue()
-    }
+//    public static void wirtePost(Post post) {
+//        // Save post into DB
+//        Utils.DB_POSTS.setValue(post);
+//        // Sync with user info
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        final String uid = user.getUid();
+//
+//        Utils.DB_USERS.child(uid).child("posts").setValue();
+//    }
 }

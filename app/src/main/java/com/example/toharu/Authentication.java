@@ -38,10 +38,11 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Utils.isEmpty(id_etxt) || Utils.isEmpty(pw_etxt)) {
-                    Log.i(TAG, "sign up - failure");
+                    Log.d(TAG, "sign up - failure");
                 }
                 else {
-                    API_Auth.createUser(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
+                    API_Auth.createUser(id_etxt.getText().toString(), pw_etxt.getText().toString());
+                    Log.d(TAG, "sign up - succeed" + User.getInstance().getName());
                     Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
                     startActivity(intent);
                 }
@@ -51,10 +52,11 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Utils.isEmpty(id_etxt) || Utils.isEmpty(pw_etxt)) {
-                    Log.i(TAG, "sign up - failure");
+                    Log.d(TAG, "sign in - failure");
                 }
                 else {
                     API_Auth.signIn(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
+                    Log.d(TAG, "sign in - succeed" + User.getInstance().getName());
                     Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
                     startActivity(intent);
                 }

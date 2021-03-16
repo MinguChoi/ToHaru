@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToHaru">
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".Authentication" />
         <activity android:name=".ReadActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".WriteActivity" />

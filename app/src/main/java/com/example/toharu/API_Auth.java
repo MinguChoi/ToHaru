@@ -22,17 +22,18 @@ public class API_Auth {
 //    static FirebaseDatabase DB_REF = FirebaseDatabase.getInstance();
 //    static DatabaseReference DB_USERS = DB_REF.getReference("users");
 
-    public static void createUser(String email, String password, Context ctx) {
+    public static void createUser(String email, String password) {
         Utils.mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener((Activity) ctx, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(getApplicationContext(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(Utils.TAG, "createUserWithEmail:success");
                             // Save testUser into database
-                            writeUserToDB("Mingu", "Choi", email);
-                            //FirebaseUser user = mAuth.getCurrentUser();
+                            writeUserToDB("Mingu", email);
+                            FirebaseUser user = Utils.mAuth.getCurrentUser();
+                            saveUserInfo(user);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -67,8 +68,15 @@ public class API_Auth {
                 });
     }
 
-    public static void writeUserToDB(String firstName, String lastName, String email) {
-        User newUser = new User(firstName,lastName, email);
+    public static void writeUserToDB(String name, String email) {
+        User newUser = new User(name, email);
         Utils.DB_USERS.setValue(newUser);
+    }
+
+    public static void saveUserInfo(FirebaseUser user) {
+        User currentUser = User.getInstance();
+        Log.d(Utils.TAG, "saveUserInfo: " + user.getDisplayName());
+        currentUser.setName(user.getDisplayName());
+        currentUser.setEmail(user.getEmail());
     }
 }
