@@ -41,7 +41,7 @@ public class Authentication extends AppCompatActivity {
                     Log.d(TAG, "sign up - failure");
                 }
                 else {
-                    API_Auth.createUser(id_etxt.getText().toString(), pw_etxt.getText().toString());
+                    //API_Auth.createUser(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
                     Log.d(TAG, "sign up - succeed" + User.getInstance().getName());
                     Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
                     startActivity(intent);
@@ -55,7 +55,7 @@ public class Authentication extends AppCompatActivity {
                     Log.d(TAG, "sign in - failure");
                 }
                 else {
-                    API_Auth.signIn(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
+                    //API_Auth.signIn(id_etxt.getText().toString(), pw_etxt.getText().toString(), Authentication.this);
                     Log.d(TAG, "sign in - succeed" + User.getInstance().getName());
                     Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
                     startActivity(intent);

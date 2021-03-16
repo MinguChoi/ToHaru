@@ -1,6 +1,8 @@
 package com.example.toharu;
 
+import android.content.Context;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -19,5 +21,9 @@ public final class Utils {
             return false;
 
         return true;
+    }
+
+    public static void toastError(Context ctx, String msg) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
     }
 }
