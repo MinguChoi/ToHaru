@@ -23,7 +23,7 @@
             android:layout_weight="4"
             android:onClick="@{(v)->model.startPicker(v)}"
             android:padding="16dp"
-            android:text="@{model.mTitle}"
+            android:text="원하시는 날짜를 선택해주세요."
             android:textSize="18sp" />
 
         <Button
