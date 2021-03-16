@@ -78,7 +78,7 @@
             app:srcCompat="@drawable/new_character" />
 
         <EditText
-            android:id="@+id/diaryTXT"
+            android:id="@+id/diary_writeETXT"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/border"
