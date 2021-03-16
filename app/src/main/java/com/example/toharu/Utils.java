@@ -8,6 +8,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public final class Utils {
 
     public static final String TAG = "ToHaru";
@@ -25,5 +29,12 @@ public final class Utils {
 
     public static void toastError(Context ctx, String msg) {
         Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+    }
+
+    public static String DateToString(Date date) {
+        String pattern = "MM/dd/yyyy HH:mm:ss";
+        DateFormat df = new SimpleDateFormat(pattern);
+
+        return df.format(date);
     }
 }
