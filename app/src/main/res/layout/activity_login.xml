@@ -19,8 +19,8 @@
         android:layout_width="150dp"
         android:layout_height="170dp"
         android:layout_gravity="center"
-        android:background="@null"
-></ImageView>
+        android:background="@null">
+    </ImageView>
 
     <EditText
         android:id="@+id/id_login"

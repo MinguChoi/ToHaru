@@ -1,9 +1,21 @@
 <resources>
+    <array name="moods">
+        <item>Happy</item>
+        <item>Angry</item>
+        <item>Gloomy</item>
+        <item>Sulky</item>
+        <item>Otl</item>
+        <item>Sadness</item>
+        <item>Tired</item>
+        <item>Grumpy</item>
+        <item>Passion</item>
+    </array>
     <string name="app_name">ToHaru</string>
     <string name="sub_title">오늘 하루와 대화하다</string>
     <string name="main_title">하루에게</string>
     <string name="t">"오늘도 너의 하루를 응원해"</string>
     <string name="back">BACK</string>
+    <string name="modify">수정</string>
     <string name="save">SAVE</string>
     <string name="Setting">설정</string>
     <string name="notice">알림</string>

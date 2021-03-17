@@ -188,8 +188,7 @@
             </TableLayout>
         </TableRow>
 
-        <TableRow android:layout_marginTop="20dp">
-
+        <TableRow android:layout_marginTop="20dp">>
             <TableLayout
                 android:layout_width="120dp"
                 android:paddingHorizontal="4dp">
@@ -215,53 +214,54 @@
             </TableLayout>
 
             <TableLayout
-                android:layout_width="120dp"
-                android:paddingHorizontal="4dp">
+                    android:layout_width="120dp"
+                    android:paddingHorizontal="4dp">
 
-                <ImageButton
-                    android:id="@+id/gloom_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/gloom"
-                    android:gravity="center"
-                    android:padding="20dp" />
+                    <ImageButton
+                        android:id="@+id/gloom_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/gloom"
+                        android:gravity="center"
+                        android:padding="20dp" />
 
-                <TextView
-                    android:id="@+id/gloom_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/font_middle_school"
-                    android:gravity="center"
-                    android:text="@string/gloom_txt"
-                    android:textSize="18sp" />
-            </TableLayout>
+                    <TextView
+                        android:id="@+id/gloom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/font_middle_school"
+                        android:gravity="center"
+                        android:text="@string/gloom_txt"
+                        android:textSize="18sp" />
+                </TableLayout>
 
             <TableLayout
-                android:layout_width="120dp"
-                android:paddingHorizontal="4dp">
+                    android:layout_width="120dp"
+                    android:paddingHorizontal="4dp">
 
-                <ImageButton
-                    android:id="@+id/peaceful_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/peaceful"
-                    android:gravity="center"
-                    android:padding="20dp" />
+                    <ImageButton
+                        android:id="@+id/peaceful_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/peaceful"
+                        android:gravity="center"
+                        android:padding="20dp" />
 
-                <TextView
-                    android:id="@+id/peaceful_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/font_middle_school"
-                    android:gravity="center"
-                    android:text="@string/peaceful_txt"
-                    android:textSize="18sp" />
-            </TableLayout>
+                    <TextView
+                        android:id="@+id/peaceful_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/font_middle_school"
+                        android:gravity="center"
+                        android:text="@string/peaceful_txt"
+                        android:textSize="18sp" />
+                </TableLayout>
         </TableRow>
+
     </TableLayout>
 
     <ImageButton
