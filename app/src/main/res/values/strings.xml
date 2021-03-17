@@ -25,4 +25,6 @@
     <string name="signupNAME">이름을 입력하세요.</string>
     <string name="s_name">이름</string>
     <string name="f_name">성</string>
+    <string name="emotionselecttitle">너를 위로할 하루를 선택해봐</string>
+    <string name="advice">하루가 건네는 위로의 말...</string>
 </resources>

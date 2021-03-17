@@ -21,7 +21,7 @@
         android:layout_height="170dp"
         android:layout_gravity="center"
         android:background="@null"
-        android:src="@drawable/new_character"></ImageView>
+        android:src="@drawable/emotion1"></ImageView>
 
     <EditText
         android:id="@+id/id_login"

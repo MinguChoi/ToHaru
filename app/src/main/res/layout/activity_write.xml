@@ -75,7 +75,7 @@
             android:layout_height="170dp"
             android:layout_gravity="center"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/new_character" />
+            app:srcCompat="@drawable/emotion1" />
 
         <EditText
             android:id="@+id/diary_writeETXT"
