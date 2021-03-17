@@ -1,6 +1,5 @@
 package com.example.toharu;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.Task;
+import com.example.toharu.API.API_Auth;
 
 public class LoginActivity extends AppCompatActivity {
     private Button           loginBTN;

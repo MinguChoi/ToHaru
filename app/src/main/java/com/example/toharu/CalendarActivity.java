@@ -2,18 +2,17 @@ package com.example.toharu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.example.toharu.API.API_Post;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import sun.bob.mcalendarview.MCalendarView;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
@@ -26,7 +25,7 @@ public class CalendarActivity extends AppCompatActivity {
     private final boolean   D = true;
     private final String    TAG = "CalendarActivity";
 
-
+    public List<Post> posts = new ArrayList<Post>();
     private LinearLayout          linLAY;
     private Button                settingBTN;
     private Intent                intent;
@@ -71,7 +70,6 @@ public class CalendarActivity extends AppCompatActivity {
                 intent = new Intent(CalendarActivity.this, SettingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-
             }
         });
 

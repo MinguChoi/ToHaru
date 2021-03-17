@@ -41,9 +41,8 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) { this.email = email; }
+    public void setPosts(List<String> posts) { this.posts = posts; }
     public void addPost(String post_id) {
         this.posts.add(post_id);
     }
