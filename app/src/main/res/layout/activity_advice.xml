@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="20"
-    android:background="@drawable/main_background"
     tools:context=".AdviceActivity">
 
     <TextView
@@ -14,8 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:fontFamily="@font/font_middle_school"
         android:text="@string/advice"
-        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <TextView
@@ -28,10 +29,4 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        app:srcCompat="@drawable/emotion1" />
 </LinearLayout>

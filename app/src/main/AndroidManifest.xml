@@ -11,14 +11,14 @@
         android:theme="@style/Theme.ToHaru">
         <activity android:name=".AdviceActivity"></activity>
         <activity android:name=".EmotionActivity" />
-        <activity android:name=".WelcomActivity" />
+        <activity android:name=".EnterActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReadActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".WriteActivity" />
-        <activity android:name=".EnterActivity">
+        <activity android:name=".WelcomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

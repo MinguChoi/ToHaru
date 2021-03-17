@@ -27,4 +27,15 @@
     <string name="f_name">성</string>
     <string name="emotionselecttitle">너를 위로할 하루를 선택해봐</string>
     <string name="advice">하루가 건네는 위로의 말...</string>
+    <string name="joy">기쁨</string>
+    <string name="happy">행복</string>
+    <string name="proud">뿌듯</string>
+    <string name="select_title">오늘의 감정을 골라보세요</string>
+    <string name="tired_txt">피곤</string>
+    <string name="sadness_txt">슬픔</string>
+    <string name="angry_txt">화남</string>
+    <string name="anxiety_txt">불안</string>
+    <string name="gloom_txt">우울</string>
+    <string name="peaceful_txt">평온</string>
+    <string name="select_txt">오늘의 감정을 골라보세요</string>
 </resources>

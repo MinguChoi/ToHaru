@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/main_background"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".WriteActivity">
@@ -67,7 +66,7 @@
             android:layout_height="170dp"
             android:layout_gravity="center"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/emotion1" />
+ />
 
         <TextView
             android:id="@+id/diary_writeETXT"
