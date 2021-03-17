@@ -32,7 +32,7 @@ public final class Utils {
     }
 
     public static String DateToString(Date date) {
-        String pattern = "MM/dd/yyyy HH:mm:ss";
+        String pattern = "MM/dd/yyyy";
         DateFormat df = new SimpleDateFormat(pattern);
 
         return df.format(date);

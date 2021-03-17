@@ -1,6 +1,7 @@
 package com.example.toharu;
 
 import java.util.Dictionary;
+import java.util.HashMap;
 
 public class Post {
 
@@ -16,11 +17,11 @@ public class Post {
         this.date = date;
         this.content = content;
     }
-    public Post(String uid, Dictionary<String, String> dictionary) {
+    public Post(String uid, HashMap<String, String> map) {
         this.uid = uid;
-        this.mood = dictionary.get("mood");
-        this.date = dictionary.get("date");;
-        this.content = dictionary.get("content");
+        this.mood = map.get("mood");
+        this.date = map.get("date");;
+        this.content = map.get("content");
     }
 
     public String getUid() {return uid;}
