@@ -59,8 +59,8 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/joy"
-                    android:textSize="15dp"
-                    android:textColor="@color/selector"/>
+                    android:textColor="@color/selector"
+                    android:textSize="18sp" />
             </TableLayout>
 
             <TableLayout
@@ -84,7 +84,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/happy"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
 
             <TableLayout
@@ -108,7 +108,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/proud"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
         </TableRow>
 
@@ -136,7 +136,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/tired_txt"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
 
             <TableLayout
@@ -160,7 +160,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/sadness_txt"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
 
             <TableLayout
@@ -184,7 +184,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/angry_txt"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
         </TableRow>
 
@@ -211,7 +211,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/anxiety_txt"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
 
             <TableLayout
@@ -235,7 +235,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/gloom_txt"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
 
             <TableLayout
@@ -259,7 +259,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/peaceful_txt"
-                    android:textSize="15dp" />
+                    android:textSize="18sp" />
             </TableLayout>
         </TableRow>
     </TableLayout>
@@ -272,5 +272,5 @@
         android:background="@android:color/transparent"
         android:padding="35dp"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/next_btn" />
+        app:srcCompat="@drawable/next_" />
 </LinearLayout>
