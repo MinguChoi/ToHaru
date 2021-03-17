@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 public class LoginActivity extends AppCompatActivity {
     private Button           loginBTN;
     private EditText         id, pw;
-    private TextView         signupTXT;
+    private Button         signup_BTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBTN = findViewById(R.id.loginBTN);
         id = findViewById(R.id.id_login);
         pw = findViewById(R.id.pw_login);
-        signupTXT = findViewById(R.id.signupTXT);
+        signup_BTN = findViewById(R.id.signup_BTN);
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        signupTXT.setOnClickListener(new View.OnClickListener() {
+        signup_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);

@@ -50,4 +50,5 @@
     <string name="gloom_txt">우울</string>
     <string name="peaceful_txt">평온</string>
     <string name="select_txt">오늘의 감정을 골라보세요</string>
+    <string name="title">하루에게</string>
 </resources>
