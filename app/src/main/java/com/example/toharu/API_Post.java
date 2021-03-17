@@ -42,5 +42,19 @@ public class API_Post {
         List<String> postsUid = currentUser.getPosts();
         List<Post> posts = new ArrayList<Post>();
 
+        Utils.DB_POSTS.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Post post = dataSnapshot.getValue(Post.class);
+                if(postsUid.contains(post.getUid())) {
+                    posts.add(post);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        return posts;
     }
 }
