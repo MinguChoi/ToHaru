@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.toharu.API.API_Advice;
 import com.example.toharu.API.API_Auth;
-import com.example.toharu.API.API_Post;
+import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
 
@@ -75,7 +75,7 @@ public class WriteActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
-                API_Post.writePostToDB(newDiary, WriteActivity.this);
+                API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
 
 //                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

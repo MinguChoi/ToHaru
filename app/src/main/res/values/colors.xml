@@ -15,5 +15,8 @@
     <color name="colorGreen1">#3eb959</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorBlue">#2196F3</color>
+    <drawable name="bg_select">#2196F3</drawable>
+    <drawable name="bg">#EEEEEE</drawable>
 
 </resources>

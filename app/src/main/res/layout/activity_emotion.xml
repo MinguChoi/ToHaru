@@ -58,8 +58,7 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/joy"
-                    android:textSize="20sp"
-                    android:textColor=""/>
+                    android:textSize="20sp" />
             </TableLayout>
 
             <TableLayout

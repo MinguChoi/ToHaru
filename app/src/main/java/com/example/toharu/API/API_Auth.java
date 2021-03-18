@@ -39,7 +39,7 @@ public class API_Auth extends AppCompatActivity {
                             // Save testUser into database
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
                             writeUserToDB(user.getUid(),name, email);
-                            updateUserInfo(user);
+                            updateUserInfo(user, ctx);
                             // back to the Login activity
                             Intent intent = new Intent(ctx, LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -63,11 +63,8 @@ public class API_Auth extends AppCompatActivity {
                             // Sign in success, update the signed-in user's information
                             Log.d(Utils.TAG, "signInWithEmail:success");
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
-                            updateUserInfo(user);
+                            updateUserInfo(user, ctx);
                             // Move to the main read activity
-                            Intent intent = new Intent(ctx, CalendarActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            ctx.startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d(Utils.TAG, "signInWithEmail:failure", task.getException());
@@ -85,7 +82,7 @@ public class API_Auth extends AppCompatActivity {
         Utils.DB_USERS.child(uid).updateChildren(updates);
     }
 
-    public static void updateUserInfo(FirebaseUser user) {
+    public static void updateUserInfo(FirebaseUser user, Activity ctx) {
         String uid = user.getUid();
         User currentUser = User.getInstance();
 
@@ -99,9 +96,12 @@ public class API_Auth extends AppCompatActivity {
                     HashMap map = (HashMap) task.getResult().getValue();
                     currentUser.setName(map.get("name").toString());
                     currentUser.setEmail(map.get("email").toString());
-                    currentUser.setPosts((List<String>) map.get("diaries"));
-                    //Log.d("firebase check casting", ((List<String>) map.get("diaries")).get(0).toString());
+                    currentUser.setDiaries((List<String>) map.get("diaries"));
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
+
+                    Intent intent = new Intent(ctx, CalendarActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    ctx.startActivity(intent);
                 }
             }
         });
