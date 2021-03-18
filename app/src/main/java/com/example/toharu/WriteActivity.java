@@ -51,6 +51,8 @@ public class WriteActivity extends AppCompatActivity {
         saveBTN = findViewById(R.id.saveBTN);
         diaryETXT = findViewById(R.id.diary_writeETXT);
 
+        customDialog = new Dialog(this);
+
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", true);
 
