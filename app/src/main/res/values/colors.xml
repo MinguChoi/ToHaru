@@ -11,7 +11,9 @@
     <color name="colorPrimaryDark">#6d749f</color>
     <color name="colorRed">#ff3943</color>
     <color name="colorRedDark">#801b20</color>
-    <color name="colorGreenLight">#247b37</color>
+    <color name="colorGreenLight">#abffc0</color>
+    <color name="colorYellowLight">#ffffbf</color>
+    <color name="colorYellow">#ffff00</color>
     <color name="colorGreen1">#3eb959</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorAccent">#FF4081</color>

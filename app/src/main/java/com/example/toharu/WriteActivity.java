@@ -3,6 +3,7 @@ package com.example.toharu;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +26,9 @@ public class WriteActivity extends AppCompatActivity {
 
     private Button backBTN;
     private Button saveBTN;
+    private Button diaBTN;
     private EditText diaryETXT;
+    private Dialog customDialog;
 
     private boolean getCheckWR;
     public String getdate;
