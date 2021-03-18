@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class WriteActivity extends AppCompatActivity {
     private Button backBTN;
@@ -35,6 +36,7 @@ public class WriteActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
