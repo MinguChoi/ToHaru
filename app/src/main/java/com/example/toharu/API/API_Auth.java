@@ -1,30 +1,22 @@
 package com.example.toharu.API;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.toharu.CalendarActivity;
 import com.example.toharu.LoginActivity;
-import com.example.toharu.User;
-import com.example.toharu.Utils;
+import com.example.toharu.Model.User;
+import com.example.toharu.Utils.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +39,7 @@ public class API_Auth extends AppCompatActivity {
                             // Save testUser into database
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
                             writeUserToDB(user.getUid(),name, email);
-                            updateUserInfo(user);
+                            updateUserInfo(user, ctx);
                             // back to the Login activity
                             Intent intent = new Intent(ctx, LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -71,11 +63,8 @@ public class API_Auth extends AppCompatActivity {
                             // Sign in success, update the signed-in user's information
                             Log.d(Utils.TAG, "signInWithEmail:success");
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
-                            updateUserInfo(user);
+                            updateUserInfo(user, ctx);
                             // Move to the main read activity
-                            Intent intent = new Intent(ctx, CalendarActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            ctx.startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d(Utils.TAG, "signInWithEmail:failure", task.getException());
@@ -93,7 +82,7 @@ public class API_Auth extends AppCompatActivity {
         Utils.DB_USERS.child(uid).updateChildren(updates);
     }
 
-    public static void updateUserInfo(FirebaseUser user) {
+    public static void updateUserInfo(FirebaseUser user, Activity ctx) {
         String uid = user.getUid();
         User currentUser = User.getInstance();
 
@@ -107,9 +96,12 @@ public class API_Auth extends AppCompatActivity {
                     HashMap map = (HashMap) task.getResult().getValue();
                     currentUser.setName(map.get("name").toString());
                     currentUser.setEmail(map.get("email").toString());
-                    currentUser.setPosts((List<String>) map.get("posts"));
-                    //Log.d("firebase check casting", ((List<String>) map.get("posts")).get(0).toString());
+                    currentUser.setDiaries((List<String>) map.get("diaries"));
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
+
+                    Intent intent = new Intent(ctx, CalendarActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    ctx.startActivity(intent);
                 }
             }
         });

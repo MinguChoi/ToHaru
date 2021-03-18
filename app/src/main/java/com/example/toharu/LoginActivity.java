@@ -8,9 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.toharu.API.API_Auth;
+import com.example.toharu.Utils.Utils;
 
 public class LoginActivity extends AppCompatActivity {
     private Button           loginBTN;
