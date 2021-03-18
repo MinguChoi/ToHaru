@@ -58,7 +58,7 @@ public class CalendarActivity extends AppCompatActivity {
         linLAY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(CalendarActivity.this, WriteActivity.class);
+                intent = new Intent(CalendarActivity.this, EmotionActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

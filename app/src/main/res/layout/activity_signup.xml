@@ -4,22 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
+    android:background="@drawable/white_background"
     android:orientation="vertical"
+    android:scrollbarSize="50dp"
     tools:context=".SignupActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/font_middle_school"
         android:gravity="center"
         android:text="@string/sign_up"
         android:textColor="@color/black"
-        android:textSize="36sp"></TextView>
+        android:textSize="50dp"
+        android:textStyle="bold"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:textSize="20dp"
         android:weightSum="2">
 
         <TextView
@@ -28,7 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="@string/signupNAME" />
+            android:fontFamily="@font/font_middle_school"
+            android:text="@string/signupNAME"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
@@ -45,6 +53,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:ems="10"
+            android:fontFamily="@font/font_middle_school"
             android:hint="@string/s_name"
             android:inputType="textPersonName" />
 
@@ -60,13 +69,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/signupEmail" />
+            android:fontFamily="@font/font_middle_school"
+            android:text="@string/signupEmail"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/email_signUp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
+            android:fontFamily="@font/font_middle_school"
             android:hint="@string/email"
             android:importantForAutofill="no"></EditText>
 
@@ -75,7 +88,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/signupPASS" />
+            android:fontFamily="@font/font_middle_school"
+            android:text="@string/signupPASS"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/pw_signUp"
@@ -83,6 +99,7 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:ems="10"
+            android:fontFamily="@font/font_middle_school"
             android:hint="@string/pass"
             android:importantForAutofill="no"
             android:inputType="textPassword"></EditText>
@@ -92,7 +109,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/signupPASS2" />
+            android:fontFamily="@font/font_middle_school"
+            android:text="@string/signupPASS2"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/pw_signUp2"
@@ -100,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
+            android:fontFamily="@font/font_middle_school"
             android:hint="PASSWORD"
             android:inputType="textPassword" />
 
@@ -107,10 +128,12 @@
             android:id="@+id/signupTXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_middle_school"
             android:gravity="center"
-            android:text="@string/sign_up"
-            android:textColor="#03A9F4"
-            android:textSize="18sp"></TextView>
+            android:textSize="36sp"
+            android:text="회원가입"
+            android:textColor="#6EA8C9"></TextView>
     </LinearLayout>
 
 </LinearLayout>

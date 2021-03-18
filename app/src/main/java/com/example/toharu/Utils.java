@@ -19,6 +19,7 @@ public final class Utils {
     public static FirebaseDatabase DB_REF = FirebaseDatabase.getInstance();
     public static DatabaseReference DB_USERS = DB_REF.getReference("users");
     public static DatabaseReference DB_POSTS = DB_REF.getReference("posts");
+    public static DatabaseReference DB_ADVICES = DB_REF.getReference("advice");
 
     public static boolean isEmpty(EditText etxt) {
         if(etxt.getText().toString().trim().length()>0)
