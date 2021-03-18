@@ -17,19 +17,22 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
             android:layout_weight="0"
+            android:fontFamily="@font/font_middle_school"
             android:gravity="center"
             android:text="@string/Setting"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textSize="60sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:id="@+id/notice_layout"
@@ -53,8 +56,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/notice" />
+                android:text="@string/notice"
+                android:textSize="30sp" />
 
             <Switch
                 android:id="@+id/notice_switch"
@@ -91,8 +96,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="150dp"
                 android:layout_marginRight="150dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/haru" />
+                android:text="@string/haru"
+                android:textSize="30sp" />
 
             <Switch
                 android:id="@+id/haru_switch"
@@ -129,8 +136,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/textstyle" />
+                android:text="@string/textstyle"
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -146,8 +155,8 @@
                 android:layout_gravity="left"
                 android:contentDescription="TODO"
                 android:padding="10dp"
-                app:srcCompat="@drawable/backgound"
-                tools:srcCompat="@drawable/backgound" />
+                app:srcCompat="@drawable/background"
+                tools:srcCompat="@drawable/background" />
 
             <TextView
                 android:id="@+id/background_text"
@@ -156,8 +165,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="250dp"
                 android:layout_marginRight="250dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/backgound" />
+                android:text="@string/backgound"
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -183,8 +194,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/password" />
+                android:text="@string/password"
+                android:textSize="30sp" />
 
         </LinearLayout>
 
