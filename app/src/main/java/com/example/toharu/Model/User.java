@@ -29,7 +29,7 @@ public class User {
     public User(HashMap<String, Object> map) {
         this.name = map.get("name").toString();
         this.email = map.get("email").toString();
-        this.diaries = (ArrayList<String>) map.get("diaries");
+        this.diaries = new ArrayList<>((ArrayList<String>) map.get("diaries"));
     }
 
     public static User getInstance() {
@@ -50,8 +50,9 @@ public class User {
     }
     public void setEmail(String email) { this.email = email; }
     public void setDiaries(List<String> diaries) {
-        this.diaries = new ArrayList<>();
-        this.diaries.addAll(diaries);
+        if (diaries != null) {
+            this.diaries = new ArrayList<>(diaries);
+        }
     }
     public void addDiary(String diary_id) {
         if (this.diaries == null) {
