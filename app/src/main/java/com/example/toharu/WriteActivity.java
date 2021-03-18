@@ -85,12 +85,13 @@ public class WriteActivity extends AppCompatActivity {
 
     void showDialog(){
         String msg = "";
-        API_Advice.fetchAdvice(new OnCompletion) {
+        API_Advice.fetchAdvice(new OnCompletion){
             @Override
                     public void onCompletiong(Object object) {
                 msg = ((Advice) object).getMsg;
                 AlertDialog
             }
+
         }
         AlertDialog.Builder msgBuilder = new AlertDialog.Builder(WriteActivity.this)
                 .setTitle("하루의 위로 한마디...")
