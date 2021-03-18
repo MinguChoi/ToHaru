@@ -1,9 +1,16 @@
-package com.example.toharu;
+package com.example.toharu.API;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.example.toharu.CalendarActivity;
+import com.example.toharu.OnCompletion;
+import com.example.toharu.Post;
+import com.example.toharu.User;
+import com.example.toharu.Utils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +31,8 @@ public class API_Post {
         // Sync with user info
         User currentUser = User.getInstance();
         currentUser.addPost(newPostRef.getKey());
+//        Log.d(Utils.TAG, "new post key : " + newPostRef.getKey());
+//        Log.d(Utils.TAG, "check if user adds post uid : " + currentUser.getPosts().get(0));
         // update user info in DB
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         HashMap updates = new HashMap();
@@ -60,5 +69,4 @@ public class API_Post {
             }
         });
     }
-
 }
