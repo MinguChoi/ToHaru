@@ -3,7 +3,6 @@ package com.example.toharu;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.toharu.API.API_Advice;
@@ -26,14 +26,16 @@ public class WriteActivity extends AppCompatActivity {
 
     private Button backBTN;
     private Button saveBTN;
-    private Button diaBTN;
     private EditText diaryETXT;
-    private Dialog customDialog;
 
     private boolean getCheckWR;
     public String getdate;
     private int getdateMONTH;
     private String getdateDAY;
+
+    private int     image_rsrc;
+    private ImageView sellIMG;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class WriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write);
 
         getdate = getIntent().getStringExtra("mDate");
+        image_rsrc = getIntent().getIntExtra("emotion_img", 0);
         Log.d(TAG, "dd"+getdate);
         init();
 
@@ -51,7 +54,10 @@ public class WriteActivity extends AppCompatActivity {
         saveBTN = findViewById(R.id.saveBTN);
         diaryETXT = findViewById(R.id.diary_writeETXT);
 
-        customDialog = new Dialog(this);
+        sellIMG = findViewById(R.id.selIMG);
+
+        sellIMG.setImageResource(image_rsrc);
+
 
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", true);
