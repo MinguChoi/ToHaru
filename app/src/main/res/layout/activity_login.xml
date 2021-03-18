@@ -88,7 +88,9 @@
             android:fontFamily="@font/font_middle_school"
             android:textSize="25sp"
             android:hint="PASSWORD"
-            android:importantForAutofill="no"></EditText>
+            android:importantForAutofill="no"
+            android:inputType="textPassword"/>
+
     </LinearLayout>
 
 
