@@ -105,12 +105,20 @@
             android:text="토"
             android:textSize="9sp" />
     </LinearLayout>
-    <!--달력뷰-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    출처: https://namget.tistory.com/entry/안드로이드-안드로이드-커스텀-달력-예제-Android-Custom-CalendarView-Example
-    [남갯,YTS의 개발,일상블로그]
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <sun.bob.mcalendarview.MCalendarView
+            android:id="@+id/CalenderView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+    <!--달력뷰-->
+
+
 </LinearLayout>

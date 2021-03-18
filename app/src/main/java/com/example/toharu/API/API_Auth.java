@@ -1,4 +1,4 @@
-package com.example.toharu;
+package com.example.toharu.API;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.toharu.CalendarActivity;
+import com.example.toharu.LoginActivity;
+import com.example.toharu.User;
+import com.example.toharu.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,8 +23,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class API_Auth extends AppCompatActivity {
@@ -101,6 +107,8 @@ public class API_Auth extends AppCompatActivity {
                     HashMap map = (HashMap) task.getResult().getValue();
                     currentUser.setName(map.get("name").toString());
                     currentUser.setEmail(map.get("email").toString());
+                    currentUser.setPosts((List<String>) map.get("posts"));
+                    //Log.d("firebase check casting", ((List<String>) map.get("posts")).get(0).toString());
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
                 }
             }
