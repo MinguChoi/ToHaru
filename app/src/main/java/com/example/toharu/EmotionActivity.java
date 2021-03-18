@@ -18,7 +18,8 @@ public class EmotionActivity extends AppCompatActivity {
 
     public String           getdate;
 
-    private String          selected_img;
+    private int          selected_img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,20 @@ public class EmotionActivity extends AppCompatActivity {
         tired_img = findViewById(R.id.tired_img);
         sadness_img = findViewById(R.id.sadness_img);
         angry_img = findViewById(R.id.angry_img);
-        anxiety_img = findViewById(R.id.angry_img);
+        anxiety_img = findViewById(R.id.anxiety_img);
         gloom_img = findViewById(R.id.gloom_img);
         peaceul_img = findViewById(R.id.peaceful_img);
         next_btn = findViewById(R.id.next_btn);
+
+        joy_img.setTag(R.drawable.joy);
+        happy_img.setTag(R.drawable.happy);
+        proud_img.setTag(R.drawable.proud);
+        tired_img.setTag(R.drawable.tired);
+        sadness_img.setTag(R.drawable.sadness);
+        angry_img.setTag(R.drawable.angry);
+        anxiety_img.setTag(R.drawable.anxiety);
+        gloom_img.setTag(R.drawable.gloom);
+        peaceul_img.setTag(R.drawable.peaceful);
 
         getdate = getIntent().getStringExtra("mDate"); // 날짜 받아오기
         Log.i(TAG, "get Date in EmotionActivity => " + getdate);
@@ -48,24 +59,21 @@ public class EmotionActivity extends AppCompatActivity {
 
     }
 
-    private void save_emotion(){
-
-    }
-
-    private void next_move(){
         //next btn 클릭시 -> diary activity
-        next_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+    public void selected_next_move(View v){
+        switch (v.getId()){
+            case R.id.next_btn:
                 Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
+                intent.putExtra("emotion_img", selected_img);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                break;
 
-            }
-        });
+            default:
+                selected_img = (int) v.getTag();
+                break;
+
+        }
     }
-
-
 
 }

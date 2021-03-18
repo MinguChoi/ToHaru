@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.toharu.API.API_Advice;
 import com.example.toharu.API.API_Post;
@@ -30,6 +31,11 @@ public class WriteActivity extends AppCompatActivity {
     private int getdateMONTH;
     private String getdateDAY;
 
+    private int     image_rsrc;
+
+    private ImageView   sellIMG;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +43,8 @@ public class WriteActivity extends AppCompatActivity {
 
 
         getdate = getIntent().getStringExtra("mDate");
-        Log.d(TAG, getdate);
+        image_rsrc = getIntent().getIntExtra("emotion_img", 0);
+//        Log.i(TAG, getdate);
         init();
 
     }
@@ -46,6 +53,9 @@ public class WriteActivity extends AppCompatActivity {
         backBTN = findViewById(R.id.backBTN);
         saveBTN = findViewById(R.id.saveBTN);
         diaryETXT = findViewById(R.id.diary_writeETXT);
+        sellIMG = findViewById(R.id.selIMG);
+
+        sellIMG.setImageResource(image_rsrc);
 
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", true);

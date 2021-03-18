@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
         android:orientation="horizontal">
 
         <TextView
@@ -49,7 +48,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/joy"
                     android:gravity="center"
-                    android:padding="25dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="25dp"
+                    android:tag="joy" />
 
                 <TextView
                     android:id="@+id/joy_text"
@@ -74,7 +75,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/happy"
                     android:gravity="center"
-                    android:padding="25dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="25dp"
+                    android:tag="happy" />
 
                 <TextView
                     android:id="@+id/happy_text"
@@ -98,7 +101,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/proud"
                     android:gravity="center"
-                    android:padding="25dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="25dp"
+                    android:tag="proud" />
 
                 <TextView
                     android:id="@+id/proud_text"
@@ -126,7 +131,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/tired"
                     android:gravity="center"
-                    android:padding="20dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="20dp"
+                    android:tag="tired" />
 
                 <TextView
                     android:id="@+id/tired_text"
@@ -150,7 +157,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/sadness"
                     android:gravity="center"
-                    android:padding="20dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="20dp"
+                    android:tag="sadness" />
 
                 <TextView
                     android:id="@+id/sadness_text"
@@ -174,7 +183,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/angry"
                     android:gravity="center"
-                    android:padding="20dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="20dp"
+                    android:tag="angry" />
 
                 <TextView
                     android:id="@+id/angry_text"
@@ -200,7 +211,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/anxiety"
                     android:gravity="center"
-                    android:padding="20dp" />
+                    android:onClick="selected_next_move"
+                    android:padding="20dp"
+                    android:tag="anxiety" />
 
                 <TextView
                     android:id="@+id/anxiety_text_text"
@@ -217,14 +230,16 @@
                     android:layout_width="120dp"
                     android:paddingHorizontal="4dp">
 
-                    <ImageButton
-                        android:id="@+id/gloom_img"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/gloom"
-                        android:gravity="center"
-                        android:padding="20dp" />
+                <ImageButton
+                    android:id="@+id/gloom_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/gloom"
+                    android:gravity="center"
+                    android:onClick="selected_next_move"
+                    android:padding="20dp"
+                    android:tag="gloom" />
 
                     <TextView
                         android:id="@+id/gloom_text"
@@ -241,14 +256,16 @@
                     android:layout_width="120dp"
                     android:paddingHorizontal="4dp">
 
-                    <ImageButton
-                        android:id="@+id/peaceful_img"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/peaceful"
-                        android:gravity="center"
-                        android:padding="20dp" />
+                <ImageButton
+                    android:id="@+id/peaceful_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/peaceful"
+                    android:gravity="center"
+                    android:onClick="selected_next_move"
+                    android:padding="20dp"
+                    android:tag="peaceful" />
 
                     <TextView
                         android:id="@+id/peaceful_text"
@@ -270,7 +287,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@android:color/transparent"
-        android:onClick="onClick"
+        android:onClick="selected_next_move"
         android:padding="35dp"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/next_" />
