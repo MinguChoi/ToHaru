@@ -3,15 +3,11 @@ package com.example.toharu;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +18,7 @@ import com.example.toharu.API.API_Auth;
 import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
+import com.example.toharu.Utils.Utils;
 
 public class WriteActivity extends AppCompatActivity {
 
@@ -30,17 +27,15 @@ public class WriteActivity extends AppCompatActivity {
 
     private Button backBTN;
     private Button saveBTN;
-    private Button btnAccept;
     private EditText diaryETXT;
-    private Dialog customDialog;
 
     private boolean getCheckWR;
     public String getdate;
     private int getdateMONTH;
     private String getdateDAY;
 
-    private int     image_rsrc;
-    private ImageView sellIMG, closePopupIMG;
+    private String    selected_emotion;
+    private ImageView sellIMG;
 
 
     @Override
@@ -49,7 +44,7 @@ public class WriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write);
 
         getdate = getIntent().getStringExtra("mDate");
-        image_rsrc = getIntent().getIntExtra("emotion_img", 0);
+        selected_emotion = getIntent().getStringExtra("emotion_img");
         Log.d(TAG, "dd"+getdate);
         init();
 
@@ -61,10 +56,8 @@ public class WriteActivity extends AppCompatActivity {
         diaryETXT = findViewById(R.id.diary_writeETXT);
 
         sellIMG = findViewById(R.id.selIMG);
-
-        sellIMG.setImageResource(image_rsrc);
-
-        customDialog = new Dialog(this);
+        int img_id = Utils.getImageByName(selected_emotion, getApplicationContext());
+        sellIMG.setImageResource(img_id);
 
 
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
@@ -92,32 +85,14 @@ public class WriteActivity extends AppCompatActivity {
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
-//                API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
-                Show();
+
+                Diary newDiary = new Diary(selected_emotion, "2021-03-18", diaryETXT.getText().toString());
+                API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
 
 //                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                startActivity(intent);
             }
         });
-    }
-
-    public void Show(){
-        customDialog.setContentView(R.layout.custom_dialog);
-        closePopupIMG = (ImageView) customDialog.findViewById(R.id.close_diaIMG);
-        btnAccept = (Button) customDialog.findViewById(R.id.diaBTN);
-
-        closePopupIMG.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
-                API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
-                customDialog.dismiss();
-            }
-        });
-
-        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        customDialog.show();
     }
 }

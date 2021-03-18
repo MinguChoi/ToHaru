@@ -1,6 +1,7 @@
 package com.example.toharu;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.toharu.Model.Diary;
+import com.example.toharu.Utils.Utils;
 
 import java.util.List;
 
@@ -37,7 +39,8 @@ public class DiaryAdapter extends ArrayAdapter {
         TextView contentView = holder.contentView;
 
         Diary diary = diariesList.get(position);
-        //emotionImageView
+        int imageId = Utils.getImageByName(diary.getMood(), context);
+        emotionImageView.setImageResource(imageId);
         dateView.setText(diary.getDate());
         contentView.setText(diary.getContent());
 
