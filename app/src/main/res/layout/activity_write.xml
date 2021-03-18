@@ -83,7 +83,10 @@
             android:gravity="top"
             android:hint="일기를 입력하세요. "
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
+            android:lines="10"
+            android:maxLines="10"
+            android:minLines="5"
             android:shadowColor="#FFFFFF" />
     </LinearLayout>
 
