@@ -35,6 +35,13 @@ public class EmotionActivity extends AppCompatActivity {
         peaceul_img = findViewById(R.id.peaceful_img);
         next_btn = findViewById(R.id.next_btn);
 
+        joy_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //joy image click event
+
+
+            }
+        });
 
         //next btn 클릭시 -> diary activity
 
