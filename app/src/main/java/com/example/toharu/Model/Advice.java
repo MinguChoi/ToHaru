@@ -1,5 +1,10 @@
 package com.example.toharu.Model;
 
+import com.example.toharu.Utils.Utils;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Advice {
     private String mood;
     private String advice;

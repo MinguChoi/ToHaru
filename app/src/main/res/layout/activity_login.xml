@@ -84,7 +84,9 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:hint="PASSWORD"
-            android:importantForAutofill="no"></EditText>
+            android:importantForAutofill="no"
+            android:inputType="textPassword"/>
+
     </LinearLayout>
 
 

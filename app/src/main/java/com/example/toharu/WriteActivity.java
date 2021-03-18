@@ -12,14 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.toharu.API.API_Advice;
+import com.example.toharu.API.API_Auth;
 import com.example.toharu.API.API_Post;
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
 
 public class WriteActivity extends AppCompatActivity {
 
-    private final boolean   D = true;
-    private final String    TAG = "WriteActivity";
+    private final boolean D = true;
+    private final String TAG = "WriteActivity";
 
     private Button backBTN;
     private Button saveBTN;
@@ -35,21 +36,19 @@ public class WriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
-
         getdate = getIntent().getStringExtra("mDate");
-        Log.d(TAG, getdate);
+        Log.d(TAG, "dd"+getdate);
         init();
 
     }
 
-    public void init(){
+    public void init() {
         backBTN = findViewById(R.id.backBTN);
         saveBTN = findViewById(R.id.saveBTN);
         diaryETXT = findViewById(R.id.diary_writeETXT);
 
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", true);
-
 
 
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
@@ -73,6 +72,14 @@ public class WriteActivity extends AppCompatActivity {
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               final String msg[] = {""};
+                API_Advice.fetchAdvice(new OnCompletion() {
+                    @Override
+                    public void onCompletion(Object object) {
+                        msg[0] = ((Advice)object).getAdvice();
+
+                    }
+                });
                 Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
                 showDialog();
 //                API_Post.writePostToDB(newDiary, WriteActivity.this);
@@ -83,15 +90,7 @@ public class WriteActivity extends AppCompatActivity {
         });
     }
 
-    void showDialog(){
-        String msg = "";
-        API_Advice.fetchAdvice(new OnCompletion) {
-            @Override
-                    public void onCompletiong(Object object) {
-                msg = ((Advice) object).getMsg;
-                AlertDialog
-            }
-        }
+    void showDialog() {
         AlertDialog.Builder msgBuilder = new AlertDialog.Builder(WriteActivity.this)
                 .setTitle("하루의 위로 한마디...")
                 .setMessage("힘내요")
