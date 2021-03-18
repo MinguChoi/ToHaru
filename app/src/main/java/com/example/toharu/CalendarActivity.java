@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -28,8 +27,8 @@ public class CalendarActivity extends AppCompatActivity {
     private final String    TAG = "CalendarActivity";
 
     private LinearLayout          linLAY;
-    private Button                settingBTN;
-    private Button                ch_calendarBTN;
+    private ImageButton           settingBTN;
+    private ImageButton           ch_calendarBTN;
     private Intent                intent;
     private MCalendarView         CalendarView;
 

@@ -85,6 +85,7 @@
             android:layout_width="150dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/joy" />
 
         <TextView
@@ -94,7 +95,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/diary_border"
             android:ems="10"
             android:gravity="top"
             android:hint="등록한 일기 "
