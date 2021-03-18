@@ -2,27 +2,24 @@ package com.example.toharu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
+import com.example.toharu.API.API_Diary;
+import com.example.toharu.Model.Diary;
+import com.example.toharu.Utils.Utils;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import sun.bob.mcalendarview.MCalendarView;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
-import sun.bob.mcalendarview.listeners.OnExpDateClickListener;
-import sun.bob.mcalendarview.views.ExpCalendarView;
 import sun.bob.mcalendarview.vo.DateData;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -35,10 +32,10 @@ public class CalendarActivity extends AppCompatActivity {
     private Button                ch_calendarBTN;
     private Intent                intent;
     private MCalendarView         CalendarView;
-    private ListView              dataLST;
 
-    private ArrayList<String>     list;
-    private ArrayAdapter<String>  adapter;
+    private ListView              listView;
+    private DiaryAdapter          adapter;
+    private List<Diary>           diaries;
 
     public String                 mDate;
     private String                dateYEAR;
@@ -59,6 +56,19 @@ public class CalendarActivity extends AppCompatActivity {
         init();
     }
 
+    public void displayListView() {
+        // Fetch diaries from database and update UI
+        API_Diary.fetchPosts(new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                diaries = (ArrayList<Diary>) object;
+                Log.d(Utils.TAG, "diaries from db: " + diaries.size());
+                adapter = new DiaryAdapter(diaries, CalendarActivity.this);
+                listView.setAdapter(adapter);
+            }
+        });
+    }
+
     public void init(){
 
         linLAY = findViewById(R.id.linLAY);
@@ -66,19 +76,11 @@ public class CalendarActivity extends AppCompatActivity {
         CalendarView = findViewById(R.id.CalenderView);
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
         ch_calendarBTN = findViewById(R.id.ch_calendarBTN);
-        dataLST = findViewById(R.id.dataLST);
+        listView = findViewById(R.id.main_listView);
         
-        // 캘린더  <->  리스트 뷰 변환 실험 ----------------
-
-        list = new ArrayList<String>();
-
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-
-        dataLST.setAdapter(adapter);
-
-        list.add("test TXT");
-
-        adapter.notifyDataSetChanged();
+        // 실험 ----------------
+        displayListView();
+        //adapter.notifyDataSetChanged();
         // --------------
 
         linLAY.setOnClickListener(new View.OnClickListener() {
@@ -106,11 +108,11 @@ public class CalendarActivity extends AppCompatActivity {
                 if(show_calendar == true){
                     show_calendar = false;
                     CalendarView.setVisibility(View.INVISIBLE);
-                    dataLST.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.VISIBLE);
                 }
                 else{
                     show_calendar = true;
-                    dataLST.setVisibility(View.INVISIBLE);
+                    listView.setVisibility(View.INVISIBLE);
                     CalendarView.setVisibility(View.VISIBLE);
                 }
             }
@@ -142,7 +144,7 @@ public class CalendarActivity extends AppCompatActivity {
                     mDate = dateMONTH + "/" + dateDAY + "/" + dateYEAR ;
                     Log.i(TAG, mDate);
 
-                    intent = new Intent(CalendarActivity.this, EmotionActivity.class);
+                    intent = new Intent(CalendarActivity.this, WriteActivity.class);
                     intent.putExtra("mDate", mDate);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

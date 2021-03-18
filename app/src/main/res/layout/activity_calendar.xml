@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/white_background"
     tools:context=".WelcomActivity">
 
     <!--헤더-->
@@ -136,7 +137,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ListView
-            android:id="@+id/dataLST"
+            android:id="@+id/main_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible"

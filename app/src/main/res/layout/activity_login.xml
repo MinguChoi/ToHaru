@@ -59,6 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
+            android:fontFamily="@font/font_middle_school"
+            android:textSize="25sp"
             android:hint="@string/email"
             android:importantForAutofill="no"></EditText>
     </LinearLayout>
@@ -83,8 +85,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
+            android:fontFamily="@font/font_middle_school"
+            android:textSize="25sp"
             android:hint="PASSWORD"
-            android:importantForAutofill="no"></EditText>
+            android:importantForAutofill="no"
+            android:inputType="textPassword"/>
+
     </LinearLayout>
 
 
@@ -96,8 +102,9 @@
         android:background="@drawable/btn_round"
         android:text="@string/login"
         android:textColor="#CB000000"
-        android:textSize="18sp"
-        app:backgroundTint="#FAF1D6"></Button>
+        android:textSize="15sp"
+        app:backgroundTint="#FEE5EB"
+        ></Button>
 
     <Button
         android:id="@+id/signup_BTN"
@@ -107,7 +114,7 @@
         android:layout_margin="10dp"
         android:text="SIGN UP"
         android:textColor="#CB000000"
-        android:textSize="18sp"
-        app:backgroundTint="#FAF1D6"></Button>
+        android:textSize="15sp"
+        app:backgroundTint="#EADFF2"></Button>
 
 </LinearLayout>

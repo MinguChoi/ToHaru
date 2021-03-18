@@ -20,20 +20,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class API_Post {
-    public static void writePostToDB(Diary diary, Activity ctx) {
+public class API_Diary {
+    public static void writeDiaryToDB(Diary diary, Activity ctx) {
         // Save diary into DB
-        DatabaseReference newPostRef = Utils.DB_POSTS.push();
+        DatabaseReference newPostRef = Utils.DB_DIARIES.push();
         newPostRef.setValue(diary);
         // Sync with user info
         User currentUser = User.getInstance();
-        currentUser.addPost(newPostRef.getKey());
+        currentUser.addDiary(newPostRef.getKey());
 //        Log.d(Utils.TAG, "new diary key : " + newPostRef.getKey());
 //        Log.d(Utils.TAG, "check if user adds diary uid : " + currentUser.getPosts().get(0));
         // update user info in DB
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         HashMap updates = new HashMap();
-        updates.put("diaries", currentUser.getPosts());
+        updates.put("diaries", currentUser.getDiaries());
         Utils.DB_USERS.child(user.getUid()).updateChildren(updates);
         // back to the calendar activity
         Intent intent = new Intent(ctx, CalendarActivity.class);
@@ -43,22 +43,24 @@ public class API_Post {
 
     public static void fetchPosts(final OnCompletion completion){
         User currentUser = User.getInstance();
-        List<String> postsUid = currentUser.getPosts();
-        List<Diary> diaries = new ArrayList<Diary>();
+        List<String> postsUid = currentUser.getDiaries();
+        Log.d(Utils.TAG, "check user diary Uid - " + currentUser.getDiaries().size() + " // " + postsUid.size());
+        List<Diary> diaries = new ArrayList<>();
 
-        Utils.DB_POSTS.addListenerForSingleValueEvent(new ValueEventListener() {
+        Utils.DB_DIARIES.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                     Diary diary = new Diary(childSnapshot.getKey(), (HashMap)(childSnapshot.getValue()));
                     Log.d(Utils.TAG, "check diary value from db - " + childSnapshot.getValue());
                     Log.d(Utils.TAG, "check diary uid from db - " + diary.getUid());
+                    //Log.d(Utils.TAG, "check user diary Uid - " + postsUid.get(0));
                     if(postsUid.contains(diary.getUid())) {
                         diaries.add(diary);
                     }
                 }
                 completion.onCompletion(diaries);
-                Log.d(Utils.TAG, "check post uid from userInfo - " + postsUid.get(0).toString());
+                Log.d(Utils.TAG, "onComplete obj : " + diaries.size());
             }
 
             @Override

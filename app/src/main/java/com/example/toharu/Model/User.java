@@ -1,7 +1,12 @@
 package com.example.toharu.Model;
 
+import android.util.Log;
+
+import com.example.toharu.Utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.List;
 
 public class User {
@@ -9,22 +14,22 @@ public class User {
     private static User single_instance = null;
     private String name;
     private String email;
-    private List<String> posts;
+    private List<String> diaries;
 
     public User() {
-        this.posts = new ArrayList<String>();
+        this.diaries = new ArrayList<>();
     }
 
     public User(String name, String email) {
         this.name = name;
         this.email = email;
-        this.posts = new ArrayList<String>();
+        this.diaries = new ArrayList<>();
     }
 
-    public User(Dictionary<String, Object> dictionary) {
-        this.name = dictionary.get("name").toString();
-        this.email = dictionary.get("email").toString();
-        this.posts = (ArrayList<String>) dictionary.get("diaries");
+    public User(HashMap<String, Object> map) {
+        this.name = map.get("name").toString();
+        this.email = map.get("email").toString();
+        this.diaries = new ArrayList<>((ArrayList<String>) map.get("diaries"));
     }
 
     public static User getInstance() {
@@ -36,14 +41,23 @@ public class User {
 
     public String getName() {return name;}
     public String getEmail() {return email;}
-    public List<String> getPosts() {return posts;}
+    public List<String> getDiaries() {
+        return diaries;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
     public void setEmail(String email) { this.email = email; }
-    public void setPosts(List<String> posts) { this.posts = posts; }
-    public void addPost(String post_id) {
-        this.posts.add(post_id);
+    public void setDiaries(List<String> diaries) {
+        if (diaries != null) {
+            this.diaries = new ArrayList<>(diaries);
+        }
+    }
+    public void addDiary(String diary_id) {
+        if (this.diaries == null) {
+            this.diaries = new ArrayList<String>();
+        }
+        this.diaries.add(diary_id);
     }
 }
