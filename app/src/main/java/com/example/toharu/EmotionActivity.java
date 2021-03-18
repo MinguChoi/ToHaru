@@ -41,7 +41,7 @@ public class EmotionActivity extends AppCompatActivity {
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EmotionActivity.this,DiaryActivity.class);
+                Intent intent = new Intent(EmotionActivity.this,WriteActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 

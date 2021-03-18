@@ -17,7 +17,7 @@
         android:fontFamily="@font/font_middle_school"
         android:gravity="center"
         android:text="@string/sign_up"
-        android:textColor="@color/black"
+        android:textColor="#C6000000"
         android:textSize="50dp"
         android:textStyle="bold"></TextView>
 
