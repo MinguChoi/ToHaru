@@ -20,8 +20,9 @@
             android:layout_weight="0"
             android:gravity="center"
             android:text="@string/Setting"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/font_middle_school"
+            android:textSize="50sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,8 +44,8 @@
                 android:layout_gravity="left"
                 android:contentDescription="TODO"
                 android:padding="10dp"
-                app:srcCompat="@drawable/notice"
-                tools:srcCompat="@drawable/notice" />
+                app:srcCompat="@drawable/star"
+                tools:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/notice_text"
@@ -53,8 +54,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/notice" />
+                android:text="@string/notice"
+                android:textSize="24sp" />
 
             <Switch
                 android:id="@+id/notice_switch"
@@ -81,8 +84,8 @@
                 android:layout_gravity="left"
                 android:contentDescription=""
                 android:padding="10dp"
-                app:srcCompat="@drawable/haru"
-                tools:srcCompat="@drawable/haru" />
+                app:srcCompat="@drawable/star"
+                tools:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/haru_text"
@@ -91,8 +94,10 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="150dp"
                 android:layout_marginRight="150dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
-                android:text="@string/haru" />
+                android:text="@string/haru"
+                android:textSize="24sp"/>
 
             <Switch
                 android:id="@+id/haru_switch"
@@ -119,8 +124,8 @@
                 android:layout_gravity="left"
                 android:contentDescription="@string/text"
                 android:padding="10dp"
-                app:srcCompat="@drawable/text"
-                tools:srcCompat="@drawable/text" />
+                app:srcCompat="@drawable/star"
+                tools:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/text_text"
@@ -129,7 +134,9 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
+                android:textSize="24sp"
                 android:text="@string/textstyle" />
 
         </LinearLayout>
@@ -146,8 +153,8 @@
                 android:layout_gravity="left"
                 android:contentDescription="TODO"
                 android:padding="10dp"
-                app:srcCompat="@drawable/backgound"
-                tools:srcCompat="@drawable/backgound" />
+                app:srcCompat="@drawable/star"
+                tools:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/background_text"
@@ -156,7 +163,9 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="250dp"
                 android:layout_marginRight="250dp"
+                android:fontFamily="@font/font_middle_school"
                 android:gravity="center"
+                android:textSize="24sp"
                 android:text="@string/backgound" />
 
         </LinearLayout>
@@ -173,8 +182,8 @@
                 android:layout_gravity="left"
                 android:contentDescription="TODO"
                 android:padding="10dp"
-                app:srcCompat="@drawable/lock"
-                tools:srcCompat="@drawable/lock" />
+                app:srcCompat="@drawable/star"
+                tools:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/passwird_text"
@@ -183,6 +192,8 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
+                android:fontFamily="@font/font_middle_school"
+                android:textSize="24sp"
                 android:gravity="center"
                 android:text="@string/password" />
 

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/white_background"
     android:orientation="vertical"
+    android:padding="30dp"
     android:scrollbarSize="50dp"
     tools:context=".SignupActivity">
 
@@ -131,9 +132,9 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/font_middle_school"
             android:gravity="center"
-            android:textSize="36sp"
             android:text="회원가입"
-            android:textColor="#6EA8C9"></TextView>
+            android:textColor="#6EA8C9"
+            android:textSize="36sp"></TextView>
     </LinearLayout>
 
 </LinearLayout>
