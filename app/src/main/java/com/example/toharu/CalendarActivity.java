@@ -37,7 +37,7 @@ public class CalendarActivity extends AppCompatActivity {
     private DiaryAdapter          adapter;
     private List<Diary>           diaries;
 
-    public String                 mDate;
+    public  String                 mDate;
     private String                dateYEAR;
     private String                dateMONTH;
     private String                dateDAY;
