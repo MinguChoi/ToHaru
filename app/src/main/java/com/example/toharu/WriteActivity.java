@@ -74,24 +74,24 @@ public class WriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
-                showDialog();
-//                API_Post.writePostToDB(newDiary, WriteActivity.this);
-//                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(intent);
+                //showDialog();
+                API_Post.writePostToDB(newDiary, WriteActivity.this);
+                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }
 
     void showDialog(){
-        String msg = "";
-        API_Advice.fetchAdvice(new OnCompletion) {
-            @Override
-                    public void onCompletiong(Object object) {
-                msg = ((Advice) object).getMsg;
-                AlertDialog
-            }
-        }
+//        String msg = "";
+//        API_Advice.fetchAdvice(new OnCompletion) {
+//            @Override
+//                    public void onCompletiong(Object object) {
+//                msg = ((Advice) object).getMsg;
+//                AlertDialog
+//            }
+//        }
         AlertDialog.Builder msgBuilder = new AlertDialog.Builder(WriteActivity.this)
                 .setTitle("하루의 위로 한마디...")
                 .setMessage("힘내요")

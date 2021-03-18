@@ -3,7 +3,9 @@ package com.example.toharu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -11,6 +13,12 @@ public class EmotionActivity extends AppCompatActivity {
 
     private ImageButton joy_img,happy_img,proud_img,tired_img,sadness_img,angry_img,anxiety_img,gloom_img,peaceul_img,next_btn;
 
+    private final boolean   D = true;
+    private final String    TAG = "EmotionActivity";
+
+    public String           getdate;
+
+    private String          selected_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +26,6 @@ public class EmotionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emotion);
 
         init();
-
 
     }
 
@@ -35,19 +42,30 @@ public class EmotionActivity extends AppCompatActivity {
         peaceul_img = findViewById(R.id.peaceful_img);
         next_btn = findViewById(R.id.next_btn);
 
+        getdate = getIntent().getStringExtra("mDate"); // 날짜 받아오기
+        Log.i(TAG, "get Date in EmotionActivity => " + getdate);
 
+
+    }
+
+    private void save_emotion(){
+
+    }
+
+    private void next_move(){
         //next btn 클릭시 -> diary activity
-
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EmotionActivity.this,DiaryActivity.class);
+
+                Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 
             }
         });
-
-
     }
+
+
+
 }

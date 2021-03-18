@@ -68,7 +68,7 @@ public class CalendarActivity extends AppCompatActivity {
         ch_calendarBTN = findViewById(R.id.ch_calendarBTN);
         dataLST = findViewById(R.id.dataLST);
         
-        // 실험 ----------------
+        // 캘린더  <->  리스트 뷰 변환 실험 ----------------
 
         list = new ArrayList<String>();
 
@@ -142,7 +142,7 @@ public class CalendarActivity extends AppCompatActivity {
                     mDate = dateMONTH + "/" + dateDAY + "/" + dateYEAR ;
                     Log.i(TAG, mDate);
 
-                    intent = new Intent(CalendarActivity.this, WriteActivity.class);
+                    intent = new Intent(CalendarActivity.this, EmotionActivity.class);
                     intent.putExtra("mDate", mDate);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
