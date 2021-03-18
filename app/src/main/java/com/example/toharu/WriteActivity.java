@@ -24,17 +24,17 @@ public class WriteActivity extends AppCompatActivity {
     private final boolean D = true;
     private final String TAG = "WriteActivity";
 
-    private Button      backBTN;
-    private Button      saveBTN;
-    private EditText    diaryETXT;
+    private Button backBTN;
+    private Button saveBTN;
+    private EditText diaryETXT;
 
-    private boolean     getCheckWR;
-    public  String       getdate;
-    private int         getdateMONTH;
-    private String      getdateDAY;
+    private boolean getCheckWR;
+    public String getdate;
+    private int getdateMONTH;
+    private String getdateDAY;
 
-    private int         image_rsrc;
-    private ImageView   sellIMG;
+    private int     image_rsrc;
+    private ImageView sellIMG;
 
 
     @Override
@@ -58,6 +58,16 @@ public class WriteActivity extends AppCompatActivity {
 
         sellIMG.setImageResource(image_rsrc);
 
+
+//        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
+//        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", true);
+
+
+//        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
+
+
+//        Log.i(TAG, getdate);
+
         //DB에 저장 된다면 이렇게..?
 
         backBTN.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +88,9 @@ public class WriteActivity extends AppCompatActivity {
                 Diary newDiary = new Diary("Joy", "2021-03-18", diaryETXT.getText().toString());
                 API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
 
+//                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
             }
         });
     }
