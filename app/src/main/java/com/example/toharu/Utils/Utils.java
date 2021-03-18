@@ -1,6 +1,7 @@
 package com.example.toharu.Utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,6 +33,10 @@ public final class Utils {
         Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
     }
 
+    public static int getImageByName(String imageName, Context ctx) {
+        return ctx.getResources().getIdentifier(imageName.toLowerCase(), "drawable", ctx.getPackageName());
+
+    }
     public static String DateToString(Date date) {
         String pattern = "MM/dd/yyyy";
         DateFormat df = new SimpleDateFormat(pattern);
