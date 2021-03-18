@@ -107,6 +107,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -114,10 +115,17 @@
         <sun.bob.mcalendarview.MCalendarView
             android:id="@+id/CalenderView"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/diaries_listView"
+            android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
 
     </LinearLayout>
+
     <!--달력뷰-->
 
 

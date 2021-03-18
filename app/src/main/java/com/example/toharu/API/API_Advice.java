@@ -18,7 +18,7 @@ public class API_Advice {
 
     public static void fetchAdvice(final OnCompletion completion){
         User currentUser = User.getInstance();
-        List<String> postsUid = currentUser.getPosts();
+        List<String> postsUid = currentUser.getDiaries();
         List<Diary> diaries = new ArrayList<Diary>();
 
         Utils.DB_ADVICES.addListenerForSingleValueEvent(new ValueEventListener() {

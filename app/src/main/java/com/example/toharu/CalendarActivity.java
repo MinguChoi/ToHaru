@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
+import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Diary;
+import com.example.toharu.Utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +28,6 @@ public class CalendarActivity extends AppCompatActivity {
     private final boolean   D = true;
     private final String    TAG = "CalendarActivity";
 
-    public List<Diary> diaries = new ArrayList<Diary>();
     private LinearLayout          linLAY;
     private Button                settingBTN;
     private Intent                intent;
@@ -35,6 +37,10 @@ public class CalendarActivity extends AppCompatActivity {
     private String                dateYEAR;
     private String                dateMONTH;
     private String                dateDAY;
+
+    private List<Diary>         diaries;
+    private DiaryAdapter        adapter;
+    private ListView            listView;
 
     private boolean CheckWR; // true = 작성된 사항 / false = 작성이 안된 사항
 
@@ -47,6 +53,18 @@ public class CalendarActivity extends AppCompatActivity {
         init();
     }
 
+    public void DisplayListView() {
+        // Fetch diaries from database and update UI
+        API_Diary.fetchPosts(new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                diaries = (ArrayList<Diary>) object;
+                Log.d(Utils.TAG, "diaries from db: " + diaries.size());
+                adapter = new DiaryAdapter(diaries, CalendarActivity.this);
+                listView.setAdapter(adapter);
+            }
+        });
+    }
     public void init(){
 
         linLAY = findViewById(R.id.linLAY);
@@ -54,6 +72,8 @@ public class CalendarActivity extends AppCompatActivity {
         CalendarView = findViewById(R.id.CalenderView);
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
 
+        listView = findViewById(R.id.diaries_listView);
+        DisplayListView();
 
         linLAY.setOnClickListener(new View.OnClickListener() {
             @Override

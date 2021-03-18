@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.toharu.API.API_Advice;
-import com.example.toharu.API.API_Post;
+import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
 
@@ -37,7 +37,7 @@ public class WriteActivity extends AppCompatActivity {
 
 
         getdate = getIntent().getStringExtra("mDate");
-        Log.d(TAG, getdate);
+        //Log.d(TAG, getdate);
         init();
 
     }
@@ -74,35 +74,27 @@ public class WriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
-                showDialog();
-//                API_Post.writePostToDB(newDiary, WriteActivity.this);
-//                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(intent);
+                //showDialog();
+                API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
+                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }
 
-    void showDialog(){
-        String msg = "";
-        API_Advice.fetchAdvice(new OnCompletion) {
-            @Override
-                    public void onCompletiong(Object object) {
-                msg = ((Advice) object).getMsg;
-                AlertDialog
-            }
-        }
-        AlertDialog.Builder msgBuilder = new AlertDialog.Builder(WriteActivity.this)
-                .setTitle("하루의 위로 한마디...")
-                .setMessage("힘내요")
-                .setPositiveButton("힘낼게!", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
-                        API_Post.writePostToDB(newDiary, WriteActivity.this);
-                    }
-                });
-        AlertDialog msgDlg = msgBuilder.create();
-        msgDlg.show();
-    }
+//    void showDialog(){
+//        AlertDialog.Builder msgBuilder = new AlertDialog.Builder(WriteActivity.this)
+//                .setTitle("하루의 위로 한마디...")
+//                .setMessage("힘내요")
+//                .setPositiveButton("힘낼게!", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
+//                        API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
+//                    }
+//                });
+//        AlertDialog msgDlg = msgBuilder.create();
+//        msgDlg.show();
+//    }
 }
