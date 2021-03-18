@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/white_background"
     tools:context=".WelcomActivity">
 
     <!--헤더-->
@@ -22,8 +23,8 @@
             android:layout_weight="4"
             android:onClick="@{(v)->model.startPicker(v)}"
             android:padding="16dp"
-            android:text="@{model.mTitle}"
-            android:textSize="18sp" />
+            android:text="원하시는 날짜를 선택해주세요."
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/settingBTN"
@@ -33,6 +34,13 @@
             android:text="@string/setting"
             android:textColor="@color/black"
             app:backgroundTint="#EEE6C4" />
+
+        <Button
+            android:id="@+id/ch_calendarBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
 
     </LinearLayout>
 
@@ -106,26 +114,33 @@
             android:textSize="9sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/main_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <sun.bob.mcalendarview.MCalendarView
             android:id="@+id/CalenderView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ListView
-            android:id="@+id/diaries_listView"
+            android:id="@+id/dataLST"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <!--달력뷰-->
 
 

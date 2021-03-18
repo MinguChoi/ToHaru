@@ -2,6 +2,7 @@ package com.example.toharu.API;
 
 import android.util.Log;
 
+import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
 import com.example.toharu.OnCompletion;
 import com.example.toharu.Model.User;
@@ -17,27 +18,18 @@ import java.util.List;
 public class API_Advice {
 
     public static void fetchAdvice(final OnCompletion completion){
-        User currentUser = User.getInstance();
-        List<String> postsUid = currentUser.getDiaries();
-        List<Diary> diaries = new ArrayList<Diary>();
+        String advice;
 
-        Utils.DB_ADVICES.addListenerForSingleValueEvent(new ValueEventListener() {
+        Utils.DB_ADVICES.child("advice").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
-                    Diary diary = new Diary(childSnapshot.getKey(), (HashMap)(childSnapshot.getValue()));
-                    Log.d(Utils.TAG, "check diary value from db - " + childSnapshot.getValue());
-                    Log.d(Utils.TAG, "check diary uid from db - " + diary.getUid());
-                    if(postsUid.contains(diary.getUid())) {
-                        diaries.add(diary);
-                    }
-                }
-                completion.onCompletion(diaries);
-                Log.d(Utils.TAG, "check post uid from userInfo - " + postsUid.get(0).toString());
+                Advice advice = dataSnapshot.getValue(Advice.class);
+                Log.d(Utils.TAG,"advice: "+advice.getAdvice());
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                Log.d(Utils.TAG,"advice error");
             }
         });
     }
