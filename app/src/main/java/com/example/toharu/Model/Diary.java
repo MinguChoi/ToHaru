@@ -1,23 +1,23 @@
-package com.example.toharu;
+package com.example.toharu.Model;
 
 import java.util.Dictionary;
 import java.util.HashMap;
 
-public class Post {
+public class Diary {
 
     private String uid;
     private String mood;
     private String date;
     private String content;
 
-    public Post() { }
+    public Diary() { }
 
-    public Post(String mood, String date, String content) {
+    public Diary(String mood, String date, String content) {
         this.mood = mood;
         this.date = date;
         this.content = content;
     }
-    public Post(String uid, HashMap<String, String> map) {
+    public Diary(String uid, HashMap<String, String> map) {
         this.uid = uid;
         this.mood = map.get("mood");
         this.date = map.get("date");;

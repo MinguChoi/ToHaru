@@ -10,11 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import java.util.HashMap;
-
+import com.example.toharu.API.API_Advice;
 import com.example.toharu.API.API_Post;
+import com.example.toharu.Model.Advice;
+import com.example.toharu.Model.Diary;
 
 public class WriteActivity extends AppCompatActivity {
 
@@ -73,9 +73,9 @@ public class WriteActivity extends AppCompatActivity {
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post newPost = new Post("Happy", "2021-03-16", diaryETXT.getText().toString());
+                Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
                 showDialog();
-//                API_Post.writePostToDB(newPost, WriteActivity.this);
+//                API_Post.writePostToDB(newDiary, WriteActivity.this);
 //                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                startActivity(intent);
@@ -98,8 +98,8 @@ public class WriteActivity extends AppCompatActivity {
                 .setPositiveButton("힘낼게!", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Post newPost = new Post("Happy", "2021-03-16", diaryETXT.getText().toString());
-                        API_Post.writePostToDB(newPost, WriteActivity.this);
+                        Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
+                        API_Post.writePostToDB(newDiary, WriteActivity.this);
                     }
                 });
         AlertDialog msgDlg = msgBuilder.create();

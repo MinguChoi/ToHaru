@@ -1,4 +1,4 @@
-package com.example.toharu;
+package com.example.toharu.Model;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
@@ -24,7 +24,7 @@ public class User {
     public User(Dictionary<String, Object> dictionary) {
         this.name = dictionary.get("name").toString();
         this.email = dictionary.get("email").toString();
-        this.posts = (ArrayList<String>) dictionary.get("posts");
+        this.posts = (ArrayList<String>) dictionary.get("diaries");
     }
 
     public static User getInstance() {

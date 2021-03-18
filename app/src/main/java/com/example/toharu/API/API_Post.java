@@ -4,19 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import com.example.toharu.CalendarActivity;
+import com.example.toharu.Model.Diary;
 import com.example.toharu.OnCompletion;
-import com.example.toharu.Post;
-import com.example.toharu.User;
-import com.example.toharu.Utils;
+import com.example.toharu.Model.User;
+import com.example.toharu.Utils.Utils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -24,19 +21,19 @@ import java.util.HashMap;
 import java.util.List;
 
 public class API_Post {
-    public static void writePostToDB(Post post, Activity ctx) {
-        // Save post into DB
+    public static void writePostToDB(Diary diary, Activity ctx) {
+        // Save diary into DB
         DatabaseReference newPostRef = Utils.DB_POSTS.push();
-        newPostRef.setValue(post);
+        newPostRef.setValue(diary);
         // Sync with user info
         User currentUser = User.getInstance();
         currentUser.addPost(newPostRef.getKey());
-//        Log.d(Utils.TAG, "new post key : " + newPostRef.getKey());
-//        Log.d(Utils.TAG, "check if user adds post uid : " + currentUser.getPosts().get(0));
+//        Log.d(Utils.TAG, "new diary key : " + newPostRef.getKey());
+//        Log.d(Utils.TAG, "check if user adds diary uid : " + currentUser.getPosts().get(0));
         // update user info in DB
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         HashMap updates = new HashMap();
-        updates.put("posts", currentUser.getPosts());
+        updates.put("diaries", currentUser.getPosts());
         Utils.DB_USERS.child(user.getUid()).updateChildren(updates);
         // back to the calendar activity
         Intent intent = new Intent(ctx, CalendarActivity.class);
@@ -47,20 +44,20 @@ public class API_Post {
     public static void fetchPosts(final OnCompletion completion){
         User currentUser = User.getInstance();
         List<String> postsUid = currentUser.getPosts();
-        List<Post> posts = new ArrayList<Post>();
+        List<Diary> diaries = new ArrayList<Diary>();
 
         Utils.DB_POSTS.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
-                    Post post = new Post(childSnapshot.getKey(), (HashMap)(childSnapshot.getValue()));
-                    Log.d(Utils.TAG, "check post value from db - " + childSnapshot.getValue());
-                    Log.d(Utils.TAG, "check post uid from db - " + post.getUid());
-                    if(postsUid.contains(post.getUid())) {
-                        posts.add(post);
+                    Diary diary = new Diary(childSnapshot.getKey(), (HashMap)(childSnapshot.getValue()));
+                    Log.d(Utils.TAG, "check diary value from db - " + childSnapshot.getValue());
+                    Log.d(Utils.TAG, "check diary uid from db - " + diary.getUid());
+                    if(postsUid.contains(diary.getUid())) {
+                        diaries.add(diary);
                     }
                 }
-                completion.onCompletion(posts);
+                completion.onCompletion(diaries);
                 Log.d(Utils.TAG, "check post uid from userInfo - " + postsUid.get(0).toString());
             }
 

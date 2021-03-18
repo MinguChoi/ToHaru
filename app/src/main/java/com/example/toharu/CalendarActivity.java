@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.example.toharu.API.API_Post;
+import com.example.toharu.Model.Diary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class CalendarActivity extends AppCompatActivity {
     private final boolean   D = true;
     private final String    TAG = "CalendarActivity";
 
-    public List<Post> posts = new ArrayList<Post>();
+    public List<Diary> diaries = new ArrayList<Diary>();
     private LinearLayout          linLAY;
     private Button                settingBTN;
     private Intent                intent;

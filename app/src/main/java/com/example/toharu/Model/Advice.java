@@ -1,4 +1,4 @@
-package com.example.toharu;
+package com.example.toharu.Model;
 
 public class Advice {
     private String mood;
