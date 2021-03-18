@@ -1,6 +1,9 @@
 package com.example.toharu.API;
 
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
@@ -22,9 +25,10 @@ public class API_Advice {
 
         Utils.DB_ADVICES.child("advice").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Advice advice = dataSnapshot.getValue(Advice.class);
-                Log.d(Utils.TAG,"advice: "+advice.getAdvice());
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue(Advice.class) != null){
+                }else{
+                }
             }
 
             @Override
