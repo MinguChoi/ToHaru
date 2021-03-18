@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
     android:background="@drawable/white_background"
     android:gravity="center"
     android:orientation="vertical"
@@ -14,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="15dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:weightSum="5">
@@ -49,9 +49,9 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="2"
+            android:backgroundTint="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/check"
-            android:backgroundTint="@android:color/transparent"
             android:text="@string/modify" />
 
     </LinearLayout>
@@ -94,12 +94,12 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/diary_border"
             android:ems="10"
             android:gravity="top"
             android:hint="등록한 일기 "
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:background="@drawable/diary_border"/>
+            android:inputType="textPersonName" />
     </LinearLayout>
 
 </LinearLayout>
