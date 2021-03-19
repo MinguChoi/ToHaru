@@ -53,14 +53,14 @@ public final class Utils {
         return df.format(date);
     }
 
-    public static void setMarkDot(MCalendarView mcalendarView, String dateyear, String datemonth, String dateday){
-        int year = Integer.parseInt(dateyear);
-        int month = Integer.parseInt(datemonth);
-        int day = Integer.parseInt(dateday);
-
-        Log.i(TAG, year + "/" + month + "/" + day);
-
-        mcalendarView.markDate(new DateData(year, month, day).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
-
-    }
+//    public static void setMarkDot(MCalendarView mcalendarView, String dateyear, String datemonth, String dateday){
+//        int year = Integer.parseInt(dateyear);
+//        int month = Integer.parseInt(datemonth);
+//        int day = Integer.parseInt(dateday);
+//
+//        Log.i(TAG, year + "/" + month + "/" + day);
+//
+//        mcalendarView.markDate(new DateData(year, month, day).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+//
+//    }
 }

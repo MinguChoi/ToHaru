@@ -58,6 +58,7 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
         init();
+        do_Mark();
     }
 
     public void displayListView() {
@@ -148,7 +149,7 @@ public class CalendarActivity extends AppCompatActivity {
                     dateMONTH = Integer.toString(date.getMonth());
                     dateDAY = Integer.toString(date.getDay());
 
-                    mDate = dateMONTH + "/" + dateDAY + "/" + dateYEAR ;
+                    mDate =  dateYEAR + "/" + dateMONTH + "/" + dateDAY ;
                     Log.i(TAG, mDate);
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);
@@ -161,6 +162,20 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void do_Mark() {
+        // Fetch diaries from database and update UI
+        API_Diary.fetchPosts(new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                diaries = (ArrayList<Diary>) object;
+                for(int i = 0; i<diaries.size(); i++){
+                    diaries.get(i).getDate();
+                    Log.i(TAG, diaries.get(i).getDate() + "\n");
+                }
+            }
+        });
     }
 
 }
