@@ -10,7 +10,7 @@
         <item>Grumpy</item>
         <item>Passion</item>
     </array>
-    <string name="app_name">ToHaru</string>
+    <string name="app_name">하루에게</string>
     <string name="sub_title">오늘 하루와 대화하다</string>
     <string name="main_title">하루에게</string>
     <string name="t">"오늘도 너의 하루를 응원해"</string>
@@ -52,4 +52,5 @@
     <string name="select_txt">오늘의 감정을 골라보세요</string>
     <string name="title">하루에게</string>
     <string name="dialog_advice">하루가 위로를 보내왔어요!</string>
+    <string name="calendar">달력</string>
 </resources>

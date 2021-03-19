@@ -2,14 +2,13 @@ package com.example.toharu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -19,9 +18,9 @@ import com.example.toharu.Utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import sun.bob.mcalendarview.MCalendarView;
-import sun.bob.mcalendarview.MarkStyle;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
 import sun.bob.mcalendarview.vo.DateData;
 
@@ -31,10 +30,9 @@ public class CalendarActivity extends AppCompatActivity {
     private final String    TAG = "CalendarActivity";
 
     private LinearLayout          linLAY;
-    private Button                settingBTN;
-    private Button                ch_calendarBTN;
+    private ImageButton           settingBTN;
+    private ImageButton           ch_calendarBTN;
     private Intent                intent;
-
     private MCalendarView         CalendarView;
 
     private ListView              listView;
@@ -48,17 +46,16 @@ public class CalendarActivity extends AppCompatActivity {
 
     private boolean               show_calendar = true;
 
-    public static Context         context;
-
 
     private boolean CheckWR; // true = 작성된 사항 / false = 작성이 안된 사항
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        context = this;
 
         init();
     }
@@ -84,12 +81,14 @@ public class CalendarActivity extends AppCompatActivity {
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
         ch_calendarBTN = findViewById(R.id.ch_calendarBTN);
         listView = findViewById(R.id.main_listView);
+
         
         // 실험 ----------------
         displayListView();
-
         //adapter.notifyDataSetChanged();
         // --------------
+
+
 
         linLAY.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,9 +153,6 @@ public class CalendarActivity extends AppCompatActivity {
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);
                     intent.putExtra("mDate", mDate);
-//                    intent.putExtra("YEAR", dateYEAR);
-//                    intent.putExtra("MONTH",dateYEAR);
-//                    intent.putExtra("DAY",dateYEAR);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
