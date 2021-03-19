@@ -46,7 +46,7 @@ public class WriteActivity extends AppCompatActivity {
     private int getdateMONTH;
     private String getdateDAY;
 
-    private String selected_emotion;
+    private String    selected_emotion;
     private ImageView sellIMG;
 
     private List<Advice> adviceList = new ArrayList<>();
@@ -58,7 +58,7 @@ public class WriteActivity extends AppCompatActivity {
 
         getdate = getIntent().getStringExtra("mDate");
         selected_emotion = getIntent().getStringExtra("emotion_img");
-        Log.i(TAG, "dd" + getdate);
+        Log.i(TAG, "dd"+getdate);
         init();
 
     }
@@ -100,33 +100,29 @@ public class WriteActivity extends AppCompatActivity {
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                API_Advice.fetchAdvice(selected_emotion, new OnCompletion() {
-                    @Override
-                    public void onCompletion(Object object) {
-                        adviceList = (List<Advice>) object;
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        Show(adviceList.get(0).getMsg());
-//                        Log.d(Utils.TAG, "adviceList element : " + adviceList.isEmpty());
-//                        adviceTXT.setText(adviceList.get(0).getMsg());
-                        //adviceTXT.setText(adviceList.get(0).getMsg());
-                    }
-                });
+                Show();
+//                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
             }
         });
     }
 
     // 팝업창 띄우는 함수
-    public void Show(String msg) {
-        Log.d(Utils.TAG, "start show popUP");
+    public void Show(){
         //selected_emotion = getIntent().getStringExtra("emotion_img");
         customDialog.setContentView(R.layout.custom_dialog);
         btnAccept = (Button) customDialog.findViewById(R.id.diaBTN);
         dialogIMG = findViewById(R.id.diaIMG);
-        adviceTXT.setText(msg);
+
+
+        API_Advice.fetchAdvice(selected_emotion, new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                adviceList = (List<Advice>) object;
+                //adviceTXT.setText(adviceList.get(0).getMsg());
+            }
+        });
 
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
