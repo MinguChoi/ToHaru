@@ -5,17 +5,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class Advice {
     private String mood;
-    private String advice;
+    private String msg;
 
     public Advice(){ }
 
     public Advice(String mood, String advice){
         this.mood = mood;
-        this.advice = advice;
+        this.msg = advice;
+    }
+
+    public Advice(HashMap<String, String> map) {
+        this.mood = map.get("mood");
+        this.msg = map.get("msg");
     }
 
     public String getMood(){return mood;}
-    public String getAdvice(){return advice;}
+    public String getMsg(){return msg;}
 }
