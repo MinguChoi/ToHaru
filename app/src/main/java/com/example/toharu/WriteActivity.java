@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -19,6 +21,12 @@ import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
 import com.example.toharu.Utils.Utils;
+
+import java.util.Date;
+
+import sun.bob.mcalendarview.MCalendarView;
+import sun.bob.mcalendarview.MarkStyle;
+import sun.bob.mcalendarview.vo.DateData;
 
 public class WriteActivity extends AppCompatActivity {
 
@@ -31,11 +39,10 @@ public class WriteActivity extends AppCompatActivity {
 
     private boolean getCheckWR;
     public String getdate;
-    private int getdateMONTH;
-    private String getdateDAY;
-
+    public String[] dateArray;
     private String    selected_emotion;
     private ImageView sellIMG;
+    private MCalendarView CalendarView;
 
 
     @Override
@@ -43,22 +50,33 @@ public class WriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
-        getdate = getIntent().getStringExtra("mDate");
+        getdate = getIntent().getStringExtra("mDate2");
+
         selected_emotion = getIntent().getStringExtra("emotion_img");
-        Log.d(TAG, "dd"+getdate);
+        Log.i(TAG, "dd" + getdate);
+
         init();
 
     }
 
     public void init() {
+
+        dateArray = getdate.split("/");
+        Log.i(TAG, dateArray[0] + "\n" + dateArray[1] + "\n" + dateArray[2]);
+
+        int IntdateMonth = Integer.parseInt(dateArray[0]); // 월
+        int IntdateDay = Integer.parseInt(dateArray[1]); // 일
+        int IntdateYear = Integer.parseInt(dateArray[2]); // 년
+
+
         backBTN = findViewById(R.id.backBTN);
         saveBTN = findViewById(R.id.saveBTN);
         diaryETXT = findViewById(R.id.diary_writeETXT);
+        CalendarView = findViewById(R.id.CalenderView);
 
         sellIMG = findViewById(R.id.selIMG);
         int img_id = Utils.getImageByName(selected_emotion, getApplicationContext());
         sellIMG.setImageResource(img_id);
-
 
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", false);
 //        getCheckWR = getIntent().getBooleanExtra("CheckWRdata", true);
@@ -89,10 +107,14 @@ public class WriteActivity extends AppCompatActivity {
                 Diary newDiary = new Diary(selected_emotion, "2021-03-18", diaryETXT.getText().toString());
                 API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
 
+                CalendarView.markDate(new DateData(IntdateYear, IntdateMonth, IntdateDay).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+
 //                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                startActivity(intent);
+
             }
         });
     }
+
 }

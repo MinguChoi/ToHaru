@@ -2,7 +2,9 @@ package com.example.toharu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sun.bob.mcalendarview.MCalendarView;
+import sun.bob.mcalendarview.MarkStyle;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
 import sun.bob.mcalendarview.vo.DateData;
 
@@ -31,6 +34,7 @@ public class CalendarActivity extends AppCompatActivity {
     private Button                settingBTN;
     private Button                ch_calendarBTN;
     private Intent                intent;
+
     private MCalendarView         CalendarView;
 
     private ListView              listView;
@@ -44,6 +48,8 @@ public class CalendarActivity extends AppCompatActivity {
 
     private boolean               show_calendar = true;
 
+    public static Context         context;
+
 
     private boolean CheckWR; // true = 작성된 사항 / false = 작성이 안된 사항
 
@@ -52,6 +58,7 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+        context = this;
 
         init();
     }
@@ -80,6 +87,7 @@ public class CalendarActivity extends AppCompatActivity {
         
         // 실험 ----------------
         displayListView();
+
         //adapter.notifyDataSetChanged();
         // --------------
 
@@ -146,6 +154,9 @@ public class CalendarActivity extends AppCompatActivity {
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);
                     intent.putExtra("mDate", mDate);
+//                    intent.putExtra("YEAR", dateYEAR);
+//                    intent.putExtra("MONTH",dateYEAR);
+//                    intent.putExtra("DAY",dateYEAR);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
