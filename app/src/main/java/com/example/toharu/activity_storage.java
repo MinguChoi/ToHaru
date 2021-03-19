@@ -15,7 +15,7 @@ public class activity_storage extends AppCompatActivity {
         setContentView(R.layout.activity_storage);
 
         // [START storage_field_initialization]
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        //FirebaseStorage storage = FirebaseStorage.getInstance();
         // [END storage_field_initialization]
 
         includesForCreateReference();
