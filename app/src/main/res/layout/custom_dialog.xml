@@ -37,7 +37,7 @@
                     android:textAlignment="center"
                     android:textStyle="bold"
                     android:textSize="35dp"
-                    android:text="하루가 전하는 위로의 한마디"
+                    android:text="하루가 전하는 오늘의 한마디"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center_horizontal" />
 
@@ -56,11 +56,12 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/font_middle_school"
+                    android:gravity="center_horizontal"
+                    android:text="응원해요!!!!"
                     android:textAlignment="center"
                     android:textSize="30dp"
-                    android:text="위로해요"
-                    android:fontFamily="@font/font_middle_school"
-                    android:gravity="center_horizontal" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/diaBTN"
