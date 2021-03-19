@@ -26,6 +26,7 @@ import com.example.toharu.Utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class WriteActivity extends AppCompatActivity {
 
@@ -50,6 +51,7 @@ public class WriteActivity extends AppCompatActivity {
     private ImageView sellIMG;
 
     private List<Advice> adviceList = new ArrayList<>();
+    private Random ran = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,6 @@ public class WriteActivity extends AppCompatActivity {
         diaryETXT = findViewById(R.id.diary_writeETXT);
         customDialog = new Dialog(this);
         sellIMG = findViewById(R.id.selIMG);
-        adviceTXT = findViewById(R.id.adviceTXT);
 
         int img_id = Utils.getImageByName(selected_emotion, getApplicationContext());
         sellIMG.setImageResource(img_id);
@@ -113,14 +114,16 @@ public class WriteActivity extends AppCompatActivity {
         //selected_emotion = getIntent().getStringExtra("emotion_img");
         customDialog.setContentView(R.layout.custom_dialog);
         btnAccept = (Button) customDialog.findViewById(R.id.diaBTN);
-        dialogIMG = findViewById(R.id.diaIMG);
-
+        dialogIMG = customDialog.findViewById(R.id.diaIMG);
+        adviceTXT = customDialog.findViewById(R.id.adviceTXT);
 
         API_Advice.fetchAdvice(selected_emotion, new OnCompletion() {
             @Override
             public void onCompletion(Object object) {
                 adviceList = (List<Advice>) object;
+                Log.d(Utils.TAG, "adviceList size: " + adviceList.size());
                 //adviceTXT.setText(adviceList.get(0).getMsg());
+                adviceTXT.setText(adviceList.get(ran.nextInt((adviceList.size()))).getMsg());
             }
         });
 

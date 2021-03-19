@@ -73,7 +73,9 @@
             android:layout_width="150dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
-            android:contentDescription="TODO" />
+            android:adjustViewBounds="true"
+            android:contentDescription="TODO"
+            android:cropToPadding="false" />
 
         <EditText
             android:id="@+id/diary_writeETXT"
