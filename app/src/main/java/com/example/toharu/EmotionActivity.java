@@ -64,6 +64,7 @@ public class EmotionActivity extends AppCompatActivity {
             case R.id.next_btn:
                 Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
                 intent.putExtra("emotion_img", selected_img);
+                intent.putExtra("mDate2", getdate);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;

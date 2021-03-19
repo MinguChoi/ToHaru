@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,13 +41,15 @@ public class WriteActivity extends AppCompatActivity {
     private EditText diaryETXT;
     private Dialog customDialog;
 
+    private ListView listView;
+    private DiaryAdapter          adapter;
+    private List<Diary>           diaries;
+
     private TextView adviceTXT;
 
     private boolean getCheckWR;
     public String getdate;
-    private int getdateMONTH;
-    private String getdateDAY;
-
+    private String[] dateArray;
     private String    selected_emotion;
     private ImageView sellIMG;
 
@@ -58,7 +61,7 @@ public class WriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
-        getdate = getIntent().getStringExtra("mDate");
+        getdate = getIntent().getStringExtra("mDate2");
         selected_emotion = getIntent().getStringExtra("emotion_img");
         Log.i(TAG, "dd"+getdate);
         init();
@@ -129,7 +132,7 @@ public class WriteActivity extends AppCompatActivity {
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Diary newDiary = new Diary(selected_emotion, "2021-03-16", diaryETXT.getText().toString());
+                Diary newDiary = new Diary(selected_emotion, getdate, diaryETXT.getText().toString());
                 API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
                 customDialog.dismiss();
             }
@@ -138,4 +141,7 @@ public class WriteActivity extends AppCompatActivity {
         customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         customDialog.show();
     }
+
+
+
 }

@@ -1,9 +1,10 @@
 package com.example.toharu.Model;
 
+import java.io.Serializable;
 import java.util.Dictionary;
 import java.util.HashMap;
 
-public class Diary {
+public class Diary implements Serializable {
 
     private String uid;
     private String mood;
