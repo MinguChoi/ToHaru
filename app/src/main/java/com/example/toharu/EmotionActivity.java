@@ -72,7 +72,10 @@ public class EmotionActivity extends AppCompatActivity {
                 // 버튼 누른 이미지 계속 유지되도록
                 v.setSelected(!v.isSelected());
                 selected_img = (String) v.getTag();
+                if(v.isSelected())
+                    //setSelected(false);
                 break;
+
         }
     }
 
