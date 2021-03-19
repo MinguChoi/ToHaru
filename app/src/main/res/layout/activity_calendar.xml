@@ -135,12 +135,13 @@
         android:layout_height="match_parent"
         android:layout_weight="4"
         android:orientation="horizontal"
-        android:padding="40dp">
+        >
 
         <sun.bob.mcalendarview.MCalendarView
             android:id="@+id/CalenderView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="40dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
