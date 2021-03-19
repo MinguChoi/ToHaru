@@ -62,7 +62,6 @@ public class WriteActivity extends AppCompatActivity {
         selected_emotion = getIntent().getStringExtra("emotion_img");
         Log.i(TAG, "dd"+getdate);
         init();
-
     }
 
     public void init() {

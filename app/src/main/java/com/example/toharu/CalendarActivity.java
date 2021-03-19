@@ -148,7 +148,7 @@ public class CalendarActivity extends AppCompatActivity {
                     dateMONTH = Integer.toString(date.getMonth());
                     dateDAY = Integer.toString(date.getDay());
 
-                    mDate = dateMONTH + "/" + dateDAY + "/" + dateYEAR ;
+                    mDate = dateYEAR + "/" + dateMONTH + "/" + dateDAY ;
                     Log.i(TAG, mDate);
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);

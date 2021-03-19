@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.toharu.Utils.Utils;
 
 public class EmotionActivity extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class EmotionActivity extends AppCompatActivity {
     public String           getdate;
 
     private String          selected_img;
+    private Boolean         isSelected = false;
 
 
     @Override
@@ -62,20 +66,55 @@ public class EmotionActivity extends AppCompatActivity {
     public void selected_next_move(View v){
         switch (v.getId()){
             case R.id.next_btn:
-                Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
-                intent.putExtra("emotion_img", selected_img);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                if(selected_img == null){
+                    Utils.toastError(getApplicationContext(), "감정을 선택하세요!");
+                    //Toast.makeText(EmotionActivity.this, "감정을 선택하세요!",Toast.LENGTH_SHORT).show();
+                } else{
+                        Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
+                        intent.putExtra("emotion_img", selected_img);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                }
                 break;
 
             default:
-                // 버튼 누른 이미지 계속 유지되도록
-                v.setSelected(!v.isSelected());
-                selected_img = (String) v.getTag();
-                if(v.isSelected())
-                    //setSelected(false);
-                break;
+//                if(selected_img.equals((String)v.getTag())) {
+//                    v.setSelected(!v.isSelected());
+//                    selected_img = null;
+//                } else {
+//                    v.setSelected(!v.isSelected());
+//                    switch (selected_img) {
+//                        case "joy":
+//                            joy_img.setSelected(!joy_img.isSelected());
+//                            break;
+//                        case "happy":
+//                            happy_img.setSelected(!happy_img.isSelected());
+//                            break;
+//                        case "proud":
+//                            proud_img.setSelected(!proud_img.isSelected());
+//                            break;
+//                    }
+//                    selected_img = (String) v.getTag();
+//                }
 
+                    // 한 번 클릭했을 때 (감정 버튼이 선택 되었을 때)
+                    if (isSelected == false) {
+                        if(){
+
+                        } else{
+                            v.setSelected(!v.isSelected()); // 버튼 이미지 계속 유지
+                            selected_img = (String) v.getTag();
+                            isSelected = true;
+                        }
+                    }
+
+                    // 두 번 클릭했을 때 (감정 버튼 선택 해제했을 때)
+                    else {
+                        v.setSelected(!v.isSelected()); // 버튼 이미지 계속 유지
+                        selected_img = null;
+                        isSelected = false;
+                    }
+                    break;
         }
     }
 
