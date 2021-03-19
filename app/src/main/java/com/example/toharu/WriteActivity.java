@@ -38,7 +38,6 @@ public class WriteActivity extends AppCompatActivity {
     private Button btnAccept;
     private EditText diaryETXT;
     private Dialog customDialog;
-    private ImageView dialogIMG;
 
     private TextView adviceTXT;
 
@@ -114,7 +113,6 @@ public class WriteActivity extends AppCompatActivity {
         //selected_emotion = getIntent().getStringExtra("emotion_img");
         customDialog.setContentView(R.layout.custom_dialog);
         btnAccept = (Button) customDialog.findViewById(R.id.diaBTN);
-        dialogIMG = customDialog.findViewById(R.id.diaIMG);
         adviceTXT = customDialog.findViewById(R.id.adviceTXT);
 
         API_Advice.fetchAdvice(selected_emotion, new OnCompletion() {
