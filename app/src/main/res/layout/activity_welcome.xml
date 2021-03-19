@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/white_background"
-    android:onClick="onClick">
+    android:onClick="onClick"
+    android:padding="100dp">
 
 
     <ImageView
@@ -20,11 +21,11 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="165dp"
         android:fontFamily="@font/font_middle_school"
         android:gravity="center_horizontal"
-        android:text="너의 하루를 위로해줄게"
-        android:textColor="@color/black"
-        android:textSize="40dp" />
+        android:text="하루 기록 팔레트"
+        android:textColor="#B5000000"
+        android:textSize="30sp" />
 
 </FrameLayout>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:padding="25dp"
         android:stretchColumns="0,1,2">
 
         <!--첫번째 Row-->
@@ -43,8 +44,9 @@
 
                 <ImageButton
                     android:id="@+id/joy_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/joy"
                     android:gravity="center"
@@ -58,8 +60,8 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:tag="joy"
-                    android:textColor="#D0000000"
                     android:text="@string/joy"
+                    android:textColor="#D0000000"
                     android:textSize="24sp" />
             </TableLayout>
 
@@ -69,14 +71,15 @@
 
                 <ImageButton
                     android:id="@+id/happy_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/happy"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="25dp"
-                    android:tag="happy" />
+                    android:tag="happy"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/happy_text"
@@ -87,7 +90,8 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/happy"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
 
             <TableLayout
@@ -96,14 +100,15 @@
 
                 <ImageButton
                     android:id="@+id/proud_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/proud"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="25dp"
-                    android:tag="proud" />
+                    android:tag="proud"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/proud_text"
@@ -114,7 +119,8 @@
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/proud"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
         </TableRow>
 
@@ -127,14 +133,15 @@
 
                 <ImageButton
                     android:id="@+id/tired_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/tired"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="20dp"
-                    android:tag="tired" />
+                    android:tag="tired"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/tired_text"
@@ -145,7 +152,8 @@
                     android:gravity="center"
                     android:textColor="#D0000000"
                     android:text="@string/tired_txt"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
 
             <TableLayout
@@ -154,14 +162,15 @@
 
                 <ImageButton
                     android:id="@+id/sadness_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/sadness"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="20dp"
-                    android:tag="sadness" />
+                    android:tag="sadness"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/sadness_text"
@@ -172,7 +181,8 @@
                     android:gravity="center"
                     android:textColor="#D0000000"
                     android:text="@string/sadness_txt"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
 
             <TableLayout
@@ -181,13 +191,14 @@
 
                 <ImageButton
                     android:id="@+id/angry_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/angry"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="20dp"
+                    android:layout_margin="10dp"
                     android:tag="angry" />
 
                 <TextView
@@ -199,7 +210,8 @@
                     android:gravity="center"
                     android:textColor="#D0000000"
                     android:text="@string/angry_txt"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
         </TableRow>
 
@@ -211,14 +223,15 @@
 
                 <ImageButton
                     android:id="@+id/anxiety_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/anxiety"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="20dp"
-                    android:tag="anxiety" />
+                    android:tag="anxiety"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/anxiety_text_text"
@@ -229,7 +242,8 @@
                     android:gravity="center"
                     android:textColor="#D0000000"
                     android:text="@string/anxiety_txt"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
 
             <TableLayout
@@ -238,14 +252,15 @@
 
                 <ImageButton
                     android:id="@+id/gloom_img"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/gloom"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="20dp"
-                    android:tag="gloom" />
+                    android:tag="gloom"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/gloom_text"
@@ -256,7 +271,8 @@
                     android:gravity="center"
                     android:textColor="#D0000000"
                     android:text="@string/gloom_txt"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
 
             <TableLayout
@@ -265,14 +281,15 @@
 
                 <ImageButton
                     android:id="@+id/peaceful_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
                     android:background="@drawable/peaceful"
                     android:gravity="center"
                     android:onClick="selected_next_move"
                     android:padding="20dp"
-                    android:tag="peaceful" />
+                    android:tag="peaceful"
+                    android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/peaceful_text"
@@ -283,7 +300,8 @@
                     android:gravity="center"
                     android:textColor="#D0000000"
                     android:text="@string/peaceful_txt"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"/>
             </TableLayout>
         </TableRow>
 
@@ -296,7 +314,7 @@
         android:layout_gravity="center"
         android:background="@android:color/transparent"
         android:onClick="selected_next_move"
-        android:padding="35dp"
+        android:padding="20dp"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/next_" />
 </LinearLayout>

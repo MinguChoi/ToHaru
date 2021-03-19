@@ -7,7 +7,8 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".LoginActivity"
-    android:background="@drawable/white_background">
+    android:background="@drawable/white_background"
+    android:padding="30dp">
 
     <TextView
         android:id="@+id/title"

@@ -34,20 +34,20 @@
 
         <ImageButton
             android:id="@+id/ch_calendarBTN"
-            android:layout_width="71dp"
-            android:layout_height="wrap_content"
+            android:layout_width="59dp"
+            android:layout_height="match_parent"
 
             android:layout_gravity="center"
             android:background="@android:color/transparent"
+            android:contentDescription="TODO"
             android:scaleType="fitCenter"
             android:src="@drawable/view_change"
             android:textColor="@color/black"
-            app:backgroundTint="#EEE6C4"
-            android:contentDescription="TODO" />
+            app:backgroundTint="#EEE6C4" />
 
         <ImageButton
             android:id="@+id/settingBTN"
-            android:layout_width="80dp"
+            android:layout_width="82dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
             android:background="@android:color/transparent"
@@ -130,6 +130,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="20dp"
         android:layout_weight="4"
         android:orientation="horizontal">
 
