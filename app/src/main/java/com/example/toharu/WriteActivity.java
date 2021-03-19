@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.toharu.API.API_Advice;
@@ -22,6 +23,9 @@ import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Advice;
 import com.example.toharu.Model.Diary;
 import com.example.toharu.Utils.Utils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WriteActivity extends AppCompatActivity {
 
@@ -35,6 +39,8 @@ public class WriteActivity extends AppCompatActivity {
     private Dialog customDialog;
     private ImageView dialogIMG;
 
+    private TextView adviceTXT;
+
     private boolean getCheckWR;
     public String getdate;
     private int getdateMONTH;
@@ -43,6 +49,7 @@ public class WriteActivity extends AppCompatActivity {
     private String    selected_emotion;
     private ImageView sellIMG;
 
+    private List<Advice> adviceList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,7 @@ public class WriteActivity extends AppCompatActivity {
         diaryETXT = findViewById(R.id.diary_writeETXT);
         customDialog = new Dialog(this);
         sellIMG = findViewById(R.id.selIMG);
+        adviceTXT = findViewById(R.id.adviceTXT);
 
         int img_id = Utils.getImageByName(selected_emotion, getApplicationContext());
         sellIMG.setImageResource(img_id);
@@ -107,6 +115,14 @@ public class WriteActivity extends AppCompatActivity {
         btnAccept = (Button) customDialog.findViewById(R.id.diaBTN);
         dialogIMG = findViewById(R.id.diaIMG);
 
+
+        API_Advice.fetchAdvice(selected_emotion, new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                adviceList = (List<Advice>) object;
+                //adviceTXT.setText(adviceList.get(0).getMsg());
+            }
+        });
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
