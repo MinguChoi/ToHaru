@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
-        app:cardBackgroundColor="@color/colorYellowLight"
+        android:background="@drawable/dialog_color_mix"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -19,7 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/dialog_color_mix">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,51 +35,53 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:textSize="35dp"
-                    android:text="하루가 전하는 오늘의 한마디"
                     android:fontFamily="@font/font_middle_school"
-                    android:gravity="center_horizontal" />
+                    android:gravity="center_horizontal"
+                    android:text="하루에게 온 편지"
+                    android:textAlignment="center"
+                    android:textColor="#B9100E0E"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/adviceTXT"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
+                    android:paddingBottom="20dp"
                     android:textAlignment="center"
-                    android:textSize="25dp" />
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/aTXT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center_horizontal"
-                    android:text="응원해요!!!!"
+                    android:text="난 항상 네 편이야"
                     android:textAlignment="center"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                    android:textSize="25dp" />
 
                 <Button
                     android:id="@+id/diaBTN"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/radius"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/font_middle_school"
                     android:text="고마워"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="#B4000000"
                     android:textSize="30dp"
-                    app:backgroundTint="#A5F1C0"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="10dp" />
             </LinearLayout>
         </LinearLayout>
