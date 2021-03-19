@@ -39,7 +39,11 @@ public class API_Auth extends AppCompatActivity {
                             // Save testUser into database
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
                             writeUserToDB(user.getUid(),name, email);
-                            updateUserInfo(user, ctx);
+                            // Update User Info in local
+                            User currentUser = User.getInstance();
+                            currentUser.setName(name);
+                            currentUser.setEmail(email);
+                            //updateUserInfo(user, ctx);
                             // back to the Login activity
                             Intent intent = new Intent(ctx, LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -65,6 +69,9 @@ public class API_Auth extends AppCompatActivity {
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
                             updateUserInfo(user, ctx);
                             // Move to the main read activity
+                            Intent intent = new Intent(ctx, CalendarActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            ctx.startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d(Utils.TAG, "signInWithEmail:failure", task.getException());
@@ -98,10 +105,6 @@ public class API_Auth extends AppCompatActivity {
                     currentUser.setEmail(map.get("email").toString());
                     currentUser.setDiaries((List<String>) map.get("diaries"));
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
-
-                    Intent intent = new Intent(ctx, CalendarActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    ctx.startActivity(intent);
                 }
             }
         });
