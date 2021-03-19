@@ -2,9 +2,14 @@ package com.example.toharu.Utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.util.Log;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.toharu.CalendarActivity;
+import com.example.toharu.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -12,6 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import sun.bob.mcalendarview.MCalendarView;
+import sun.bob.mcalendarview.MarkStyle;
+import sun.bob.mcalendarview.vo.DateData;
 
 public final class Utils {
 
@@ -43,4 +52,15 @@ public final class Utils {
 
         return df.format(date);
     }
+
+//    public static void setMarkDot(MCalendarView mcalendarView, String dateyear, String datemonth, String dateday){
+//        int year = Integer.parseInt(dateyear);
+//        int month = Integer.parseInt(datemonth);
+//        int day = Integer.parseInt(dateday);
+//
+//        Log.i(TAG, year + "/" + month + "/" + day);
+//
+//        mcalendarView.markDate(new DateData(year, month, day).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+//
+//    }
 }

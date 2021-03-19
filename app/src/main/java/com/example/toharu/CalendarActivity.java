@@ -3,8 +3,10 @@ package com.example.toharu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -21,8 +23,10 @@ import java.util.List;
 import java.util.Random;
 
 import sun.bob.mcalendarview.MCalendarView;
+import sun.bob.mcalendarview.MarkStyle;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
 import sun.bob.mcalendarview.vo.DateData;
+import sun.bob.mcalendarview.vo.MarkedDates;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -44,6 +48,8 @@ public class CalendarActivity extends AppCompatActivity {
     private String                dateMONTH;
     private String                dateDAY;
 
+    private String[]              dateArray;
+
     private boolean               show_calendar = true;
 
 
@@ -58,6 +64,7 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
         init();
+        do_Mark();
     }
 
     public void displayListView() {
@@ -81,6 +88,7 @@ public class CalendarActivity extends AppCompatActivity {
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
         ch_calendarBTN = findViewById(R.id.ch_calendarBTN);
         listView = findViewById(R.id.main_listView);
+
 
         
         // 실험 ----------------
@@ -135,11 +143,21 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onDateClick(View view, DateData date) {
                 if(D) Log.i(TAG, "onClick()" + date.getYear() + " // "+ date.getMonth() + " // " + date.getDay());
-
+                CheckWR = isMarked(date);
                 if(CheckWR == true){ // 쓴 상태 라면
-                    intent = new Intent(CalendarActivity.this, ReadActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    dateYEAR = Integer.toString(date.getYear());
+                    dateMONTH = Integer.toString(date.getMonth());
+                    dateDAY = Integer.toString(date.getDay());
+                    mDate = dateYEAR + "/" + dateMONTH + "/" + dateDAY ;
+                    API_Diary.fetchADiary(mDate, new OnCompletion() {
+                        @Override
+                        public void onCompletion(Object object) {
+                            intent = new Intent(CalendarActivity.this, ReadActivity.class);
+                            intent.putExtra("diary", (Diary)object);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                    });
                 }
                 else {
                     // 선택한 날짜의 연도와 달, 일 모두 DB에 저장 해야함
@@ -149,6 +167,7 @@ public class CalendarActivity extends AppCompatActivity {
                     dateDAY = Integer.toString(date.getDay());
 
                     mDate = dateYEAR + "/" + dateMONTH + "/" + dateDAY ;
+
                     Log.i(TAG, mDate);
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);
@@ -161,6 +180,31 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean isMarked(DateData date){
+        MarkedDates markedDates = MarkedDates.getInstance();
+        if (markedDates.check(date) != null)
+            return true;
+
+        return false;
+    }
+    public void do_Mark() {
+        // Fetch diaries from database and update UI
+        API_Diary.fetchPosts(new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                diaries = (ArrayList<Diary>) object;
+                for(int i = 0; i<diaries.size(); i++){
+                    diaries.get(i).getDate();
+                    Log.i(TAG, "\n" +  diaries.get(i).getDate() + "\n");
+                    dateArray = diaries.get(i).getDate().split("/");
+                    CalendarView.markDate(new DateData(Integer.parseInt(dateArray[0]),
+                                            Integer.parseInt(dateArray[1]),
+                                            Integer.parseInt(dateArray[2])).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+                }
+            }
+        });
     }
 
 }
