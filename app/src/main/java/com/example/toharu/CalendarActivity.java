@@ -3,10 +3,12 @@ package com.example.toharu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -47,6 +49,8 @@ public class CalendarActivity extends AppCompatActivity {
     private boolean CheckWR; // true = 작성된 사항 / false = 작성이 안된 사항
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,11 +80,14 @@ public class CalendarActivity extends AppCompatActivity {
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
         ch_calendarBTN = findViewById(R.id.ch_calendarBTN);
         listView = findViewById(R.id.main_listView);
+
         
         // 실험 ----------------
         displayListView();
         //adapter.notifyDataSetChanged();
         // --------------
+
+
 
         linLAY.setOnClickListener(new View.OnClickListener() {
             @Override

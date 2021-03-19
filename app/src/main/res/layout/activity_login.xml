@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical"
-    tools:context=".LoginActivity"
+    android:layout_height="wrap_content"
     android:background="@drawable/white_background"
+    android:orientation="vertical"
     android:padding="30dp">
 
     <TextView
@@ -59,9 +58,9 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:fontFamily="@font/font_middle_school"
-            android:textSize="25sp"
             android:hint="@string/email"
-            android:importantForAutofill="no"></EditText>
+            android:importantForAutofill="no"
+            android:textSize="25sp"></EditText>
     </LinearLayout>
 
     <LinearLayout
@@ -104,15 +103,14 @@
         android:text="@string/login"
         android:textColor="#CB000000"
         android:textSize="15sp"
-        app:backgroundTint="#FEE5EB"
-        ></Button>
+        app:backgroundTint="#FEE5EB"></Button>
 
     <Button
         android:id="@+id/signup_BTN"
         android:layout_width="match_parent"
-        android:background="@drawable/btn_round"
         android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:background="@drawable/btn_round"
         android:text="SIGN UP"
         android:textColor="#CB000000"
         android:textSize="15sp"

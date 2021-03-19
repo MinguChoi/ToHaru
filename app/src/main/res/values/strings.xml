@@ -52,4 +52,5 @@
     <string name="select_txt">오늘의 감정을 골라보세요</string>
     <string name="title">하루에게</string>
     <string name="dialog_advice">하루가 위로를 보내왔어요!</string>
+    <string name="calendar">달력</string>
 </resources>
