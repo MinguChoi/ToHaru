@@ -50,11 +50,12 @@ public class EmotionActivity extends AppCompatActivity {
         sadness_img.setTag("sadness");
         angry_img.setTag("angry");
         anxiety_img.setTag("anxiety");
-        gloom_img.setTag("gloom");
+        gloom_img.setTag("gloomy");
         peaceful_img.setTag("peaceful");
 
         getdate = getIntent().getStringExtra("mDate"); // 날짜 받아오기
         Log.i(TAG, "get Date in EmotionActivity => " + getdate);
+
     }
 
         //next btn 클릭시 -> diary activity
@@ -68,9 +69,10 @@ public class EmotionActivity extends AppCompatActivity {
                 break;
 
             default:
+                // 버튼 누른 이미지 계속 유지되도록
+                v.setSelected(!v.isSelected());
                 selected_img = (String) v.getTag();
                 break;
-
         }
     }
 

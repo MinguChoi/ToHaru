@@ -123,10 +123,11 @@ public class WriteActivity extends AppCompatActivity {
                 //adviceTXT.setText(adviceList.get(0).getMsg());
             }
         });
+
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Diary newDiary = new Diary("Happy", "2021-03-16", diaryETXT.getText().toString());
+                Diary newDiary = new Diary(selected_emotion, "2021-03-16", diaryETXT.getText().toString());
                 API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
                 customDialog.dismiss();
             }
