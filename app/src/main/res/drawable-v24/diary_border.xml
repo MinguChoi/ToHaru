@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:shape="rectangle">
 
-    <shape android:shape="rectangle">
-        <solid android:color="#CFFFE5" />
-    </shape>
+    <solid android:color="#FFFFFFFF" />
 
-</item>
+    <stroke
+        android:width="2px"
+        android:color="#FF000000" />
 
-    <item android:top = "10dp"
-        android:right= "10dp"
-        android:left="10dp"
-        android:bottom="10dp">
-
-        <shape android:shape="rectangle">
-        </shape>
-
-    </item></layer-list>
+</shape>
