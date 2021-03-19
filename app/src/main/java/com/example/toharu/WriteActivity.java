@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,8 +34,8 @@ public class WriteActivity extends AppCompatActivity {
     private final boolean D = true;
     private final String TAG = "WriteActivity";
 
-    private Button backBTN;
-    private Button saveBTN;
+    private ImageButton backBTN;
+    private ImageButton saveBTN;
     private Button btnAccept;
     private EditText diaryETXT;
     private Dialog customDialog;

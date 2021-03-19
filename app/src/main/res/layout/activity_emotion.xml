@@ -5,51 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:background="@drawable/white_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/title_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="2"
             android:fontFamily="@font/font_middle_school"
             android:gravity="center"
             android:text="@string/select_txt"
-            android:textSize="24sp" />
+            android:textColor="#D3000000"
+            android:textSize="25dp"
+            android:textStyle="normal" />
     </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:stretchColumns="0,1,2">
 
         <!--첫번째 Row-->
         <TableRow>
 
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="100dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/joy_img"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_joy"
 
                     android:gravity="center"
-                    android:onClick="selected_next_move"
-                    android:padding="25dp" />
+                    android:onClick="selected_next_move" />
 
                 <TextView
                     android:id="@+id/joy_text"
@@ -58,19 +61,22 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
-                    android:text="@string/joy"
                     android:tag="joy"
-                    android:textSize="20sp" />
+                    android:text="@string/joy"
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
 
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="10dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/happy_img"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_happy"
                     android:gravity="center"
@@ -82,21 +88,25 @@
                     android:id="@+id/happy_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/happy"
-                    android:textSize="18sp" />
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
 
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="100dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/proud_img"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_proud"
                     android:gravity="center"
@@ -108,11 +118,13 @@
                     android:id="@+id/proud_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/proud"
-                    android:textSize="18sp" />
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
         </TableRow>
 
@@ -120,13 +132,15 @@
         <TableRow android:layout_marginTop="20dp">
 
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="100dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/tired_img"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_tired"
                     android:gravity="center"
@@ -138,21 +152,25 @@
                     android:id="@+id/tired_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/tired_txt"
-                    android:textSize="18sp" />
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
 
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="100dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/sadness_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_sadness"
                     android:gravity="center"
@@ -164,21 +182,25 @@
                     android:id="@+id/sadness_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/sadness_txt"
-                    android:textSize="18sp" />
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
 
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="100dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/angry_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_angry"
                     android:gravity="center"
@@ -190,23 +212,28 @@
                     android:id="@+id/angry_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/angry_txt"
-                    android:textSize="18sp" />
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
         </TableRow>
 
         <TableRow android:layout_marginTop="20dp">>
+
             <TableLayout
-                android:layout_width="120dp"
+                android:layout_width="100dp"
+                android:layout_weight="1"
                 android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/anxiety_img"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_anxiety"
                     android:gravity="center"
@@ -218,21 +245,25 @@
                     android:id="@+id/anxiety_text_text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/font_middle_school"
                     android:gravity="center"
                     android:text="@string/anxiety_txt"
-                    android:textSize="18sp" />
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
             </TableLayout>
 
             <TableLayout
-                    android:layout_width="120dp"
-                    android:paddingHorizontal="4dp">
+                android:layout_width="100dp"
+                android:layout_weight="1"
+                android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/gloom_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_gloomy"
                     android:gravity="center"
@@ -240,25 +271,29 @@
                     android:padding="20dp"
                     android:tag="gloom" />
 
-                    <TextView
-                        android:id="@+id/gloom_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/font_middle_school"
-                        android:gravity="center"
-                        android:text="@string/gloom_txt"
-                        android:textSize="18sp" />
-                </TableLayout>
+                <TextView
+                    android:id="@+id/gloom_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/font_middle_school"
+                    android:gravity="center"
+                    android:text="@string/gloom_txt"
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
+            </TableLayout>
 
             <TableLayout
-                    android:layout_width="120dp"
-                    android:paddingHorizontal="4dp">
+                android:layout_width="100dp"
+                android:layout_weight="1"
+                android:paddingHorizontal="4dp">
 
                 <ImageButton
                     android:id="@+id/peaceful_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_peaceful"
                     android:gravity="center"
@@ -266,28 +301,30 @@
                     android:padding="20dp"
                     android:tag="peaceful" />
 
-                    <TextView
-                        android:id="@+id/peaceful_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/font_middle_school"
-                        android:gravity="center"
-                        android:text="@string/peaceful_txt"
-                        android:textSize="18sp" />
-                </TableLayout>
+                <TextView
+                    android:id="@+id/peaceful_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/font_middle_school"
+                    android:gravity="center"
+                    android:text="@string/peaceful_txt"
+                    android:textColor="#D0000000"
+                    android:textSize="24sp" />
+            </TableLayout>
         </TableRow>
 
     </TableLayout>
 
     <ImageButton
         android:id="@+id/next_btn"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="106dp"
+        android:layout_height="96dp"
         android:layout_gravity="center"
         android:background="@android:color/transparent"
         android:onClick="selected_next_move"
-        android:padding="35dp"
+        android:padding="20dp"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/next_" />
 </LinearLayout>
