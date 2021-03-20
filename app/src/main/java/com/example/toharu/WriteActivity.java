@@ -122,10 +122,17 @@ public class WriteActivity extends AppCompatActivity {
     // 팝업창 띄우는 함수
     //----------------------------------------------------------------------------------
     public void Show(){
+
         customDialog.setContentView(R.layout.custom_dialog);
         finish_dialog_BTN = (Button) customDialog.findViewById(R.id.finish_dialog_BTN);
         advice_dialog_TXT = customDialog.findViewById(R.id.advice_dialog_TXT);
         //----------------------------------------------------------------------------------
+
+
+        //selected_emotion = getIntent().getStringExtra("emotion_img");
+        //customDialog.setContentView(R.layout.custom_dialog);
+        //btnAccept = (Button) customDialog.findViewById(R.id.diaBTN);
+        //adviceTXT = customDialog.findViewById(R.id.adviceTXT);
 
 
         //----------------------------------------------------------------------------------
