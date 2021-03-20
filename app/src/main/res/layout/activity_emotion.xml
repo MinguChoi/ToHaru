@@ -24,7 +24,8 @@
             android:fontFamily="@font/font_middle_school"
             android:gravity="center"
             android:text="@string/select_txt"
-            android:textColor="#D3000000"
+            android:textColor="#2E3039"
+            android:textColorHint="#FFFFFF"
             android:textSize="25dp"
             android:textStyle="normal" />
     </LinearLayout>
@@ -32,7 +33,10 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:stretchColumns="0,1,2">
 
         <!--첫번째 Row-->
