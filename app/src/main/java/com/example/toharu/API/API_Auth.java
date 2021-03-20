@@ -38,11 +38,10 @@ public class API_Auth extends AppCompatActivity {
                             // Save testUser into database
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
                             writeUserToDB(user.getUid(),name, email);
-                            // Update User Info in local
+                            // Sync user Info in local instance
                             User currentUser = User.getInstance();
                             currentUser.setName(name);
                             currentUser.setEmail(email);
-                            //updateUserInfo(user, ctx);
                             // back to the Login activity
                             Intent intent = new Intent(ctx, LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -71,11 +70,8 @@ public class API_Auth extends AppCompatActivity {
                             // Sign in success, update the signed-in user's information
                             Log.d(Utils.TAG, "signInWithEmail:success");
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
+                            // sync user info and move to the main activity
                             syncUserInfo(user, ctx);
-                            // Move to the main read activity
-                            Intent intent = new Intent(ctx, CalendarActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            ctx.startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d(Utils.TAG, "signInWithEmail:failure", task.getException());
@@ -101,7 +97,7 @@ public class API_Auth extends AppCompatActivity {
 
 
     //----------------------------------------------------------------------------------
-    // 유저정보 local instance에 저장
+    // 유저정보 local instance에 저장 후 메인화면으로 이동
     //----------------------------------------------------------------------------------
     public static void syncUserInfo(FirebaseUser user, Activity ctx) {
         String uid = user.getUid();
@@ -117,8 +113,13 @@ public class API_Auth extends AppCompatActivity {
                     HashMap map = (HashMap) task.getResult().getValue();
                     currentUser.setName(map.get("name").toString());
                     currentUser.setEmail(map.get("email").toString());
-                    currentUser.setDiaries((List<String>) map.get("diaries"));
+                    currentUser.setDiaries((List<String>)map.get("diaries"));
+                    Log.d("current user diaries: ", currentUser.getDiaries().get(0));
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
+
+                    Intent intent = new Intent(ctx, CalendarActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    ctx.startActivity(intent);
                 }
             }
         });
