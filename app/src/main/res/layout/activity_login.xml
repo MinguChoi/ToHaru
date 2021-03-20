@@ -58,9 +58,11 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:fontFamily="@font/font_middle_school"
-            android:singleLine="true"
             android:hint="@string/email"
             android:importantForAutofill="no"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            android:backgroundTint="#DDE2F8"
             android:textSize="25sp"></EditText>
     </LinearLayout>
 
@@ -89,6 +91,8 @@
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="textPassword"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            android:backgroundTint="#DDE2F8"
             android:singleLine="true"
             android:textSize="25sp" />
 
