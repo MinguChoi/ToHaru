@@ -73,7 +73,7 @@ public class WriteActivity extends AppCompatActivity {
     public void init() {
         back_Write_BTN = findViewById(R.id.back_Write_BTN);
         save_Write_BTN = findViewById(R.id.save_Write_BTN);
-        diaryArea_Write_ETXT = findViewById(R.id.diaryArea_Write_ETXT);
+        diaryArea_Write_ETXT = findViewById(R.id.diaryArea_Read_ETXT);
         emotion_Write_IMG = findViewById(R.id.emotion_Write_IMG);
         customDialog = new Dialog(this);
         //----------------------------------------------------------------------------------
