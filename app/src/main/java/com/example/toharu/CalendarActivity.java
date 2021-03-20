@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -104,6 +105,20 @@ public class CalendarActivity extends AppCompatActivity {
         //----------------------------------------------------------------------------------
 
 
+        //----------------------------------------------------------------------------------
+        // listView 아이템 선택 이벤트
+        //----------------------------------------------------------------------------------
+        ListView_calendar_LST.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Diary tmp = (Diary) parent.getItemAtPosition(position);
+
+                intent = new Intent(CalendarActivity.this, ReadActivity.class);
+                intent.putExtra("diary", tmp);
+
+                startActivity(intent);
+            }
+        });
 
         //----------------------------------------------------------------------------------
         // Setting 버튼 이벤트
