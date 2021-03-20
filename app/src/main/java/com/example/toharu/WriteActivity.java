@@ -40,10 +40,6 @@ public class WriteActivity extends AppCompatActivity {
     private EditText            diaryArea_Write_ETXT;
     private Dialog              customDialog;
 
-    private ListView            listView;
-    private DiaryAdapter        adapter;
-    private List<Diary>         diaries;
-
     private TextView            advice_dialog_TXT;
 
     private boolean             getCheckWR;
