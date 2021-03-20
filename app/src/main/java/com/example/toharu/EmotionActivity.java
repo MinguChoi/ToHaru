@@ -8,6 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.toharu.Utils.Utils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmotionActivity extends AppCompatActivity {
 
     //----------------------------------------------------------------------------------
@@ -27,9 +32,9 @@ public class EmotionActivity extends AppCompatActivity {
     private final boolean   D = true;
     private final String    TAG = "EmotionActivity";
 
-    public String           getdate;
-
-    private String          selected_img;
+    public String             getdate;
+    private String            selected_img;
+    private List<ImageButton> imageList;
     //----------------------------------------------------------------------------------
 
 
@@ -68,11 +73,38 @@ public class EmotionActivity extends AppCompatActivity {
         gloom_Emotion_IMG.setTag("gloomy");
         peaceful_Emotion_IMG.setTag("peaceful");
 
+        imageList = new ArrayList<>();
+        imageList.add(joy_Emotion_IMG);
+        imageList.add(happy_Emotion_IMG);
+        imageList.add(proud_Emotion_IMG);
+        imageList.add(tired_Emotion_IMG);
+        imageList.add(sadness_Emotion_IMG);
+        imageList.add(angry_Emotion_IMG);
+        imageList.add(anxiety_Emotion_IMG);
+        imageList.add(gloom_Emotion_IMG);
+        imageList.add(peaceful_Emotion_IMG);
+
         getdate = getIntent().getStringExtra("mDate"); // 날짜 받아오기
         Log.i(TAG, "get Date in EmotionActivity => " + getdate);
     }
     //----------------------------------------------------------------------------------
+    public void setFalseExcpetFor(String selected) {
+        for(int i=0; i<imageList.size(); i++) {
+            String imgTag = (String) imageList.get(i).getTag();
+            if( !imgTag.equals(selected) ) {
+                imageList.get(i).setSelected(false);
+            }
+        }
+    }
 
+    public boolean isSelected() {
+        for(int i=0; i<imageList.size(); i++) {
+            if (imageList.get(i).isSelected()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     //----------------------------------------------------------------------------------
@@ -81,19 +113,26 @@ public class EmotionActivity extends AppCompatActivity {
     public void selected_next_move(View v){
         switch (v.getId()){
             case R.id.next_Emotion_BTN:
-                Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
-                intent.putExtra("emotion_img", selected_img);
-                intent.putExtra("mDate2", getdate);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                if(selected_img == null || !isSelected()){
+                    Utils.toastError(getApplicationContext(), "감정을 선택하세요!");
+                    //Toast.makeText(EmotionActivity.this, "감정을 선택하세요!",Toast.LENGTH_SHORT).show();
+                } else{
+                    Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
+                    intent.putExtra("emotion_img", selected_img);
+                    intent.putExtra("mDate2", getdate);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
                 break;
 
             default:
-                // 버튼 누른 이미지 계속 유지되도록
-                v.setSelected(!v.isSelected());
+                // 이모티콘이 선택되었을때
                 selected_img = (String) v.getTag();
-                if(v.isSelected())
-                    //setSelected(false);
+                // 선택 이모티콘 제외 나머지 set false
+                setFalseExcpetFor(selected_img);
+                // 선택 이모티콘 set false->true, set true -> false
+                v.setSelected(!v.isSelected());
+
                 break;
         }
     }
