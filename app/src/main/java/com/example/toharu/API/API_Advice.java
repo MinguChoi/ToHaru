@@ -22,6 +22,9 @@ import java.util.List;
 
 public class API_Advice {
 
+    //----------------------------------------------------------------------------------
+    // DB로 부터 해당 감정에 맞는 모든 조언 불러오기
+    //----------------------------------------------------------------------------------
     public static void fetchAdvice(String emotion, final OnCompletion completion){
         List<Advice> advices = new ArrayList<>();
         Log.d(Utils.TAG, "Fetch data start");
@@ -50,4 +53,6 @@ public class API_Advice {
             }
         });
     }
+    //----------------------------------------------------------------------------------
+
 }

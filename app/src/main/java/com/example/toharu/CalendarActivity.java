@@ -3,12 +3,11 @@ package com.example.toharu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -18,38 +17,44 @@ import com.example.toharu.Utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import sun.bob.mcalendarview.MCalendarView;
+import sun.bob.mcalendarview.MarkStyle;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
 import sun.bob.mcalendarview.vo.DateData;
+import sun.bob.mcalendarview.vo.MarkedDates;
 
 public class CalendarActivity extends AppCompatActivity {
 
-    private final boolean   D = true;
-    private final String    TAG = "CalendarActivity";
+    //----------------------------------------------------------------------------------
+    // 변수 선언
+    //----------------------------------------------------------------------------------
+    private final boolean         D = true;
+    private final String          TAG = "CalendarActivity";
 
     private LinearLayout          linLAY;
-    private ImageButton           settingBTN;
-    private ImageButton           ch_calendarBTN;
+    private ImageButton           setting_calender_BTN;
+    private ImageButton           changeView_calendar_BTN;
+    private MCalendarView         CalenderView_calendar_VIEW;
     private Intent                intent;
-    private MCalendarView         CalendarView;
 
-    private ListView              listView;
+    private ListView              ListView_calendar_LST;
     private DiaryAdapter          adapter;
     private List<Diary>           diaries;
 
+    // 날짜 관련 데이터 ------------------------------------------------------------
     public String                 mDate;
     private String                dateYEAR;
     private String                dateMONTH;
     private String                dateDAY;
+    private String[]              dateArray;
+    // -----------------------------------------------------------------------------
 
     private boolean               show_calendar = true;
 
 
     private boolean CheckWR; // true = 작성된 사항 / false = 작성이 안된 사항
-
-
+    //----------------------------------------------------------------------------------
 
 
     @Override
@@ -58,97 +63,113 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
         init();
+        do_Mark();
     }
 
+    //----------------------------------------------------------------------------------
+    // DataBase에서 저장된 일기들 ListView로 불러오기
+    //----------------------------------------------------------------------------------
     public void displayListView() {
         // Fetch diaries from database and update UI
         API_Diary.fetchPosts(new OnCompletion() {
             @Override
             public void onCompletion(Object object) {
                 diaries = (ArrayList<Diary>) object;
-                Log.d(Utils.TAG, "diaries from db: " + diaries.size());
                 adapter = new DiaryAdapter(diaries, CalendarActivity.this);
-                listView.setAdapter(adapter);
+                ListView_calendar_LST.setAdapter(adapter);
             }
         });
     }
+    //----------------------------------------------------------------------------------
 
+    
+    //----------------------------------------------------------------------------------
+    // 변수 선언
+    //----------------------------------------------------------------------------------
     public void init(){
 
-        linLAY = findViewById(R.id.linLAY);
-        settingBTN = findViewById(R.id.settingBTN);
-        CalendarView = findViewById(R.id.CalenderView);
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
-        ch_calendarBTN = findViewById(R.id.ch_calendarBTN);
-        listView = findViewById(R.id.main_listView);
+        linLAY = findViewById(R.id.linLAY);
+        setting_calender_BTN = findViewById(R.id.setting_calender_BTN);
+        CalenderView_calendar_VIEW = findViewById(R.id.CalenderView_calendar_VIEW);
+        changeView_calendar_BTN = findViewById(R.id.changeView_calendar_BTN);
+        ListView_calendar_LST = findViewById(R.id.ListView_calendar_LST);
+        //----------------------------------------------------------------------------------
 
-        
-        // 실험 ----------------
+
+        //----------------------------------------------------------------------------------
+        // ListView 불러오기
+        //----------------------------------------------------------------------------------
         displayListView();
-        //adapter.notifyDataSetChanged();
-        // --------------
+        //----------------------------------------------------------------------------------
 
 
 
-        linLAY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(CalendarActivity.this, WriteActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
-        });
-
-        settingBTN.setOnClickListener(new View.OnClickListener() {
+        //----------------------------------------------------------------------------------
+        // Setting 버튼 이벤트
+        //----------------------------------------------------------------------------------
+        setting_calender_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(CalendarActivity.this, SettingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-
             }
         });
+        //----------------------------------------------------------------------------------
 
-        ch_calendarBTN.setOnClickListener(new View.OnClickListener() {
+
+
+        //----------------------------------------------------------------------------------
+        // Calendar -> ListView 전환 버튼
+        //----------------------------------------------------------------------------------
+        changeView_calendar_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(show_calendar == true){
                     show_calendar = false;
-                    CalendarView.setVisibility(View.INVISIBLE);
-                    listView.setVisibility(View.VISIBLE);
+                    CalenderView_calendar_VIEW.setVisibility(View.INVISIBLE);
+                    ListView_calendar_LST.setVisibility(View.VISIBLE);
                 }
                 else{
                     show_calendar = true;
-                    listView.setVisibility(View.INVISIBLE);
-                    CalendarView.setVisibility(View.VISIBLE);
+                    ListView_calendar_LST.setVisibility(View.INVISIBLE);
+                    CalenderView_calendar_VIEW.setVisibility(View.VISIBLE);
                 }
             }
         });
+        //----------------------------------------------------------------------------------
 
-//        expCalendarView.setOnDateClickListener(new OnExpDateClickListener(){
-//            public void onExpDateClickListener(View view, DateData date){
-//                Toast.makeText(CalendarActivity.this, String.format("%d-%d", date.getMonth(), date.getDay()), Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
-        CalendarView.setOnDateClickListener(new OnDateClickListener() {
+        //----------------------------------------------------------------------------------
+        // Calendar에서 원하는 날짜를 클릭할 때 이벤트
+        //----------------------------------------------------------------------------------
+        CalenderView_calendar_VIEW.setOnDateClickListener(new OnDateClickListener() {
             @Override
             public void onDateClick(View view, DateData date) {
-                if(D) Log.i(TAG, "onClick()" + date.getYear() + " // "+ date.getMonth() + " // " + date.getDay());
-
+                CheckWR = isMarked(date);
                 if(CheckWR == true){ // 쓴 상태 라면
-                    intent = new Intent(CalendarActivity.this, ReadActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    dateYEAR = Integer.toString(date.getYear());
+                    dateMONTH = Integer.toString(date.getMonth());
+                    dateDAY = Integer.toString(date.getDay());
+                    mDate = dateYEAR + "/" + dateMONTH + "/" + dateDAY ;
+                    API_Diary.fetchADiary(mDate, new OnCompletion() {
+                        @Override
+                        public void onCompletion(Object object) {
+                            intent = new Intent(CalendarActivity.this, ReadActivity.class);
+                            intent.putExtra("diary", (Diary)object);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                    });
                 }
                 else {
-                    // 선택한 날짜의 연도와 달, 일 모두 DB에 저장 해야함
-//                    CheckWR = true; // 값을 DB에 저장 해야함
                     dateYEAR = Integer.toString(date.getYear());
                     dateMONTH = Integer.toString(date.getMonth());
                     dateDAY = Integer.toString(date.getDay());
 
                     mDate = dateYEAR + "/" + dateMONTH + "/" + dateDAY ;
+
                     Log.i(TAG, mDate);
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);
@@ -160,7 +181,43 @@ public class CalendarActivity extends AppCompatActivity {
 
             }
         });
+        //----------------------------------------------------------------------------------
 
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // 날짜에 표식이 있는지(일기 작성여부) 파악
+    //----------------------------------------------------------------------------------
+    public boolean isMarked(DateData date){
+        MarkedDates markedDates = MarkedDates.getInstance();
+        if (markedDates.check(date) != null)
+            return true;
+
+        return false;
+    }
+    //----------------------------------------------------------------------------------
+
+
+    //----------------------------------------------------------------------------------
+    // 일기를 작성한 날짜에 표식 남기기
+    //----------------------------------------------------------------------------------
+    public void do_Mark() {
+        // Fetch diaries from database and update UI
+        API_Diary.fetchPosts(new OnCompletion() {
+            @Override
+            public void onCompletion(Object object) {
+                diaries = (ArrayList<Diary>) object;
+                for(int i = 0; i<diaries.size(); i++){
+                    diaries.get(i).getDate();
+                    dateArray = diaries.get(i).getDate().split("/");
+                    CalenderView_calendar_VIEW.markDate(new DateData(Integer.parseInt(dateArray[0]),
+                                            Integer.parseInt(dateArray[1]),
+                                            Integer.parseInt(dateArray[2])).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+                }
+            }
+        });
+    }
+    //----------------------------------------------------------------------------------
 }

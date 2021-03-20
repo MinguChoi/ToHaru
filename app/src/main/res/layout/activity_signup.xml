@@ -10,6 +10,7 @@
     tools:context=".SignupActivity">
 
     <TextView
+        android:id="@+id/title_signUp_TXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -28,7 +29,7 @@
         android:weightSum="2">
 
         <TextView
-            android:id="@+id/secondnameTXT"
+            android:id="@+id/nameLabel_signUp_TXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -46,7 +47,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/name_singUp"
+            android:id="@+id/name_singUp_ETXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -65,7 +66,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/emailLabel_signUp_TXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -75,7 +76,7 @@
             android:textSize="25dp" />
 
         <EditText
-            android:id="@+id/email_signUp"
+            android:id="@+id/email_signUp_ETXT"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
@@ -84,7 +85,7 @@
             android:importantForAutofill="no"></EditText>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/pwLabel_signUp_TXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -94,7 +95,7 @@
             android:textSize="25dp" />
 
         <EditText
-            android:id="@+id/pw_signUp"
+            android:id="@+id/pw_signUp_ETXT"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
@@ -105,7 +106,7 @@
             android:inputType="textPassword"></EditText>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/checkPwLabel_signUp_TXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -115,7 +116,7 @@
             android:textSize="25dp" />
 
         <EditText
-            android:id="@+id/pw_signUp2"
+            android:id="@+id/checkPw_signUp_ETXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -125,7 +126,7 @@
             android:inputType="textPassword" />
 
         <TextView
-            android:id="@+id/signupTXT"
+            android:id="@+id/signUpDone_signUp_TXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

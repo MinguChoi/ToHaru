@@ -7,20 +7,20 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/emotion_row"
+        android:id="@+id/emotion_customRow_IMG"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/date_row"
+        app:layout_constraintEnd_toStartOf="@+id/date_customRow_TXT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/anxiety" />
 
     <TextView
-        android:id="@+id/date_row"
+        android:id="@+id/date_customRow_TXT"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="150dp"
@@ -30,13 +30,13 @@
         android:text="2021-03-09"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/content_row"
+        app:layout_constraintBottom_toTopOf="@+id/content_customRow_TXT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/emotion_row"
+        app:layout_constraintStart_toEndOf="@+id/emotion_customRow_IMG"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/content_row"
+        android:id="@+id/content_customRow_TXT"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="TextView"
@@ -44,6 +44,6 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/date_row"
-        app:layout_constraintTop_toBottomOf="@+id/date_row" />
+        app:layout_constraintStart_toStartOf="@+id/date_customRow_TXT"
+        app:layout_constraintTop_toBottomOf="@+id/date_customRow_TXT" />
 </androidx.constraintlayout.widget.ConstraintLayout>

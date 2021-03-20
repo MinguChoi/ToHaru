@@ -2,16 +2,24 @@ package com.example.toharu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.toharu.Model.Diary;
+import com.example.toharu.Utils.Utils;
 
 public class ReadActivity extends AppCompatActivity {
 
-    private Button editDone_readBTN, back_readBTN;
-    private EditText content_readETXT;
-    private Boolean isChanged = false;
+    //----------------------------------------------------------------------------------
+    // 변수 선언
+    //----------------------------------------------------------------------------------
+    private TextView    day_Write_TXT;
+    private TextView    diaryArea_Write_ETXT;
+    private ImageView   emotion_Write_IMG;
+    //----------------------------------------------------------------------------------
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,38 +27,34 @@ public class ReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read);
 
         init();
+        displayDiary();
     }
 
-    public void init() {
-        editDone_readBTN = findViewById();
-        back_readBTN = findViewById();
-        content_readETXT = findViewById();
-
-        editDone_readBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // if user clicks edit button
-                if(){
-                    // change the button to done
-
-                    // change read-only content to writable
-
-                }
-                // user clicks done button
-                else {
-                    // check if user changed the content of diary
-                    // if yes, update the diary in database
-                    // else, just back to the previous activity
-                }
-            }
-        });
-
-        back_readBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // back to the previous activity
-            }
-        });
+    //----------------------------------------------------------------------------------
+    // 초기화
+    //----------------------------------------------------------------------------------
+    public void init(){
+        day_Write_TXT = findViewById(R.id.day_Write_TXT);
+        diaryArea_Write_ETXT = findViewById(R.id.diaryArea_Write_ETXT);
+        emotion_Write_IMG = findViewById(R.id.emotion_Write_IMG);
 
     }
+    //----------------------------------------------------------------------------------
+
+
+    //----------------------------------------------------------------------------------
+    // 화면에 작성한 Diary 보여주기
+    //----------------------------------------------------------------------------------
+    public void displayDiary(){
+        Intent intent = getIntent();
+        Diary theDiary = (Diary)intent.getSerializableExtra("diary");
+
+        day_Write_TXT.setText(theDiary.getDate());
+        diaryArea_Write_ETXT.setText(theDiary.getContent());
+        int imgId = Utils.getImageByName(theDiary.getMood(), getApplicationContext());
+        emotion_Write_IMG.setImageResource(imgId);
+    }
+    //----------------------------------------------------------------------------------
+
+
 }
