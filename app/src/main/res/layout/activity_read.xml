@@ -37,7 +37,7 @@
             app:layout_constraintWidth_max="100dp" />
 
         <Button
-            android:id="@+id/edit_Read_BTN"
+            android:id="@+id/editDone_Read_BTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
@@ -82,7 +82,7 @@
                 app:srcCompat="@drawable/joy" />
         </LinearLayout>
 
-        <TextView
+        <EditText
             android:id="@+id/diaryArea_Read_ETXT"
             android:layout_width="match_parent"
             android:layout_height="367dp"

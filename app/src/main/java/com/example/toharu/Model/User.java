@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class User {
 
@@ -89,4 +90,19 @@ public class User {
     }
     //----------------------------------------------------------------------------------
 
+    //----------------------------------------------------------------------------------
+    // 다이어리 삭제
+    //----------------------------------------------------------------------------------
+    public void deleteDiary(String diary_id) {
+        this.diaries.remove(diary_id);
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("email", email);
+        result.put("diaries", diaries);
+
+        return result;
+    }
 }
