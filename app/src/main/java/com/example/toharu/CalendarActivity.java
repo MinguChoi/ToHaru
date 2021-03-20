@@ -208,13 +208,15 @@ public class CalendarActivity extends AppCompatActivity {
         API_Diary.fetchPosts(new OnCompletion() {
             @Override
             public void onCompletion(Object object) {
+
                 diaries = (ArrayList<Diary>) object;
+                Log.d(Utils.TAG, "fetch diaries on completion " + diaries.size());
                 for(int i = 0; i<diaries.size(); i++){
                     diaries.get(i).getDate();
                     dateArray = diaries.get(i).getDate().split("/");
                     CalenderView_calendar_VIEW.markDate(new DateData(Integer.parseInt(dateArray[0]),
-                                            Integer.parseInt(dateArray[1]),
-                                            Integer.parseInt(dateArray[2])).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+                            Integer.parseInt(dateArray[1]),
+                            Integer.parseInt(dateArray[2])).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
                 }
             }
         });
