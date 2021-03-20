@@ -18,9 +18,13 @@ public class WelcomActivity extends AppCompatActivity {
 
     }
 
+    //----------------------------------------------------------------------------------
+    // 터치 시에 로그인 화면으로 전환
+    //----------------------------------------------------------------------------------
     public void onClick(View v){
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+    //----------------------------------------------------------------------------------
 }

@@ -24,43 +24,46 @@ import sun.bob.mcalendarview.vo.DateData;
 
 public final class Utils {
 
-    public static final String TAG = "ToHaru";
-    public static FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    public static FirebaseDatabase DB_REF = FirebaseDatabase.getInstance();
-    public static DatabaseReference DB_USERS = DB_REF.getReference("users");
+    //----------------------------------------------------------------------------------
+    // 변수 선언
+    //----------------------------------------------------------------------------------
+    public static final String      TAG = "ToHaru";
+    public static FirebaseAuth      mAuth = FirebaseAuth.getInstance();
+    public static FirebaseDatabase  DB_REF = FirebaseDatabase.getInstance();
+    public static DatabaseReference DB_USERS =   DB_REF.getReference("users");
     public static DatabaseReference DB_DIARIES = DB_REF.getReference("diaries");
     public static DatabaseReference DB_ADVICES = DB_REF.getReference("advice");
+    //----------------------------------------------------------------------------------
 
+
+
+    //----------------------------------------------------------------------------------
+    // ETXT Empty 체크
+    //----------------------------------------------------------------------------------
     public static boolean isEmpty(EditText etxt) {
         if(etxt.getText().toString().trim().length()>0)
             return false;
 
         return true;
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // Toast 띄우기
+    //----------------------------------------------------------------------------------
     public static void toastError(Context ctx, String msg) {
         Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // 파일 이름으로 ResId 가져오기
+    //----------------------------------------------------------------------------------
     public static int getImageByName(String imageName, Context ctx) {
         return ctx.getResources().getIdentifier(imageName.toLowerCase(), "drawable", ctx.getPackageName());
 
     }
-    public static String DateToString(Date date) {
-        String pattern = "MM/dd/yyyy";
-        DateFormat df = new SimpleDateFormat(pattern);
-
-        return df.format(date);
-    }
-
-//    public static void setMarkDot(MCalendarView mcalendarView, String dateyear, String datemonth, String dateday){
-//        int year = Integer.parseInt(dateyear);
-//        int month = Integer.parseInt(datemonth);
-//        int day = Integer.parseInt(dateday);
-//
-//        Log.i(TAG, year + "/" + month + "/" + day);
-//
-//        mcalendarView.markDate(new DateData(year, month, day).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
-//
-//    }
+    //----------------------------------------------------------------------------------
 }

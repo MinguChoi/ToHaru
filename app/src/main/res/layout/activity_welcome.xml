@@ -11,7 +11,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/intro_welcome_IMG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/icon_logo" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/intro_welcome_TXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/font_middle_school"
@@ -30,7 +30,7 @@
         android:text="하루 기록 팔레트"
         android:textColor="#B5000000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/intro_welcome_IMG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

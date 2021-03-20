@@ -26,6 +26,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class API_Diary {
+    //----------------------------------------------------------------------------------
+    // diary 데이터 DB에 작성
+    //----------------------------------------------------------------------------------
     public static void writeDiaryToDB(Diary diary, Activity ctx) {
         // Save diary into DB
         DatabaseReference newPostRef = Utils.DB_DIARIES.push();
@@ -33,9 +36,7 @@ public class API_Diary {
         // Sync with user info
         User currentUser = User.getInstance();
         currentUser.addDiary(newPostRef.getKey());
-//        Log.d(Utils.TAG, "new diary key : " + newPostRef.getKey());
-//        Log.d(Utils.TAG, "check if user adds diary uid : " + currentUser.getPosts().get(0));
-        // update user info in DB
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         HashMap updates = new HashMap();
         updates.put("diaries", currentUser.getDiaries());
@@ -45,7 +46,12 @@ public class API_Diary {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ctx.startActivity(intent);
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // DB로 부터 모든 diary 불러오기
+    //----------------------------------------------------------------------------------
     public static void fetchPosts(final OnCompletion completion){
         User currentUser = User.getInstance();
         List<String> postsUid = currentUser.getDiaries();
@@ -73,7 +79,12 @@ public class API_Diary {
             }
         });
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // DB로 부터 특정 날짜 diary 불러오기
+    //----------------------------------------------------------------------------------
     public static void fetchADiary(String date, final OnCompletion completion){
         Utils.DB_DIARIES.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -93,4 +104,6 @@ public class API_Diary {
             }
         });
     }
+    //----------------------------------------------------------------------------------
+
 }

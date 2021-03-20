@@ -4,20 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.toharu.Model.Diary;
 import com.example.toharu.Utils.Utils;
 
-import sun.bob.mcalendarview.vo.DateData;
-
 public class ReadActivity extends AppCompatActivity {
 
-    private TextView    dateTXT;
-    private TextView    contentTXT;
-    private ImageView   img;
+    //----------------------------------------------------------------------------------
+    // 변수 선언
+    //----------------------------------------------------------------------------------
+    private TextView    day_Write_TXT;
+    private TextView    diaryArea_Write_ETXT;
+    private ImageView   emotion_Write_IMG;
+    //----------------------------------------------------------------------------------
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,20 +27,34 @@ public class ReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read);
 
         init();
-
+        displayDiary();
     }
 
+    //----------------------------------------------------------------------------------
+    // 초기화
+    //----------------------------------------------------------------------------------
     public void init(){
-        dateTXT = findViewById(R.id.dayTXT);
-        contentTXT = findViewById(R.id.diary_writeETXT);
-        img = findViewById(R.id.selIMG);
+        day_Write_TXT = findViewById(R.id.day_Write_TXT);
+        diaryArea_Write_ETXT = findViewById(R.id.diaryArea_Write_ETXT);
+        emotion_Write_IMG = findViewById(R.id.emotion_Write_IMG);
 
+    }
+    //----------------------------------------------------------------------------------
+
+
+    //----------------------------------------------------------------------------------
+    // 화면에 작성한 Diary 보여주기
+    //----------------------------------------------------------------------------------
+    public void displayDiary(){
         Intent intent = getIntent();
         Diary theDiary = (Diary)intent.getSerializableExtra("diary");
 
-        dateTXT.setText(theDiary.getDate());
-        contentTXT.setText(theDiary.getContent());
+        day_Write_TXT.setText(theDiary.getDate());
+        diaryArea_Write_ETXT.setText(theDiary.getContent());
         int imgId = Utils.getImageByName(theDiary.getMood(), getApplicationContext());
-        img.setImageResource(imgId);
+        emotion_Write_IMG.setImageResource(imgId);
     }
+    //----------------------------------------------------------------------------------
+
+
 }
