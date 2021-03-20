@@ -2,6 +2,7 @@ package com.example.toharu.Model;
 
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Diary {
 
@@ -29,4 +30,12 @@ public class Diary {
     public String getDate() {return date;}
     public String getContent() {return content;}
 
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("mood", mood);
+        result.put("date", date);
+        result.put("content", content);
+
+        return result;
+    }
 }

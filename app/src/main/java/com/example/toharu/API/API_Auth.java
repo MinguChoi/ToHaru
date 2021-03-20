@@ -14,6 +14,7 @@ import com.example.toharu.Utils.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 
@@ -23,36 +24,29 @@ import java.util.Map;
 
 public class API_Auth extends AppCompatActivity {
 
-//    private static final String TAG = "ToHaru";
-//    private static FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//    static FirebaseDatabase DB_REF = FirebaseDatabase.getInstance();
-//    static DatabaseReference DB_USERS = DB_REF.getReference("users");
-
+    // Register a new user with email/password to Firebase auth
     public static void createUser(String name, String email, String password, Activity ctx) {
         Utils.mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(ctx, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update the signed-in user's information
                             Log.d(Utils.TAG, "createUserWithEmail:success");
-                            // Save testUser into database
+                            // write the user data into database
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
                             writeUserToDB(user.getUid(),name, email);
-                            // Update User Info in local
+                            // write the user data into the local instance
                             User currentUser = User.getInstance();
                             currentUser.setName(name);
                             currentUser.setEmail(email);
-                            //updateUserInfo(user, ctx);
-                            // back to the Login activity
+                            // move to the next activity
                             Intent intent = new Intent(ctx, LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             ctx.startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d(Utils.TAG, "createUserWithEmail:failure", task.getException());
-                            //Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+
                         }
                     }
                 });
@@ -66,8 +60,9 @@ public class API_Auth extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update the signed-in user's information
                             Log.d(Utils.TAG, "signInWithEmail:success");
+                            // write the user data into the local instance
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
-                            updateUserInfo(user, ctx);
+                            syncUserInfo(user, ctx);
                             // Move to the main read activity
                             Intent intent = new Intent(ctx, CalendarActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -89,7 +84,7 @@ public class API_Auth extends AppCompatActivity {
         Utils.DB_USERS.child(uid).updateChildren(updates);
     }
 
-    public static void updateUserInfo(FirebaseUser user, Activity ctx) {
+    public static void syncUserInfo(FirebaseUser user, Activity ctx) {
         String uid = user.getUid();
         User currentUser = User.getInstance();
 
@@ -108,6 +103,9 @@ public class API_Auth extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    public static void signOut() {
+        FirebaseAuth.getInstance().signOut();
     }
 }

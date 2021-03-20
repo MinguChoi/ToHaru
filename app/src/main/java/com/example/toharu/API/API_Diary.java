@@ -19,8 +19,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class API_Diary {
+
     public static void writeDiaryToDB(Diary diary, Activity ctx) {
         // Save diary into DB
         DatabaseReference newPostRef = Utils.DB_DIARIES.push();
@@ -67,5 +69,17 @@ public class API_Diary {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    public static void updateDiary(Diary diary) {
+        String uid = diary.getUid();
+        Map<String, Object> diaryValue = diary.toMap();
+
+        Utils.DB_DIARIES.child(uid).updateChildren(diaryValue);
+    }
+
+    public static void deleteDiary(Diary diary) {
+        String uid = diary.getUid();
+        Utils.DB_DIARIES.child(uid).removeValue();
     }
 }
