@@ -29,7 +29,7 @@
                 android:layout_marginBottom="25dp">
 
                 <TextView
-                    android:id="@+id/diaTXT"
+                    android:id="@+id/title_dialog_TXT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -42,7 +42,7 @@
                     android:gravity="center_horizontal" />
 
                 <TextView
-                    android:id="@+id/adviceTXT"
+                    android:id="@+id/advice_dialog_TXT"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginLeft="20dp"
@@ -54,7 +54,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/aTXT"
+                    android:id="@+id/cheerUp_dialog_TXT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -68,7 +68,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/diaBTN"
+                    android:id="@+id/finish_dialog_BTN"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

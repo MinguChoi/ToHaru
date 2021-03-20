@@ -12,9 +12,13 @@ import com.example.toharu.Utils.Utils;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText name, email, password, password2;
-    private TextView signUp_TXT;
-
+    //----------------------------------------------------------------------------------
+    // 변수 선언
+    //----------------------------------------------------------------------------------
+    private EditText name_singUp_ETXT, email_signUp_ETXT, pw_signUp_ETXT, checkPw_signUp_ETXT;
+    private TextView signUpDone_signUp_TXT;
+    //----------------------------------------------------------------------------------
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,24 +27,33 @@ public class SignupActivity extends AppCompatActivity {
         init();
     }
 
-    public void init() {
-        signUp_TXT = findViewById(R.id.signupTXT);
-        name = findViewById(R.id.name_singUp);
-        email = findViewById(R.id.email_signUp);
-        password = findViewById(R.id.pw_signUp);
-        password2 = findViewById(R.id.pw_signUp2);
 
-        signUp_TXT.setOnClickListener(new View.OnClickListener() {
+    //----------------------------------------------------------------------------------
+    // 초기화
+    //----------------------------------------------------------------------------------
+    public void init() {
+        signUpDone_signUp_TXT = findViewById(R.id.signUpDone_signUp_TXT);
+        name_singUp_ETXT = findViewById(R.id.name_singUp_ETXT);
+        email_signUp_ETXT = findViewById(R.id.email_signUp_ETXT);
+        pw_signUp_ETXT = findViewById(R.id.pw_signUp_ETXT);
+        checkPw_signUp_ETXT = findViewById(R.id.checkPw_signUp_ETXT);
+        //----------------------------------------------------------------------------------
+
+        
+        //----------------------------------------------------------------------------------
+        // 회원가입 이벤트
+        //----------------------------------------------------------------------------------
+        signUpDone_signUp_TXT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isEmpty(name) || Utils.isEmpty(email) || Utils.isEmpty(password) || Utils.isEmpty(password2)) {
+                if (Utils.isEmpty(name_singUp_ETXT) || Utils.isEmpty(email_signUp_ETXT) || Utils.isEmpty(pw_signUp_ETXT) || Utils.isEmpty(checkPw_signUp_ETXT)) {
                     Utils.toastError(getApplicationContext(), "fill out everything :)");
                 } else {
-                    if (password.getText().toString().equals(password2.getText().toString())) {
+                    if (pw_signUp_ETXT.getText().toString().equals(checkPw_signUp_ETXT.getText().toString())) {
                         // Firebase sign up
-                        API_Auth.createUser(name.getText().toString(),
-                                            email.getText().toString(),
-                                            password.getText().toString(),
+                        API_Auth.createUser(name_singUp_ETXT.getText().toString(),
+                                            email_signUp_ETXT.getText().toString(),
+                                            pw_signUp_ETXT.getText().toString(),
                                             SignupActivity.this);
                     } else {
                         Utils.toastError(getApplicationContext(), "check your password");
@@ -48,5 +61,6 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
+        //----------------------------------------------------------------------------------
     }
 }
