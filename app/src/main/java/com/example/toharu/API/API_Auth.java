@@ -114,7 +114,6 @@ public class API_Auth extends AppCompatActivity {
                     currentUser.setName(map.get("name").toString());
                     currentUser.setEmail(map.get("email").toString());
                     currentUser.setDiaries((List<String>)map.get("diaries"));
-                    Log.d("current user diaries: ", currentUser.getDiaries().get(0));
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
 
                     Intent intent = new Intent(ctx, CalendarActivity.class);

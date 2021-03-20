@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -65,7 +66,20 @@ public class CalendarActivity extends AppCompatActivity {
         init();
     }
 
-    //----------------------------------------------------------------------------------
+    @Override
+    protected void onResume() {
+        super.onResume();
+        displayListView();
+        do_Mark();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, WelcomActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+        //----------------------------------------------------------------------------------
     // DataBase에서 저장된 일기들 ListView로 불러오기
     //----------------------------------------------------------------------------------
     public void displayListView() {
@@ -86,7 +100,6 @@ public class CalendarActivity extends AppCompatActivity {
     // 변수 선언
     //----------------------------------------------------------------------------------
     public void init(){
-
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
         linLAY = findViewById(R.id.linLAY);
         setting_calender_BTN = findViewById(R.id.setting_calender_BTN);
@@ -99,11 +112,26 @@ public class CalendarActivity extends AppCompatActivity {
         //----------------------------------------------------------------------------------
         // 일기 불러와서 출력하기
         //----------------------------------------------------------------------------------
-        displayListView();
-        do_Mark();
+//        displayListView();
+//        do_Mark();
         //----------------------------------------------------------------------------------
 
 
+        //----------------------------------------------------------------------------------
+        // listView 아이템 선택 이벤트
+        //----------------------------------------------------------------------------------
+        ListView_calendar_LST.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Diary tmp = (Diary) parent.getItemAtPosition(position);
+
+                intent = new Intent(CalendarActivity.this, ReadActivity.class);
+                intent.putExtra("previous", "listView");
+                intent.putExtra("diary2", tmp);
+
+                startActivity(intent);
+            }
+        });
 
         //----------------------------------------------------------------------------------
         // Setting 버튼 이벤트
@@ -112,7 +140,7 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(CalendarActivity.this, SettingActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
@@ -130,11 +158,15 @@ public class CalendarActivity extends AppCompatActivity {
                     show_calendar = false;
                     CalenderView_calendar_VIEW.setVisibility(View.INVISIBLE);
                     ListView_calendar_LST.setVisibility(View.VISIBLE);
+                    do_Mark();
+                    adapter.notifyDataSetChanged();
                 }
                 else{
                     show_calendar = true;
                     ListView_calendar_LST.setVisibility(View.INVISIBLE);
                     CalenderView_calendar_VIEW.setVisibility(View.VISIBLE);
+                    do_Mark();
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
@@ -158,7 +190,8 @@ public class CalendarActivity extends AppCompatActivity {
                         public void onCompletion(Object object) {
                             intent = new Intent(CalendarActivity.this, ReadActivity.class);
                             intent.putExtra("diary", (Diary)object);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("previous", "calendar");
+                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }
                     });
@@ -174,7 +207,7 @@ public class CalendarActivity extends AppCompatActivity {
 
                     intent = new Intent(CalendarActivity.this, EmotionActivity.class);
                     intent.putExtra("mDate", mDate);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
                 }
