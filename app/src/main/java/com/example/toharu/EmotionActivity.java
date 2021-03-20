@@ -12,9 +12,14 @@ import android.widget.Toast;
 
 import com.example.toharu.Utils.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmotionActivity extends AppCompatActivity {
 
     private ImageButton joy_img,happy_img,proud_img,tired_img,sadness_img,angry_img,anxiety_img,gloom_img,peaceful_img,next_btn;
+
+    private List<ImageButton> imageList;
 
     private final boolean   D = true;
     private final String    TAG = "EmotionActivity";
@@ -22,7 +27,6 @@ public class EmotionActivity extends AppCompatActivity {
     public String           getdate;
 
     private String          selected_img;
-    private Boolean         isSelected = false;
 
 
     @Override
@@ -57,16 +61,44 @@ public class EmotionActivity extends AppCompatActivity {
         gloom_img.setTag("gloomy");
         peaceful_img.setTag("peaceful");
 
+        imageList = new ArrayList<>();
+        imageList.add(joy_img);
+        imageList.add(happy_img);
+        imageList.add(proud_img);
+        imageList.add(tired_img);
+        imageList.add(sadness_img);
+        imageList.add(angry_img);
+        imageList.add(anxiety_img);
+        imageList.add(gloom_img);
+        imageList.add(peaceful_img);
+
         getdate = getIntent().getStringExtra("mDate"); // 날짜 받아오기
         Log.i(TAG, "get Date in EmotionActivity => " + getdate);
 
     }
 
+    public void setFalseExcpetFor(String selected) {
+        for(int i=0; i<imageList.size(); i++) {
+            String imgTag = (String) imageList.get(i).getTag();
+            if( !imgTag.equals(selected) ) {
+                imageList.get(i).setSelected(false);
+            }
+        }
+    }
+
+    public boolean isSelected() {
+        for(int i=0; i<imageList.size(); i++) {
+            if (imageList.get(i).isSelected()) {
+                return true;
+            }
+        }
+        return false;
+    }
         //next btn 클릭시 -> diary activity
     public void selected_next_move(View v){
         switch (v.getId()){
             case R.id.next_btn:
-                if(selected_img == null){
+                if(selected_img == null || !isSelected()){
                     Utils.toastError(getApplicationContext(), "감정을 선택하세요!");
                     //Toast.makeText(EmotionActivity.this, "감정을 선택하세요!",Toast.LENGTH_SHORT).show();
                 } else{
@@ -78,39 +110,14 @@ public class EmotionActivity extends AppCompatActivity {
                 break;
 
             default:
-//                if(selected_img.equals((String)v.getTag())) {
-//                    v.setSelected(!v.isSelected());
-//                    selected_img = null;
-//                } else {
-//                    v.setSelected(!v.isSelected());
-//                    switch (selected_img) {
-//                        case "joy":
-//                            joy_img.setSelected(!joy_img.isSelected());
-//                            break;
-//                        case "happy":
-//                            happy_img.setSelected(!happy_img.isSelected());
-//                            break;
-//                        case "proud":
-//                            proud_img.setSelected(!proud_img.isSelected());
-//                            break;
-//                    }
-//                    selected_img = (String) v.getTag();
-//                }
+                // 이모티콘이 선택되었을때
+                selected_img = (String) v.getTag();
+                // 선택 이모티콘 제외 나머지 set false
+                setFalseExcpetFor(selected_img);
+                // 선택 이모티콘 set false->true, set true -> false
+                v.setSelected(!v.isSelected());
 
-                    // 한 번 클릭했을 때 (감정 버튼이 선택 되었을 때)
-                    if (isSelected == false) {
-                            v.setSelected(!v.isSelected()); // 버튼 이미지 계속 유지
-                            selected_img = (String) v.getTag();
-                            isSelected = true;
-                        }
-                    // 두 번 클릭했을 때 (감정 버튼 선택 해제했을 때)
-                    else {
-                        v.setSelected(!v.isSelected()); // 버튼 이미지 계속 유지
-                        selected_img = null;
-                        isSelected = false;
-                    }
-                    break;
+                break;
         }
     }
-
 }
