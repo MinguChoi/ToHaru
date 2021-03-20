@@ -23,11 +23,9 @@ import java.util.Map;
 
 public class API_Auth extends AppCompatActivity {
 
-//    private static final String TAG = "ToHaru";
-//    private static FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//    static FirebaseDatabase DB_REF = FirebaseDatabase.getInstance();
-//    static DatabaseReference DB_USERS = DB_REF.getReference("users");
-
+    //----------------------------------------------------------------------------------
+    // 유저 회원가입, DB저장
+    //----------------------------------------------------------------------------------
     public static void createUser(String name, String email, String password, Activity ctx) {
         Utils.mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(ctx, new OnCompleteListener<AuthResult>() {
@@ -57,7 +55,12 @@ public class API_Auth extends AppCompatActivity {
                     }
                 });
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // 유저 로그인
+    //----------------------------------------------------------------------------------
     public static void signIn(String email, String password, Activity ctx) {
         Utils.mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(ctx, new OnCompleteListener<AuthResult>() {
@@ -80,7 +83,12 @@ public class API_Auth extends AppCompatActivity {
                     }
                 });
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // DB에 유저정보 저장
+    //----------------------------------------------------------------------------------
     public static void writeUserToDB(String uid, String name, String email) {
         Map<String, Object> updates = new HashMap<>();
         updates.put("name", name);
@@ -88,7 +96,12 @@ public class API_Auth extends AppCompatActivity {
 
         Utils.DB_USERS.child(uid).updateChildren(updates);
     }
+    //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // 유저정보 local instance에 저장
+    //----------------------------------------------------------------------------------
     public static void updateUserInfo(FirebaseUser user, Activity ctx) {
         String uid = user.getUid();
         User currentUser = User.getInstance();
@@ -108,6 +121,7 @@ public class API_Auth extends AppCompatActivity {
                 }
             }
         });
-
     }
+    //----------------------------------------------------------------------------------
+
 }
