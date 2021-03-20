@@ -63,7 +63,6 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
         init();
-        do_Mark();
     }
 
     //----------------------------------------------------------------------------------
@@ -98,9 +97,10 @@ public class CalendarActivity extends AppCompatActivity {
 
 
         //----------------------------------------------------------------------------------
-        // ListView 불러오기
+        // 일기 불러와서 출력하기
         //----------------------------------------------------------------------------------
         displayListView();
+        do_Mark();
         //----------------------------------------------------------------------------------
 
 

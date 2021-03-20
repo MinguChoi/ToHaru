@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class API_Diary {
     //----------------------------------------------------------------------------------
@@ -103,6 +104,26 @@ public class API_Diary {
                 }
             }
         });
+    }
+    //----------------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------------
+    // DB에 수정 diary 저장
+    //----------------------------------------------------------------------------------
+    public static void updateDiary(Diary diary) {
+        String uid = diary.getUid();
+        Map<String, Object> diaryValue = diary.toMap();
+
+        Utils.DB_DIARIES.child(uid).updateChildren(diaryValue);
+    }
+    //----------------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------------
+    // DB에 diary 삭제
+    //----------------------------------------------------------------------------------
+    public static void deleteDiary(Diary diary) {
+        String uid = diary.getUid();
+        Utils.DB_DIARIES.child(uid).removeValue();
     }
     //----------------------------------------------------------------------------------
 
