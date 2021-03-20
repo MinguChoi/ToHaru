@@ -14,6 +14,7 @@ import com.example.toharu.Utils.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 
@@ -70,7 +71,7 @@ public class API_Auth extends AppCompatActivity {
                             // Sign in success, update the signed-in user's information
                             Log.d(Utils.TAG, "signInWithEmail:success");
                             FirebaseUser user = Utils.mAuth.getCurrentUser();
-                            updateUserInfo(user, ctx);
+                            syncUserInfo(user, ctx);
                             // Move to the main read activity
                             Intent intent = new Intent(ctx, CalendarActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -102,7 +103,7 @@ public class API_Auth extends AppCompatActivity {
     //----------------------------------------------------------------------------------
     // 유저정보 local instance에 저장
     //----------------------------------------------------------------------------------
-    public static void updateUserInfo(FirebaseUser user, Activity ctx) {
+    public static void syncUserInfo(FirebaseUser user, Activity ctx) {
         String uid = user.getUid();
         User currentUser = User.getInstance();
 
@@ -124,4 +125,12 @@ public class API_Auth extends AppCompatActivity {
     }
     //----------------------------------------------------------------------------------
 
+
+    //----------------------------------------------------------------------------------
+    // 로그아웃
+    //----------------------------------------------------------------------------------
+    public static void signOut() {
+        FirebaseAuth.getInstance().signOut();
+    }
+    //----------------------------------------------------------------------------------
 }

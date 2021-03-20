@@ -60,7 +60,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/day_Write_TXT"
+            android:id="@+id/day_Read_TXT"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,7 +78,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/emotion_Write_IMG"
+            android:id="@+id/emotion_Read_IMG"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_gravity="center"
@@ -87,7 +87,7 @@
             android:cropToPadding="false" />
 
         <EditText
-            android:id="@+id/diaryArea_Write_ETXT"
+            android:id="@+id/diaryArea_Read_ETXT"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="30dp"
