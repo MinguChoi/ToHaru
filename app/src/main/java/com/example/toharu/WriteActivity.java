@@ -42,9 +42,7 @@ public class WriteActivity extends AppCompatActivity {
 
     private TextView            advice_dialog_TXT;
 
-    private boolean             getCheckWR;
     public  String              getdate;
-    private String[]            dateArray;
     private String              selected_emotion;
     private ImageView           emotion_Write_IMG;
 

@@ -3,6 +3,7 @@ package com.example.toharu.Model;
 import java.io.Serializable;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Diary implements Serializable {
 
@@ -40,5 +41,18 @@ public class Diary implements Serializable {
     public String getMood() {return mood;}
     public String getDate() {return date;}
     public String getContent() {return content;}
+    //----------------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------------
+    // 커스텀 메소드
+    //----------------------------------------------------------------------------------
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("mood", mood);
+        result.put("date", date);
+        result.put("content", content);
+
+        return result;
+    }
     //----------------------------------------------------------------------------------
 }

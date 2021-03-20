@@ -74,7 +74,7 @@ public class User {
     public void setEmail(String email) { this.email = email; }
     public void setDiaries(List<String> diaries) {
         if (diaries != null) {
-            this.diaries = new ArrayList<>(diaries);
+            this.diaries = diaries;
         }
     }
 
