@@ -16,13 +16,12 @@
         android:layout_marginTop="15dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:weightSum="5">
+        android:weightSum="">
 
         <ImageButton
             android:id="@+id/backBTN"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_gravity="left"
             android:layout_weight="1"
             android:backgroundTint="@android:color/transparent"
@@ -32,26 +31,35 @@
 
 
         <ImageButton
-            android:id="@+id/modifyBTN"
+            android:id="@+id/deleteBTN"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:backgroundTint="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/modify_btn"
+            android:scaleType="centerInside"
+            android:src="@drawable/delete"
             android:text="@string/back" />
 
         <ImageButton
             android:id="@+id/saveBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/save_btn"
+            android:text="@string/save" />
 
-
+        <ImageButton
+            android:id="@+id/pencil_BTN"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
             android:layout_weight="2"
             android:backgroundTint="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/save_btn"
-            android:text="@string/save" />
+            android:src="@drawable/pencil"
+            android:text="@string/back" />
 
 
     </LinearLayout>
@@ -59,7 +67,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
