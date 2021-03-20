@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,75 +10,77 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/colorYellowLight"
         android:layout_alignParentTop="true"
-        android:layout_gravity="center"
-        android:background="@drawable/dialog_color_mix"
-        app:cardCornerRadius="15dp">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/dialog_color_mix"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="vertical">
+                android:layout_marginBottom="25dp">
 
                 <TextView
-                    android:id="@+id/aTXT"
+                    android:id="@+id/title_dialog_TXT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="30dp"
                     android:layout_marginRight="20dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textSize="35dp"
+                    android:text="하루가 전하는 오늘의 한마디"
                     android:fontFamily="@font/font_middle_school"
-                    android:gravity="center_horizontal"
-                    android:text="일기를 수정할까요?"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/advice_dialog_TXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/font_middle_school"
+                    android:gravity="center"
                     android:textAlignment="center"
                     android:textSize="25dp" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/cheerUp_dialog_TXT"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="20dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/font_middle_school"
+                    android:gravity="center_horizontal"
+                    android:text="응원해요!!!!"
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/diaBTN"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="30dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/font_middle_school"
-                        android:text="고마워"
-                        android:textColor="#B4000000"
-                        android:textSize="30dp"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/white"
-                        app:cornerRadius="10dp" />
-
-                    <Button
-                        android:id="@+id/diaBTN3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/font_middle_school"
-                        android:text="고마워"
-                        android:textColor="#B4000000"
-                        android:textSize="30dp"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/white"
-                        app:cornerRadius="10dp" />
-                </LinearLayout>
+                <Button
+                    android:id="@+id/finish_dialog_BTN"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radius"
+                    android:fontFamily="@font/font_middle_school"
+                    android:text="고마워"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30dp"
+                    app:backgroundTint="#A5F1C0"
+                    app:cornerRadius="10dp" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+</RelativeLayout>

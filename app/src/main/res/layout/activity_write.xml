@@ -18,7 +18,7 @@
         android:weightSum="5">
 
         <ImageButton
-            android:id="@+id/backBTN"
+            android:id="@+id/back_Write_BTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -30,7 +30,7 @@
             tools:src="@drawable/back_btn" />
 
         <TextView
-            android:id="@+id/m_yTXT"
+            android:id="@+id/monthYear_Write_TXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -43,7 +43,7 @@
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/saveBTN"
+            android:id="@+id/save_Write_BTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -60,7 +60,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/dayTXT"
+            android:id="@+id/day_Write_TXT"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,7 +78,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/selIMG"
+            android:id="@+id/emotion_Write_IMG"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_gravity="center"
@@ -87,23 +87,22 @@
             android:cropToPadding="false" />
 
         <EditText
-            android:inputType="textMultiLine"
-            android:fontFamily="@font/font_middle_school"
-            android:textSize="20sp"
-            android:lines ="30"
-            android:maxLines="30"
-            android:id="@+id/diary_writeETXT"
+            android:id="@+id/diaryArea_Write_ETXT"
             android:layout_width="match_parent"
-            android:scrollbars="vertical"
             android:layout_height="match_parent"
             android:layout_margin="30dp"
             android:ems="10"
+            android:fontFamily="@font/font_middle_school"
             android:gravity="top"
-            android:hint="일기를 입력하세요. "
-            android:background="@drawable/textview_round"
+            android:hint="일기를 입력하세요."
             android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:lines="30"
+            android:maxLines="30"
             android:padding="20dp"
-            android:shadowColor="#FFFFFF"/>
+            android:scrollbars="vertical"
+            android:shadowColor="#FFFFFF"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>
