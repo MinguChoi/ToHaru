@@ -105,11 +105,15 @@
         android:id="@+id/login_login_BTN"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="@drawable/btn_round"
+        android:fontFamily="@font/tmoney_font"
+        android:gravity="center"
         android:text="@string/login"
-        android:textColor="#CB000000"
-        android:textSize="15sp"
+        android:textColor="#D2000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:backgroundTint="#FEE5EB"></Button>
 
     <Button
@@ -118,9 +122,12 @@
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/btn_round"
+        android:fontFamily="@font/tmoney_font"
+        android:gravity="center"
         android:text="SIGN UP"
-        android:textColor="#CB000000"
-        android:textSize="15sp"
+        android:textColor="#D2000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:backgroundTint="#EADFF2"></Button>
 
 </LinearLayout>
