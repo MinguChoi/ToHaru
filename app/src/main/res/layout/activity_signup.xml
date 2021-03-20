@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font_middle_school"
             android:text="@string/signupNAME"
-            android:textColor="@color/black"
+            android:textColor="#D2000000"
             android:textSize="25dp" />
 
     </LinearLayout>
@@ -72,7 +72,7 @@
             android:layout_margin="10dp"
             android:fontFamily="@font/font_middle_school"
             android:text="@string/signupEmail"
-            android:textColor="@color/black"
+            android:textColor="#D2000000"
             android:textSize="25dp" />
 
         <EditText
@@ -91,7 +91,7 @@
             android:layout_margin="10dp"
             android:fontFamily="@font/font_middle_school"
             android:text="@string/signupPASS"
-            android:textColor="@color/black"
+            android:textColor="#D2000000"
             android:textSize="25dp" />
 
         <EditText
@@ -112,7 +112,7 @@
             android:layout_margin="10dp"
             android:fontFamily="@font/font_middle_school"
             android:text="@string/signupPASS2"
-            android:textColor="@color/black"
+            android:textColor="#D2000000"
             android:textSize="25dp" />
 
         <EditText

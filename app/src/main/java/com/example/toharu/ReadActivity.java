@@ -15,9 +15,9 @@ public class ReadActivity extends AppCompatActivity {
     //----------------------------------------------------------------------------------
     // 변수 선언
     //----------------------------------------------------------------------------------
-    private TextView        day_Read_TXT;
-    private TextView        diaryArea_Read_ETXT;
-    private ImageView       emotion_Read_IMG;
+    private TextView    day_Read_TXT;
+    private TextView    diaryArea_Read_ETXT;
+    private ImageView   emotion_Read_IMG;
     //----------------------------------------------------------------------------------
 
 
@@ -34,9 +34,9 @@ public class ReadActivity extends AppCompatActivity {
     // 초기화
     //----------------------------------------------------------------------------------
     public void init(){
-        day_Read_TXT = findViewById(R.id.day_Read_TXT);
+//        day_Read_TXT = findViewById(R.id.day_Read_TXT);
         diaryArea_Read_ETXT = findViewById(R.id.diaryArea_Read_ETXT);
-        emotion_Read_IMG = findViewById(R.id.emotion_Write_IMG);
+        emotion_Read_IMG = findViewById(R.id.emotion_Read_IMG);
 
     }
     //----------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ public class ReadActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Diary theDiary = (Diary)intent.getSerializableExtra("diary");
 
-        day_Read_TXT.setText(theDiary.getDate());
+//        day_Read_TXT.setText(theDiary.getDate());
         diaryArea_Read_ETXT.setText(theDiary.getContent());
         int imgId = Utils.getImageByName(theDiary.getMood(), getApplicationContext());
         emotion_Read_IMG.setImageResource(imgId);
