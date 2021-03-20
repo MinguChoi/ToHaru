@@ -132,7 +132,7 @@ public class EmotionActivity extends AppCompatActivity {
                 setFalseExcpetFor(selected_img);
                 // 선택 이모티콘 set false->true, set true -> false
                 v.setSelected(!v.isSelected());
-                
+
                 break;
         }
     }
