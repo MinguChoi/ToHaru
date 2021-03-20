@@ -87,10 +87,11 @@ public class WriteActivity extends AppCompatActivity {
         back_Write_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //Intent intent = new Intent(WriteActivity.this, CalendarActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 // 중간에 뒤로 갈건지 여부 묻기
-                startActivity(intent);
+               // startActivity(intent);
+                finish();
             }
         });
         //----------------------------------------------------------------------------------
