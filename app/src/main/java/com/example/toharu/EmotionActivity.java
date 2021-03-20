@@ -99,15 +99,10 @@ public class EmotionActivity extends AppCompatActivity {
 
                     // 한 번 클릭했을 때 (감정 버튼이 선택 되었을 때)
                     if (isSelected == false) {
-                        if(){
-
-                        } else{
                             v.setSelected(!v.isSelected()); // 버튼 이미지 계속 유지
                             selected_img = (String) v.getTag();
                             isSelected = true;
                         }
-                    }
-
                     // 두 번 클릭했을 때 (감정 버튼 선택 해제했을 때)
                     else {
                         v.setSelected(!v.isSelected()); // 버튼 이미지 계속 유지

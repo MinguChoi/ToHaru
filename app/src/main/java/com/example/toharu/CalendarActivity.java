@@ -196,12 +196,14 @@ public class CalendarActivity extends AppCompatActivity {
             public void onCompletion(Object object) {
                 diaries = (ArrayList<Diary>) object;
                 for(int i = 0; i<diaries.size(); i++){
-                    diaries.get(i).getDate();
-                    Log.i(TAG, "\n" +  diaries.get(i).getDate() + "\n");
-                    dateArray = diaries.get(i).getDate().split("/");
-                    CalendarView.markDate(new DateData(Integer.parseInt(dateArray[0]),
-                                            Integer.parseInt(dateArray[1]),
-                                            Integer.parseInt(dateArray[2])).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+                    if (diaries.get(i).getDate() != null) {
+                        diaries.get(i).getDate();
+                        Log.i(TAG, "\n" + diaries.get(i).getDate() + "\n");
+                        dateArray = diaries.get(i).getDate().split("/");
+                        CalendarView.markDate(new DateData(Integer.parseInt(dateArray[0]),
+                                Integer.parseInt(dateArray[1]),
+                                Integer.parseInt(dateArray[2])).setMarkStyle(new MarkStyle(MarkStyle.DOT, Color.RED)));
+                    }
                 }
             }
         });
