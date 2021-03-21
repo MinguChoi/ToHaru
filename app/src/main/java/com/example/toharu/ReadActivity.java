@@ -94,6 +94,11 @@ public class ReadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 API_Diary.deleteDiary(theDiary);
+                Intent intent = new Intent(ReadActivity.this, CalendarActivity.class);
+                intent.putExtra("date", theDiary.getDate());
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
