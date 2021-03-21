@@ -91,6 +91,7 @@ public class API_Diary {
         Utils.DB_DIARIES.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
+                User currentUser = User.getInstance();
                 if (!task.isSuccessful()) {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
@@ -98,7 +99,7 @@ public class API_Diary {
                     DataSnapshot dataSnapshot = task.getResult();
                     for(DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                         Diary theDiary = new Diary(childSnapshot.getKey(), (HashMap)(childSnapshot.getValue()));
-                        if(date.equals(theDiary.getDate())) {
+                        if(date.equals(theDiary.getDate()) && currentUser.getDiaries().contains(theDiary.getUid())) {
                             completion.onCompletion(theDiary);
                         }
                     }

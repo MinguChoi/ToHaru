@@ -16,6 +16,7 @@ import com.example.toharu.API.API_Diary;
 import com.example.toharu.Model.Diary;
 import com.example.toharu.Utils.Utils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,8 +70,8 @@ public class CalendarActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        displayListView();
         do_Mark();
+        displayListView();
     }
 
     @Override
@@ -90,6 +91,7 @@ public class CalendarActivity extends AppCompatActivity {
                 diaries = (ArrayList<Diary>) object;
                 adapter = new DiaryAdapter(diaries, CalendarActivity.this);
                 ListView_calendar_LST.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -101,6 +103,7 @@ public class CalendarActivity extends AppCompatActivity {
     //----------------------------------------------------------------------------------
     public void init(){
         CheckWR = false; // 초기엔 안쓴 상태로 초기화
+        CalenderView_calendar_VIEW = new MCalendarView(getApplicationContext());
         linLAY = findViewById(R.id.linLAY);
         setting_calender_BTN = findViewById(R.id.setting_calender_BTN);
         CalenderView_calendar_VIEW = findViewById(R.id.CalenderView_calendar_VIEW);
@@ -129,7 +132,7 @@ public class CalendarActivity extends AppCompatActivity {
                 intent.putExtra("previous", "listView");
                 intent.putExtra("diary2", tmp);
 
-                startActivity(intent);
+                startActivityForResult(intent, 10);
             }
         });
 
@@ -158,15 +161,12 @@ public class CalendarActivity extends AppCompatActivity {
                     show_calendar = false;
                     CalenderView_calendar_VIEW.setVisibility(View.INVISIBLE);
                     ListView_calendar_LST.setVisibility(View.VISIBLE);
-                    do_Mark();
-                    adapter.notifyDataSetChanged();
+                    displayListView();
                 }
                 else{
                     show_calendar = true;
                     ListView_calendar_LST.setVisibility(View.INVISIBLE);
                     CalenderView_calendar_VIEW.setVisibility(View.VISIBLE);
-                    do_Mark();
-                    adapter.notifyDataSetChanged();
                 }
             }
         });
@@ -192,7 +192,7 @@ public class CalendarActivity extends AppCompatActivity {
                             intent.putExtra("diary", (Diary)object);
                             intent.putExtra("previous", "calendar");
                             //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
+                            startActivityForResult(intent, 10);
                         }
                     });
                 }
@@ -221,6 +221,34 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     //----------------------------------------------------------------------------------
+    // 일기 삭제후 캘린더 화면으로 돌아왔을때
+    //----------------------------------------------------------------------------------
+    public void unMarkDate(String date) {
+        if(date != null) {
+            String[] dateArray = date.split("/");
+//            MarkedDates.getInstance().remove(new DateData(Integer.parseInt(dateArray[0]),
+//                                                          Integer.parseInt(dateArray[1]),
+//                                                          Integer.parseInt(dateArray[2])));
+            CalenderView_calendar_VIEW.unMarkDate(Integer.parseInt(dateArray[0]),
+                    Integer.parseInt(dateArray[1]),
+                    Integer.parseInt(dateArray[2]));
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 10 && resultCode == RESULT_OK) {
+            unMarkDate(data.getStringExtra("date"));
+        }
+//        if (requestCode == 20 && resultCode == RESULT_OK) {
+//            Log.d(Utils.TAG, "listView from read - " + data.getStringExtra("date"));
+//            unMarkDate(data.getStringExtra("date"));
+//        }
+    }
+
+    //----------------------------------------------------------------------------------
+
+    //----------------------------------------------------------------------------------
     // 날짜에 표식이 있는지(일기 작성여부) 파악
     //----------------------------------------------------------------------------------
     public boolean isMarked(DateData date){
@@ -237,6 +265,7 @@ public class CalendarActivity extends AppCompatActivity {
     // 일기를 작성한 날짜에 표식 남기기
     //----------------------------------------------------------------------------------
     public void do_Mark() {
+        MarkedDates.getInstance().removeAdd();
         // Fetch diaries from database and update UI
         API_Diary.fetchPosts(new OnCompletion() {
             @Override

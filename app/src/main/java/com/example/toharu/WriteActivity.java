@@ -153,6 +153,7 @@ public class WriteActivity extends AppCompatActivity {
                 Diary newDiary = new Diary(selected_emotion, getdate, diaryArea_Write_ETXT.getText().toString());
                 API_Diary.writeDiaryToDB(newDiary, WriteActivity.this);
                 customDialog.dismiss();
+                finish();
             }
         });
         //----------------------------------------------------------------------------------
