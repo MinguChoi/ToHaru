@@ -120,7 +120,7 @@ public class EmotionActivity extends AppCompatActivity {
                     Intent intent = new Intent(EmotionActivity.this, WriteActivity.class);
                     intent.putExtra("emotion_img", selected_img);
                     intent.putExtra("mDate2", getdate);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
                 break;
@@ -132,7 +132,7 @@ public class EmotionActivity extends AppCompatActivity {
                 setFalseExcpetFor(selected_img);
                 // 선택 이모티콘 set false->true, set true -> false
                 v.setSelected(!v.isSelected());
-                
+
                 break;
         }
     }

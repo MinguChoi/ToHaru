@@ -26,11 +26,11 @@ public class Diary implements Serializable {
         this.content = content;
     }
 
-    public Diary(String uid, HashMap<String, String> map) {
+    public Diary(String uid, HashMap<String, Object> map) {
         this.uid = uid;
-        this.mood = map.get("mood");
-        this.date = map.get("date");;
-        this.content = map.get("content");
+        this.mood = (String) map.get("mood");
+        this.date = (String )map.get("date");;
+        this.content = (String) map.get("content");
     }
     //----------------------------------------------------------------------------------
 

@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launccher_toharu_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToHaru">
-        <activity android:name=".activity_storage"></activity>
         <activity android:name=".EmotionActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".SettingActivity" />

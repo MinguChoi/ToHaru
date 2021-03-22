@@ -46,6 +46,7 @@ public class API_Diary {
         Intent intent = new Intent(ctx, CalendarActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ctx.startActivity(intent);
+        //ctx.finish();
     }
     //----------------------------------------------------------------------------------
 
@@ -90,6 +91,7 @@ public class API_Diary {
         Utils.DB_DIARIES.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
+                User currentUser = User.getInstance();
                 if (!task.isSuccessful()) {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
@@ -97,7 +99,7 @@ public class API_Diary {
                     DataSnapshot dataSnapshot = task.getResult();
                     for(DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                         Diary theDiary = new Diary(childSnapshot.getKey(), (HashMap)(childSnapshot.getValue()));
-                        if(date.equals(theDiary.getDate())) {
+                        if(date.equals(theDiary.getDate()) && currentUser.getDiaries().contains(theDiary.getUid())) {
                             completion.onCompletion(theDiary);
                         }
                     }
@@ -111,6 +113,7 @@ public class API_Diary {
     // DB에 수정 diary 저장
     //----------------------------------------------------------------------------------
     public static void updateDiary(Diary diary) {
+        Log.d(Utils.TAG,"update start- ");
         String uid = diary.getUid();
         Map<String, Object> diaryValue = diary.toMap();
 
@@ -123,7 +126,16 @@ public class API_Diary {
     //----------------------------------------------------------------------------------
     public static void deleteDiary(Diary diary) {
         String uid = diary.getUid();
+        User currentUser = User.getInstance();
+        currentUser.deleteDiary(diary.getUid());
+
+        String userUid = Utils.mAuth.getCurrentUser().getUid();
         Utils.DB_DIARIES.child(uid).removeValue();
+        Utils.DB_USERS.child(userUid).updateChildren(currentUser.toMap());
+
+//        String dateArray[] = diary.getDate().split("/");
+//        Log.d(Utils.TAG, "delete date : " + dateArray[2]);
+//        Utils.unmarkCalendar(dateArray);
     }
     //----------------------------------------------------------------------------------
 
