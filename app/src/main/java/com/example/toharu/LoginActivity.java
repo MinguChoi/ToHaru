@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Utils.isEmpty(email_login_ETXT) || Utils.isEmpty(password_login_ETXT)) {
-                    Utils.toastError(getApplicationContext(), "fill out everything :)");
+                    Utils.toastError(getApplicationContext(), "이메일 또는 비밀번호가 입력되지 않았어요!! :(");
                     Log.d(Utils.TAG, "login button - failure missing id or pw");
                 } else {
                     // Firebase sign in
