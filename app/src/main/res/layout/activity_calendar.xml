@@ -23,6 +23,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:animateLayoutChanges="true"
         android:orientation="horizontal">
@@ -37,7 +38,7 @@
             android:gravity="center|right"
             android:onClick="@{(v)->model.startPicker(v)}"
             android:text="@string/calendar"
-            android:textSize="36sp" />
+            android:textSize="40sp" />
 
         <ImageButton
             android:id="@+id/changeView_calendar_BTN"
@@ -45,8 +46,8 @@
             android:layout_height="match_parent"
 
             android:layout_gravity="center"
-            android:layout_marginStart="70dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:background="@android:color/transparent"
