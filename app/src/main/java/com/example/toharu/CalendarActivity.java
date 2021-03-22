@@ -44,6 +44,9 @@ public class CalendarActivity extends AppCompatActivity {
     private DiaryAdapter          adapter;
     private List<Diary>           diaries;
 
+    private static final int TIME_INTERVAL = 2000;
+    private long initTime;
+
     // 날짜 관련 데이터 ------------------------------------------------------------
     public String                 mDate;
     private String                dateYEAR;
@@ -76,9 +79,17 @@ public class CalendarActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, WelcomActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        if (System.currentTimeMillis() - initTime > TIME_INTERVAL) {
+            initTime = System.currentTimeMillis();
+            Utils.toastError(getApplicationContext(), "종료를 원하시면 한번 더 뒤로가기!");
+            return;
+        }
+        else {
+            Intent intent = new Intent(this, WelcomActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            return;
+        }
     }
         //----------------------------------------------------------------------------------
     // DataBase에서 저장된 일기들 ListView로 불러오기

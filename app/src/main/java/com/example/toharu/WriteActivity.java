@@ -37,6 +37,7 @@ public class WriteActivity extends AppCompatActivity {
     private ImageButton         back_Write_BTN;
     private ImageButton         save_Write_BTN;
     private Button              finish_dialog_BTN;
+    private TextView            date_Write_TXT;
     private EditText            diaryArea_Write_ETXT;
     private Dialog              customDialog;
 
@@ -57,7 +58,7 @@ public class WriteActivity extends AppCompatActivity {
 
         getdate = getIntent().getStringExtra("mDate2");
         selected_emotion = getIntent().getStringExtra("emotion_img");
-        Log.i(TAG, "dd"+getdate);
+        //Log.i(TAG, "dd"+getdate);
         init();
     }
 
@@ -67,6 +68,7 @@ public class WriteActivity extends AppCompatActivity {
     public void init() {
         back_Write_BTN = findViewById(R.id.back_Write_BTN);
         save_Write_BTN = findViewById(R.id.save_Write_BTN);
+        date_Write_TXT = findViewById(R.id.date_Write_TXT);
         diaryArea_Write_ETXT = findViewById(R.id.diaryArea_Write_ETXT);
         emotion_Write_IMG = findViewById(R.id.emotion_Write_IMG);
         customDialog = new Dialog(this);
@@ -76,6 +78,7 @@ public class WriteActivity extends AppCompatActivity {
         //----------------------------------------------------------------------------------
         // 변수 값 초기화
         //----------------------------------------------------------------------------------
+        date_Write_TXT.setText(getdate);
         int img_id = Utils.getImageByName(selected_emotion, getApplicationContext());
         emotion_Write_IMG.setImageResource(img_id);
         //----------------------------------------------------------------------------------
