@@ -1,11 +1,20 @@
-# Project Title / 프로젝트 이름
+# About the Project
+<img align="center" width="977" alt="Haru" src="https://user-images.githubusercontent.com/32556382/118357041-fab67600-b5b2-11eb-8178-3270bc7c22f0.png">
 
-**[뱃지나 프로젝트에 관한 이미지들이 이 위치에 들어가면 좋습니다]**  
-One Paragraph of project description goes here / 프로젝트의 전반적인 내용에 대한 요약을 여기에 적습니다
+This is an Android app that allows you to write diaries with cute emojis and responds to them with a encouraging message.
 
-## Getting Started / 어떻게 시작하나요?
+We created this service with the vision that everyone stays mentally healthy by caring about their feelings in a daily life. 
 
-이 곳에서 설치에 관련된 이야기를 해주시면 좋습니다.
+## Features
+
+This app lets you: 
+
+* Select an emoji that presents most closly to your emotion 
+* Write a diary
+* Get a special message 
+* See when you wrote diaries in a calendar view
+* Check all diaries in a list view
+* Manage(modify/delete) diaries
 
 ### Prerequisites / 선행 조건
 
